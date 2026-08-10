@@ -89,6 +89,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icono_buscar.png" />
+    <None Include="Resources\icono_cerrar_sesion.png" />
+    <None Include="Resources\icono_clientes.png" />
+    <None Include="Resources\icono_inicio.png" />
+    <None Include="Resources\icono_logo.png" />
+    <None Include="Resources\icono_logo_login.png" />
+    <None Include="Resources\icono_mantenimientos.png" />
+    <None Include="Resources\icono_membresias.png" />
+    <None Include="Resources\icono_productos.png" />
+    <None Include="Resources\icono_ventas.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\CapaEntidades\CapaEntidades.csproj">
       <Project>{62e3b54e-6f51-48a8-88d5-5ab4958166b0}</Project>
       <Name>CapaEntidades</Name>

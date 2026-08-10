@@ -67,5 +67,95 @@ namespace ProyectoFinal_Programacion3.Properties
                 resourceCulture = value;
             }
         }
+
+        internal static System.Drawing.Bitmap icono_buscar
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("icono_buscar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap icono_cerrar_sesion
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("icono_cerrar_sesion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap icono_clientes
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("icono_clientes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap icono_inicio
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("icono_inicio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap icono_logo
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("icono_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap icono_logo_login
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("icono_logo_login", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap icono_mantenimientos
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("icono_mantenimientos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap icono_membresias
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("icono_membresias", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap icono_productos
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("icono_productos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap icono_ventas
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("icono_ventas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
