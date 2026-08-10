@@ -57,6 +57,7 @@
     <Compile Include="PruebaProductos.cs" />
     <Compile Include="PruebaProveedor.cs" />
     <Compile Include="PruebaRoles.cs" />
+    <Compile Include="PruebaUsuarios.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

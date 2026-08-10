@@ -16,6 +16,7 @@ namespace Pruebas
             PruebaClases.Ejecutar();
             PruebaClientes.Ejecutar();
             PruebaProductos.Ejecutar();
+            PruebaUsuarios.Ejecutar();
 
         }
     }
