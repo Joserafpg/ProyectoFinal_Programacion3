@@ -1,7 +1,7 @@
 <Solution>
-  <Project Path="CapaDatos/CapaDatos.csproj" />
-  <Project Path="CapaEntidades/CapaEntidades.csproj" />
-  <Project Path="CapaNegocio/CapaNegocio.csproj" />
-  <Project Path="ProyectoFinal_Programacion3/ProyectoFinal_Programacion3.csproj" />
-  <Project Path="Pruebas/Pruebas.csproj" />
+  <Project Path="CapaDatos/CapaDatos.csproj" Id="5f001da8-b45a-4497-9fe1-e6c92e9b5d44" />
+  <Project Path="CapaEntidades/CapaEntidades.csproj" Id="62e3b54e-6f51-48a8-88d5-5ab4958166b0" />
+  <Project Path="CapaNegocio/CapaNegocio.csproj" Id="4ce2d981-d507-43d6-821d-f0ddfe611739" />
+  <Project Path="ProyectoFinal_Programacion3/ProyectoFinal_Programacion3.csproj" Id="bcdc0f68-2796-4548-b90e-57ff8f672e8b" />
+  <Project Path="Pruebas/Pruebas.csproj" Id="9b4596ba-fe3c-4610-9c9c-c8a890de8178" />
 </Solution>
