@@ -1,3 +1,7 @@
 <Solution>
+  <Project Path="CapaDatos/CapaDatos.csproj" />
+  <Project Path="CapaEntidades/CapaEntidades.csproj" />
+  <Project Path="CapaNegocio/CapaNegocio.csproj" />
   <Project Path="ProyectoFinal_Programacion3/ProyectoFinal_Programacion3.csproj" />
+  <Project Path="Pruebas/Pruebas.csproj" />
 </Solution>
