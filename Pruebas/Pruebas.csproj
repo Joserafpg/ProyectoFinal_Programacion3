@@ -49,6 +49,7 @@
     <Compile Include="PruebaConexion.cs" />
     <Compile Include="PruebaHorarios.cs" />
     <Compile Include="PruebaLogin.cs" />
+    <Compile Include="PruebaMarcas.cs" />
     <Compile Include="PruebaMembresia.cs" />
     <Compile Include="PruebaRoles.cs" />
   </ItemGroup>
