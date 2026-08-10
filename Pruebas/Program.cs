@@ -7,6 +7,7 @@ namespace Pruebas
             PruebaConexion.Ejecutar();
             PruebaLogin.Ejecutar();
             PruebaCategorias.Ejecutar();
+            PruebaRoles.Ejecutar();
         }
     }
 }
