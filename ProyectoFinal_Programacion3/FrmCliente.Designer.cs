@@ -80,7 +80,7 @@
             this.panelFondo.Controls.Add(this.lineaAcento);
             this.panelFondo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelFondo.Location = new System.Drawing.Point(1, 1);
-            this.panelFondo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelFondo.Margin = new System.Windows.Forms.Padding(4);
             this.panelFondo.Name = "panelFondo";
             this.panelFondo.Size = new System.Drawing.Size(558, 786);
             this.panelFondo.TabIndex = 0;
@@ -125,7 +125,7 @@
             this.panelCamposDialogo.Controls.Add(this.lblNombre);
             this.panelCamposDialogo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCamposDialogo.Location = new System.Drawing.Point(0, 73);
-            this.panelCamposDialogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelCamposDialogo.Margin = new System.Windows.Forms.Padding(4);
             this.panelCamposDialogo.Name = "panelCamposDialogo";
             this.panelCamposDialogo.Padding = new System.Windows.Forms.Padding(37, 12, 37, 12);
             this.panelCamposDialogo.Size = new System.Drawing.Size(558, 509);
@@ -135,7 +135,7 @@
             // 
             this.spFoto.Dock = System.Windows.Forms.DockStyle.Top;
             this.spFoto.Location = new System.Drawing.Point(37, 847);
-            this.spFoto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spFoto.Margin = new System.Windows.Forms.Padding(4);
             this.spFoto.Name = "spFoto";
             this.spFoto.Size = new System.Drawing.Size(463, 20);
             this.spFoto.TabIndex = 0;
@@ -151,7 +151,7 @@
             this.btnCargarFoto.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.btnCargarFoto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.btnCargarFoto.Location = new System.Drawing.Point(37, 808);
-            this.btnCargarFoto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCargarFoto.Margin = new System.Windows.Forms.Padding(4);
             this.btnCargarFoto.Name = "btnCargarFoto";
             this.btnCargarFoto.Size = new System.Drawing.Size(463, 39);
             this.btnCargarFoto.TabIndex = 9;
@@ -162,7 +162,7 @@
             // 
             this.spFotoFoto.Dock = System.Windows.Forms.DockStyle.Top;
             this.spFotoFoto.Location = new System.Drawing.Point(37, 798);
-            this.spFotoFoto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spFotoFoto.Margin = new System.Windows.Forms.Padding(4);
             this.spFotoFoto.Name = "spFotoFoto";
             this.spFotoFoto.Size = new System.Drawing.Size(463, 10);
             this.spFotoFoto.TabIndex = 0;
@@ -172,7 +172,7 @@
             this.picFoto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.picFoto.Dock = System.Windows.Forms.DockStyle.Top;
             this.picFoto.Location = new System.Drawing.Point(37, 663);
-            this.picFoto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picFoto.Margin = new System.Windows.Forms.Padding(4);
             this.picFoto.Name = "picFoto";
             this.picFoto.Size = new System.Drawing.Size(463, 135);
             this.picFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -197,7 +197,7 @@
             // 
             this.spSexo.Dock = System.Windows.Forms.DockStyle.Top;
             this.spSexo.Location = new System.Drawing.Point(37, 617);
-            this.spSexo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spSexo.Margin = new System.Windows.Forms.Padding(4);
             this.spSexo.Name = "spSexo";
             this.spSexo.Size = new System.Drawing.Size(463, 20);
             this.spSexo.TabIndex = 0;
@@ -214,7 +214,7 @@
             "M",
             "F"});
             this.cboSexo.Location = new System.Drawing.Point(37, 586);
-            this.cboSexo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboSexo.Margin = new System.Windows.Forms.Padding(4);
             this.cboSexo.Name = "cboSexo";
             this.cboSexo.Size = new System.Drawing.Size(463, 31);
             this.cboSexo.TabIndex = 8;
@@ -237,7 +237,7 @@
             // 
             this.spFechaNacimiento.Dock = System.Windows.Forms.DockStyle.Top;
             this.spFechaNacimiento.Location = new System.Drawing.Point(37, 540);
-            this.spFechaNacimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spFechaNacimiento.Margin = new System.Windows.Forms.Padding(4);
             this.spFechaNacimiento.Name = "spFechaNacimiento";
             this.spFechaNacimiento.Size = new System.Drawing.Size(463, 20);
             this.spFechaNacimiento.TabIndex = 0;
@@ -248,7 +248,7 @@
             this.dtpFechaNacimiento.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaNacimiento.Location = new System.Drawing.Point(37, 510);
-            this.dtpFechaNacimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaNacimiento.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             this.dtpFechaNacimiento.ShowCheckBox = true;
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(463, 30);
@@ -272,7 +272,7 @@
             // 
             this.spDireccion.Dock = System.Windows.Forms.DockStyle.Top;
             this.spDireccion.Location = new System.Drawing.Point(37, 464);
-            this.spDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.spDireccion.Name = "spDireccion";
             this.spDireccion.Size = new System.Drawing.Size(463, 20);
             this.spDireccion.TabIndex = 0;
@@ -282,7 +282,7 @@
             this.lineDireccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.lineDireccion.Dock = System.Windows.Forms.DockStyle.Top;
             this.lineDireccion.Location = new System.Drawing.Point(37, 462);
-            this.lineDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lineDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.lineDireccion.Name = "lineDireccion";
             this.lineDireccion.Size = new System.Drawing.Size(463, 2);
             this.lineDireccion.TabIndex = 0;
@@ -295,7 +295,7 @@
             this.txtDireccion.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.txtDireccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.txtDireccion.Location = new System.Drawing.Point(37, 398);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(463, 64);
@@ -319,7 +319,7 @@
             // 
             this.spCorreo.Dock = System.Windows.Forms.DockStyle.Top;
             this.spCorreo.Location = new System.Drawing.Point(37, 352);
-            this.spCorreo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.spCorreo.Name = "spCorreo";
             this.spCorreo.Size = new System.Drawing.Size(463, 20);
             this.spCorreo.TabIndex = 0;
@@ -329,7 +329,7 @@
             this.lineCorreo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.lineCorreo.Dock = System.Windows.Forms.DockStyle.Top;
             this.lineCorreo.Location = new System.Drawing.Point(37, 350);
-            this.lineCorreo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lineCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.lineCorreo.Name = "lineCorreo";
             this.lineCorreo.Size = new System.Drawing.Size(463, 2);
             this.lineCorreo.TabIndex = 0;
@@ -342,7 +342,7 @@
             this.txtCorreo.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.txtCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.txtCorreo.Location = new System.Drawing.Point(37, 326);
-            this.txtCorreo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(463, 24);
             this.txtCorreo.TabIndex = 5;
@@ -365,7 +365,7 @@
             // 
             this.spTelefono.Dock = System.Windows.Forms.DockStyle.Top;
             this.spTelefono.Location = new System.Drawing.Point(37, 280);
-            this.spTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.spTelefono.Name = "spTelefono";
             this.spTelefono.Size = new System.Drawing.Size(463, 20);
             this.spTelefono.TabIndex = 0;
@@ -375,7 +375,7 @@
             this.lineTelefono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.lineTelefono.Dock = System.Windows.Forms.DockStyle.Top;
             this.lineTelefono.Location = new System.Drawing.Point(37, 278);
-            this.lineTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lineTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.lineTelefono.Name = "lineTelefono";
             this.lineTelefono.Size = new System.Drawing.Size(463, 2);
             this.lineTelefono.TabIndex = 0;
@@ -388,7 +388,7 @@
             this.txtTelefono.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.txtTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.txtTelefono.Location = new System.Drawing.Point(37, 254);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(463, 24);
             this.txtTelefono.TabIndex = 4;
@@ -411,7 +411,7 @@
             // 
             this.spCedula.Dock = System.Windows.Forms.DockStyle.Top;
             this.spCedula.Location = new System.Drawing.Point(37, 208);
-            this.spCedula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spCedula.Margin = new System.Windows.Forms.Padding(4);
             this.spCedula.Name = "spCedula";
             this.spCedula.Size = new System.Drawing.Size(463, 20);
             this.spCedula.TabIndex = 0;
@@ -421,7 +421,7 @@
             this.lineCedula.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.lineCedula.Dock = System.Windows.Forms.DockStyle.Top;
             this.lineCedula.Location = new System.Drawing.Point(37, 206);
-            this.lineCedula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lineCedula.Margin = new System.Windows.Forms.Padding(4);
             this.lineCedula.Name = "lineCedula";
             this.lineCedula.Size = new System.Drawing.Size(463, 2);
             this.lineCedula.TabIndex = 0;
@@ -434,7 +434,7 @@
             this.txtCedula.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.txtCedula.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.txtCedula.Location = new System.Drawing.Point(37, 182);
-            this.txtCedula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCedula.Margin = new System.Windows.Forms.Padding(4);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(463, 24);
             this.txtCedula.TabIndex = 3;
@@ -457,7 +457,7 @@
             // 
             this.spApellido.Dock = System.Windows.Forms.DockStyle.Top;
             this.spApellido.Location = new System.Drawing.Point(37, 136);
-            this.spApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spApellido.Margin = new System.Windows.Forms.Padding(4);
             this.spApellido.Name = "spApellido";
             this.spApellido.Size = new System.Drawing.Size(463, 20);
             this.spApellido.TabIndex = 0;
@@ -467,7 +467,7 @@
             this.lineApellido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.lineApellido.Dock = System.Windows.Forms.DockStyle.Top;
             this.lineApellido.Location = new System.Drawing.Point(37, 134);
-            this.lineApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lineApellido.Margin = new System.Windows.Forms.Padding(4);
             this.lineApellido.Name = "lineApellido";
             this.lineApellido.Size = new System.Drawing.Size(463, 2);
             this.lineApellido.TabIndex = 0;
@@ -480,7 +480,7 @@
             this.txtApellido.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.txtApellido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.txtApellido.Location = new System.Drawing.Point(37, 110);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(463, 24);
             this.txtApellido.TabIndex = 2;
@@ -503,7 +503,7 @@
             // 
             this.spNombre.Dock = System.Windows.Forms.DockStyle.Top;
             this.spNombre.Location = new System.Drawing.Point(37, 64);
-            this.spNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spNombre.Margin = new System.Windows.Forms.Padding(4);
             this.spNombre.Name = "spNombre";
             this.spNombre.Size = new System.Drawing.Size(463, 20);
             this.spNombre.TabIndex = 0;
@@ -513,7 +513,7 @@
             this.lineNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.lineNombre.Dock = System.Windows.Forms.DockStyle.Top;
             this.lineNombre.Location = new System.Drawing.Point(37, 62);
-            this.lineNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lineNombre.Margin = new System.Windows.Forms.Padding(4);
             this.lineNombre.Name = "lineNombre";
             this.lineNombre.Size = new System.Drawing.Size(463, 2);
             this.lineNombre.TabIndex = 0;
@@ -526,7 +526,7 @@
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.txtNombre.Location = new System.Drawing.Point(37, 38);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(463, 24);
             this.txtNombre.TabIndex = 1;
@@ -554,7 +554,7 @@
             this.panelBotones.Controls.Add(this.btnGuardar);
             this.panelBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBotones.Location = new System.Drawing.Point(0, 582);
-            this.panelBotones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBotones.Margin = new System.Windows.Forms.Padding(4);
             this.panelBotones.Name = "panelBotones";
             this.panelBotones.Padding = new System.Windows.Forms.Padding(37, 10, 37, 25);
             this.panelBotones.Size = new System.Drawing.Size(558, 204);
@@ -571,7 +571,7 @@
             this.btnDesactivar.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.btnDesactivar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
             this.btnDesactivar.Location = new System.Drawing.Point(37, 133);
-            this.btnDesactivar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDesactivar.Margin = new System.Windows.Forms.Padding(4);
             this.btnDesactivar.Name = "btnDesactivar";
             this.btnDesactivar.Size = new System.Drawing.Size(484, 47);
             this.btnDesactivar.TabIndex = 0;
@@ -582,7 +582,7 @@
             // 
             this.spBoton2.Dock = System.Windows.Forms.DockStyle.Top;
             this.spBoton2.Location = new System.Drawing.Point(37, 123);
-            this.spBoton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spBoton2.Margin = new System.Windows.Forms.Padding(4);
             this.spBoton2.Name = "spBoton2";
             this.spBoton2.Size = new System.Drawing.Size(484, 10);
             this.spBoton2.TabIndex = 0;
@@ -599,7 +599,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.btnCancelar.Location = new System.Drawing.Point(37, 74);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(484, 49);
             this.btnCancelar.TabIndex = 11;
@@ -610,7 +610,7 @@
             // 
             this.spBoton.Dock = System.Windows.Forms.DockStyle.Top;
             this.spBoton.Location = new System.Drawing.Point(37, 62);
-            this.spBoton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spBoton.Margin = new System.Windows.Forms.Padding(4);
             this.spBoton.Name = "spBoton";
             this.spBoton.Size = new System.Drawing.Size(484, 12);
             this.spBoton.TabIndex = 0;
@@ -626,7 +626,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(63)))), ((int)(((byte)(22)))));
             this.btnGuardar.Location = new System.Drawing.Point(37, 10);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(484, 52);
             this.btnGuardar.TabIndex = 10;
@@ -639,7 +639,7 @@
             this.panelTituloDialogo.Controls.Add(this.lblCerrarDialogo);
             this.panelTituloDialogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTituloDialogo.Location = new System.Drawing.Point(0, 4);
-            this.panelTituloDialogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelTituloDialogo.Margin = new System.Windows.Forms.Padding(4);
             this.panelTituloDialogo.Name = "panelTituloDialogo";
             this.panelTituloDialogo.Padding = new System.Windows.Forms.Padding(37, 22, 16, 0);
             this.panelTituloDialogo.Size = new System.Drawing.Size(558, 69);
@@ -676,7 +676,7 @@
             this.lineaAcento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(211)))), ((int)(((byte)(77)))));
             this.lineaAcento.Dock = System.Windows.Forms.DockStyle.Top;
             this.lineaAcento.Location = new System.Drawing.Point(0, 0);
-            this.lineaAcento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lineaAcento.Margin = new System.Windows.Forms.Padding(4);
             this.lineaAcento.Name = "lineaAcento";
             this.lineaAcento.Size = new System.Drawing.Size(558, 4);
             this.lineaAcento.TabIndex = 0;
@@ -691,7 +691,7 @@
             this.ClientSize = new System.Drawing.Size(560, 788);
             this.Controls.Add(this.panelFondo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCliente";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.ShowInTaskbar = false;
