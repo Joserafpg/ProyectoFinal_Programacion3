@@ -45,6 +45,9 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PruebaCategorias.cs" />
+    <Compile Include="PruebaConexion.cs" />
+    <Compile Include="PruebaLogin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
