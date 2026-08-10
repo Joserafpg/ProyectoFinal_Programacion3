@@ -46,6 +46,7 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="Entrenador.cs" />
     <Compile Include="Horario.cs" />
+    <Compile Include="Marca.cs" />
     <Compile Include="Membresia.cs" />
     <Compile Include="Permisos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
