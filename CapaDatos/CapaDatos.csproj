@@ -43,7 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoriaDatos.cs" />
+    <Compile Include="ClaseDatos.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="EntrenadorDatos.cs" />
     <Compile Include="HorarioDatos.cs" />
     <Compile Include="MarcaDatos.cs" />
     <Compile Include="MembresiaDatos.cs" />

@@ -46,7 +46,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PruebaCategorias.cs" />
+    <Compile Include="PruebaClases.cs" />
     <Compile Include="PruebaConexion.cs" />
+    <Compile Include="PruebaEntrenadores.cs" />
     <Compile Include="PruebaHorarios.cs" />
     <Compile Include="PruebaLogin.cs" />
     <Compile Include="PruebaMarcas.cs" />

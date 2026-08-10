@@ -12,6 +12,8 @@ namespace Pruebas
             PruebaMembresia.Ejecutar();
             PruebaMarcas.Ejecutar();
             PruebaProveedor.Ejecutar();
+            PruebaEntrenadores.Ejecutar();
+            PruebaClases.Ejecutar();
 
         }
     }
