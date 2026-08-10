@@ -116,6 +116,16 @@
 
 ## Módulo 4: Entrenadores, Clases y Asistencia
 
+### 10-A. horarios  (catálogo de tandas — tabla agregada por el equipo)
+| Campo | Tipo | Nulo | Clave / Restricción | Descripción |
+|---|---|---|---|---|
+| id_horario | INT IDENTITY | NO | PK | Identificador |
+| nombre | NVARCHAR(50) | NO | UNIQUE | Nombre de la tanda (Matutino, Vespertino…) |
+| dias | NVARCHAR(50) | NO | | Días que cubre (ej: "Lunes a Viernes") |
+| hora_inicio | TIME | NO | | Hora de entrada |
+| hora_fin | TIME | NO | | Hora de salida |
+| estado | BIT | NO | DEFAULT 1 | 1=Activo, 0=Inactivo |
+
 ### 10. entrenadores
 | Campo | Tipo | Nulo | Clave / Restricción | Descripción |
 |---|---|---|---|---|
@@ -126,7 +136,7 @@
 | telefono | NVARCHAR(15) | SÍ | | Teléfono |
 | correo | NVARCHAR(100) | SÍ | | Correo |
 | especialidad | NVARCHAR(100) | SÍ | | Ej: Pesas, CrossFit, Yoga |
-| horario | NVARCHAR(100) | SÍ | | Horario de trabajo (texto: "L-V 8am-4pm") |
+| id_horario | INT | NO | FK → horarios | Tanda de trabajo del entrenador |
 | estado | BIT | NO | DEFAULT 1 | 1=Activo, 0=Inactivo |
 
 ### 11. clases
