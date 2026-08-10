@@ -18,7 +18,7 @@ namespace CapaEntidades
         public bool Estado { get; set; }
 
 
-        public int IdInstructor { get; set; }
-        public string NombreInstructor { get; set; }
+        public int IdEntrenador { get; set; }
+        public string NombreEntrenador { get; set; }
     }
 }

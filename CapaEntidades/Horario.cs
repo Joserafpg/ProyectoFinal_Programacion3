@@ -11,8 +11,8 @@ namespace CapaEntidades
         public int IdHorario { get; set; }
         public string Nombre { get; set; }
         public string Dias { get; set; }
-        public TimeSpan HorarioInicio { get; set; }
-        public TimeSpan HorarioFin { get; set; }
+        public TimeSpan HoraInicio { get; set; }
+        public TimeSpan HoraFin { get; set; }
         public bool Estado { get; set; }
     }
 }

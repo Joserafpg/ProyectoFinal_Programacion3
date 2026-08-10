@@ -8,7 +8,7 @@ namespace CapaEntidades
 {
     public class Membresia
     {
-        public int idMembresia { get; set; }
+        public int IdMembresia { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public int DuracionDias { get; set; }

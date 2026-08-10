@@ -264,6 +264,7 @@
 | telefono | NVARCHAR(15) | SÍ | | Teléfono |
 | correo | NVARCHAR(100) | SÍ | | Correo |
 | direccion | NVARCHAR(200) | SÍ | | Dirección |
+| fecha_creacion | DATETIME | NO | DEFAULT GETDATE() | Cuándo se registró el proveedor |
 | estado | BIT | NO | DEFAULT 1 | 1=Activo, 0=Inactivo |
 
 ### 22. compras
