@@ -74,6 +74,7 @@
 | descripcion | NVARCHAR(200) | SÍ | | Qué incluye |
 | duracion_dias | INT | NO | CHECK (duracion_dias > 0) | Días de vigencia |
 | precio | DECIMAL(10,2) | NO | CHECK (precio >= 0) | Precio del plan |
+| fecha_creacion | DATETIME | NO | DEFAULT GETDATE() | Cuándo se creó el plan |
 | estado | BIT | NO | DEFAULT 1 | 1=Activo, 0=Inactivo |
 
 ### 7. cliente_membresia  (N:M con historia — la renovación INSERTA una fila nueva)
