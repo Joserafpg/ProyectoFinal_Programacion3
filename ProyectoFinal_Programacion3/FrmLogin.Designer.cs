@@ -1,4 +1,4 @@
-namespace ProyectoFinal_Programacion3
+﻿namespace ProyectoFinal_Programacion3
 {
     partial class FrmLogin
     {
@@ -20,7 +20,7 @@ namespace ProyectoFinal_Programacion3
             this.panelIzquierdo = new System.Windows.Forms.Panel();
             this.lblSlogan = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
-            this.lblLogo = new System.Windows.Forms.Label();
+            this.picLogo = new System.Windows.Forms.PictureBox();
             this.panelDerecho = new System.Windows.Forms.Panel();
             this.lblPie = new System.Windows.Forms.Label();
             this.btnEntrar = new System.Windows.Forms.Button();
@@ -37,6 +37,7 @@ namespace ProyectoFinal_Programacion3
             this.btnCerrar = new System.Windows.Forms.Label();
             this.panelIzquierdo.SuspendLayout();
             this.panelDerecho.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelIzquierdo
@@ -44,7 +45,7 @@ namespace ProyectoFinal_Programacion3
             this.panelIzquierdo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(230)))), ((int)(((byte)(138)))));
             this.panelIzquierdo.Controls.Add(this.lblSlogan);
             this.panelIzquierdo.Controls.Add(this.lblMarca);
-            this.panelIzquierdo.Controls.Add(this.lblLogo);
+            this.panelIzquierdo.Controls.Add(this.picLogo);
             this.panelIzquierdo.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelIzquierdo.Location = new System.Drawing.Point(0, 0);
             this.panelIzquierdo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -79,18 +80,17 @@ namespace ProyectoFinal_Programacion3
             this.lblMarca.TabIndex = 1;
             this.lblMarca.Text = "SmartFit Software";
             // 
-            // lblLogo
+            // picLogo
             // 
-            this.lblLogo.AutoSize = true;
-            this.lblLogo.BackColor = System.Drawing.Color.Transparent;
-            this.lblLogo.Font = new System.Drawing.Font("Segoe UI Emoji", 42F);
-            this.lblLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(63)))), ((int)(((byte)(22)))));
-            this.lblLogo.Location = new System.Drawing.Point(200, 175);
-            this.lblLogo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblLogo.Name = "lblLogo";
-            this.lblLogo.Size = new System.Drawing.Size(136, 94);
-            this.lblLogo.TabIndex = 0;
-            this.lblLogo.Text = "🏋️";
+            this.picLogo.Image = global::ProyectoFinal_Programacion3.Properties.Resources.icono_logo_login;
+            this.picLogo.BackColor = System.Drawing.Color.Transparent;
+            this.picLogo.Location = new System.Drawing.Point(222, 172);
+            this.picLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(90, 90);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLogo.TabIndex = 0;
+            this.picLogo.TabStop = false;
             // 
             // panelDerecho
             // 
@@ -289,6 +289,7 @@ namespace ProyectoFinal_Programacion3
             this.panelIzquierdo.PerformLayout();
             this.panelDerecho.ResumeLayout(false);
             this.panelDerecho.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -296,7 +297,7 @@ namespace ProyectoFinal_Programacion3
         #endregion
 
         private System.Windows.Forms.Panel panelIzquierdo;
-        private System.Windows.Forms.Label lblLogo;
+        private System.Windows.Forms.PictureBox picLogo;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.Label lblSlogan;
         private System.Windows.Forms.Panel panelDerecho;
