@@ -1,0 +1,391 @@
+﻿namespace ProyectoFinal_Programacion3
+{
+    partial class FrmHorario
+    {
+        private System.ComponentModel.IContainer components = null;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        private void InitializeComponent()
+        {
+            this.panelFondo = new System.Windows.Forms.Panel();
+            this.panelCamposDialogo = new System.Windows.Forms.Panel();
+            this.panelTituloDialogo = new System.Windows.Forms.Panel();
+            this.lblTituloDialogo = new System.Windows.Forms.Label();
+            this.lblCerrarDialogo = new System.Windows.Forms.Label();
+            this.lineaAcento = new System.Windows.Forms.Panel();
+            this.panelBotones = new System.Windows.Forms.Panel();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.spBoton = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.spBoton2 = new System.Windows.Forms.Panel();
+            this.btnDesactivar = new System.Windows.Forms.Button();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.lineNombre = new System.Windows.Forms.Panel();
+            this.spNombre = new System.Windows.Forms.Panel();
+            this.lblDias = new System.Windows.Forms.Label();
+            this.txtDias = new System.Windows.Forms.TextBox();
+            this.lineDias = new System.Windows.Forms.Panel();
+            this.spDias = new System.Windows.Forms.Panel();
+            this.lblHoraInicio = new System.Windows.Forms.Label();
+            this.dtpHoraInicio = new System.Windows.Forms.DateTimePicker();
+            this.spHoraInicio = new System.Windows.Forms.Panel();
+            this.lblHoraFin = new System.Windows.Forms.Label();
+            this.dtpHoraFin = new System.Windows.Forms.DateTimePicker();
+            this.spHoraFin = new System.Windows.Forms.Panel();
+            this.panelFondo.SuspendLayout();
+            this.panelCamposDialogo.SuspendLayout();
+            this.panelTituloDialogo.SuspendLayout();
+            this.panelBotones.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // panelFondo
+            // 
+            this.panelFondo.BackColor = System.Drawing.Color.White;
+            this.panelFondo.Controls.Add(this.panelCamposDialogo);
+            this.panelFondo.Controls.Add(this.panelBotones);
+            this.panelFondo.Controls.Add(this.panelTituloDialogo);
+            this.panelFondo.Controls.Add(this.lineaAcento);
+            this.panelFondo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFondo.Name = "panelFondo";
+            this.panelFondo.Size = new System.Drawing.Size(418, 461);
+            this.panelFondo.TabIndex = 0;
+            // 
+            // lineaAcento
+            // 
+            this.lineaAcento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(211)))), ((int)(((byte)(77)))));
+            this.lineaAcento.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lineaAcento.Name = "lineaAcento";
+            this.lineaAcento.Size = new System.Drawing.Size(418, 3);
+            this.lineaAcento.TabIndex = 0;
+            // 
+            // panelTituloDialogo
+            // 
+            this.panelTituloDialogo.Controls.Add(this.lblTituloDialogo);
+            this.panelTituloDialogo.Controls.Add(this.lblCerrarDialogo);
+            this.panelTituloDialogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTituloDialogo.Name = "panelTituloDialogo";
+            this.panelTituloDialogo.Padding = new System.Windows.Forms.Padding(28, 18, 12, 0);
+            this.panelTituloDialogo.Size = new System.Drawing.Size(418, 56);
+            this.panelTituloDialogo.TabIndex = 0;
+            // 
+            // lblTituloDialogo
+            // 
+            this.lblTituloDialogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTituloDialogo.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Bold);
+            this.lblTituloDialogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(65)))));
+            this.lblTituloDialogo.Name = "lblTituloDialogo";
+            this.lblTituloDialogo.Size = new System.Drawing.Size(342, 38);
+            this.lblTituloDialogo.TabIndex = 0;
+            this.lblTituloDialogo.Text = "Horario";
+            // 
+            // lblCerrarDialogo
+            // 
+            this.lblCerrarDialogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblCerrarDialogo.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblCerrarDialogo.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.lblCerrarDialogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(124)))), ((int)(((byte)(140)))));
+            this.lblCerrarDialogo.Name = "lblCerrarDialogo";
+            this.lblCerrarDialogo.Size = new System.Drawing.Size(36, 38);
+            this.lblCerrarDialogo.TabIndex = 0;
+            this.lblCerrarDialogo.Text = "✕";
+            this.lblCerrarDialogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panelCamposDialogo
+            // 
+            this.panelCamposDialogo.AutoScroll = true;
+            this.panelCamposDialogo.Controls.Add(this.spHoraFin);
+            this.panelCamposDialogo.Controls.Add(this.dtpHoraFin);
+            this.panelCamposDialogo.Controls.Add(this.lblHoraFin);
+            this.panelCamposDialogo.Controls.Add(this.spHoraInicio);
+            this.panelCamposDialogo.Controls.Add(this.dtpHoraInicio);
+            this.panelCamposDialogo.Controls.Add(this.lblHoraInicio);
+            this.panelCamposDialogo.Controls.Add(this.spDias);
+            this.panelCamposDialogo.Controls.Add(this.lineDias);
+            this.panelCamposDialogo.Controls.Add(this.txtDias);
+            this.panelCamposDialogo.Controls.Add(this.lblDias);
+            this.panelCamposDialogo.Controls.Add(this.spNombre);
+            this.panelCamposDialogo.Controls.Add(this.lineNombre);
+            this.panelCamposDialogo.Controls.Add(this.txtNombre);
+            this.panelCamposDialogo.Controls.Add(this.lblNombre);
+            this.panelCamposDialogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCamposDialogo.Name = "panelCamposDialogo";
+            this.panelCamposDialogo.Padding = new System.Windows.Forms.Padding(28, 10, 28, 10);
+            this.panelCamposDialogo.Size = new System.Drawing.Size(418, 282);
+            this.panelCamposDialogo.TabIndex = 1;
+            // 
+            // panelBotones
+            // 
+            this.panelBotones.Controls.Add(this.btnDesactivar);
+            this.panelBotones.Controls.Add(this.spBoton2);
+            this.panelBotones.Controls.Add(this.btnCancelar);
+            this.panelBotones.Controls.Add(this.spBoton);
+            this.panelBotones.Controls.Add(this.btnGuardar);
+            this.panelBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelBotones.Name = "panelBotones";
+            this.panelBotones.Padding = new System.Windows.Forms.Padding(28, 8, 28, 20);
+            this.panelBotones.Size = new System.Drawing.Size(418, 166);
+            this.panelBotones.TabIndex = 2;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(211)))), ((int)(((byte)(77)))));
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(191)))), ((int)(((byte)(36)))));
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
+            this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(63)))), ((int)(((byte)(22)))));
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(362, 42);
+            this.btnGuardar.TabIndex = 5;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            // 
+            // spBoton
+            // 
+            this.spBoton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spBoton.Name = "spBoton";
+            this.spBoton.Size = new System.Drawing.Size(362, 10);
+            this.spBoton.TabIndex = 0;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(362, 40);
+            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            //
+            // spBoton2
+            //
+            this.spBoton2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spBoton2.Name = "spBoton2";
+            this.spBoton2.Size = new System.Drawing.Size(362, 8);
+            this.spBoton2.TabIndex = 0;
+            //
+            // btnDesactivar
+            //
+            this.btnDesactivar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
+            this.btnDesactivar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDesactivar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDesactivar.FlatAppearance.BorderSize = 0;
+            this.btnDesactivar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.btnDesactivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDesactivar.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.btnDesactivar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnDesactivar.Name = "btnDesactivar";
+            this.btnDesactivar.Size = new System.Drawing.Size(362, 38);
+            this.btnDesactivar.TabIndex = 0;
+            this.btnDesactivar.Text = "Desactivar";
+            this.btnDesactivar.UseVisualStyleBackColor = false;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.lblNombre.Size = new System.Drawing.Size(60, 21);
+            this.lblNombre.TabIndex = 0;
+            this.lblNombre.Text = "Nombre";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.BackColor = System.Drawing.Color.White;
+            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombre.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(362, 24);
+            this.txtNombre.TabIndex = 1;
+            // 
+            // lineNombre
+            // 
+            this.lineNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.lineNombre.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lineNombre.Name = "lineNombre";
+            this.lineNombre.Size = new System.Drawing.Size(362, 2);
+            this.lineNombre.TabIndex = 0;
+            // 
+            // spNombre
+            // 
+            this.spNombre.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spNombre.Name = "spNombre";
+            this.spNombre.Size = new System.Drawing.Size(362, 16);
+            this.spNombre.TabIndex = 0;
+            // 
+            // lblDias
+            // 
+            this.lblDias.AutoSize = true;
+            this.lblDias.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblDias.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblDias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
+            this.lblDias.Name = "lblDias";
+            this.lblDias.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.lblDias.Size = new System.Drawing.Size(60, 21);
+            this.lblDias.TabIndex = 0;
+            this.lblDias.Text = "Días (ej. Lunes a Viernes)";
+            // 
+            // txtDias
+            // 
+            this.txtDias.BackColor = System.Drawing.Color.White;
+            this.txtDias.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDias.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtDias.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.txtDias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
+            this.txtDias.Name = "txtDias";
+            this.txtDias.Size = new System.Drawing.Size(362, 24);
+            this.txtDias.TabIndex = 2;
+            // 
+            // lineDias
+            // 
+            this.lineDias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.lineDias.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lineDias.Name = "lineDias";
+            this.lineDias.Size = new System.Drawing.Size(362, 2);
+            this.lineDias.TabIndex = 0;
+            // 
+            // spDias
+            // 
+            this.spDias.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spDias.Name = "spDias";
+            this.spDias.Size = new System.Drawing.Size(362, 16);
+            this.spDias.TabIndex = 0;
+            // 
+            // lblHoraInicio
+            // 
+            this.lblHoraInicio.AutoSize = true;
+            this.lblHoraInicio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblHoraInicio.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblHoraInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
+            this.lblHoraInicio.Name = "lblHoraInicio";
+            this.lblHoraInicio.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.lblHoraInicio.Size = new System.Drawing.Size(60, 21);
+            this.lblHoraInicio.TabIndex = 0;
+            this.lblHoraInicio.Text = "Hora de inicio";
+            // 
+            // dtpHoraInicio
+            // 
+            this.dtpHoraInicio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dtpHoraInicio.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dtpHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraInicio.ShowUpDown = true;
+            this.dtpHoraInicio.Name = "dtpHoraInicio";
+            this.dtpHoraInicio.Size = new System.Drawing.Size(362, 25);
+            this.dtpHoraInicio.TabIndex = 3;
+            // 
+            // spHoraInicio
+            // 
+            this.spHoraInicio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spHoraInicio.Name = "spHoraInicio";
+            this.spHoraInicio.Size = new System.Drawing.Size(362, 16);
+            this.spHoraInicio.TabIndex = 0;
+            // 
+            // lblHoraFin
+            // 
+            this.lblHoraFin.AutoSize = true;
+            this.lblHoraFin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblHoraFin.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblHoraFin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
+            this.lblHoraFin.Name = "lblHoraFin";
+            this.lblHoraFin.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.lblHoraFin.Size = new System.Drawing.Size(60, 21);
+            this.lblHoraFin.TabIndex = 0;
+            this.lblHoraFin.Text = "Hora de fin";
+            // 
+            // dtpHoraFin
+            // 
+            this.dtpHoraFin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dtpHoraFin.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dtpHoraFin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraFin.ShowUpDown = true;
+            this.dtpHoraFin.Name = "dtpHoraFin";
+            this.dtpHoraFin.Size = new System.Drawing.Size(362, 25);
+            this.dtpHoraFin.TabIndex = 4;
+            // 
+            // spHoraFin
+            // 
+            this.spHoraFin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spHoraFin.Name = "spHoraFin";
+            this.spHoraFin.Size = new System.Drawing.Size(362, 16);
+            this.spHoraFin.TabIndex = 0;
+            // 
+            // FrmHorario
+            // 
+            this.AcceptButton = this.btnGuardar;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(237)))), ((int)(((byte)(243)))));
+            this.CancelButton = this.btnCancelar;
+            this.ClientSize = new System.Drawing.Size(420, 509);
+            this.Controls.Add(this.panelFondo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "FrmHorario";
+            this.Padding = new System.Windows.Forms.Padding(1);
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Horario";
+            this.panelFondo.ResumeLayout(false);
+            this.panelCamposDialogo.ResumeLayout(false);
+            this.panelCamposDialogo.PerformLayout();
+            this.panelTituloDialogo.ResumeLayout(false);
+            this.panelBotones.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel panelFondo;
+        private System.Windows.Forms.Panel lineaAcento;
+        private System.Windows.Forms.Panel panelTituloDialogo;
+        private System.Windows.Forms.Label lblTituloDialogo;
+        private System.Windows.Forms.Label lblCerrarDialogo;
+        private System.Windows.Forms.Panel panelCamposDialogo;
+        private System.Windows.Forms.Panel panelBotones;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Panel spBoton;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Panel spBoton2;
+        private System.Windows.Forms.Button btnDesactivar;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Panel lineNombre;
+        private System.Windows.Forms.Panel spNombre;
+        private System.Windows.Forms.Label lblDias;
+        private System.Windows.Forms.TextBox txtDias;
+        private System.Windows.Forms.Panel lineDias;
+        private System.Windows.Forms.Panel spDias;
+        private System.Windows.Forms.Label lblHoraInicio;
+        private System.Windows.Forms.DateTimePicker dtpHoraInicio;
+        private System.Windows.Forms.Panel spHoraInicio;
+        private System.Windows.Forms.Label lblHoraFin;
+        private System.Windows.Forms.DateTimePicker dtpHoraFin;
+        private System.Windows.Forms.Panel spHoraFin;
+    }
+}
+

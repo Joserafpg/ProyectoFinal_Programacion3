@@ -46,11 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategoria.Designer.cs">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmCategorias.Designer.cs">
       <DependentUpon>FrmCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmClase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClase.Designer.cs">
+      <DependentUpon>FrmClase.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmClases.cs">
       <SubType>Form</SubType>
@@ -58,17 +70,35 @@
     <Compile Include="FrmClases.Designer.cs">
       <DependentUpon>FrmClases.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCliente.Designer.cs">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmClientes.Designer.cs">
       <DependentUpon>FrmClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEntrenador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEntrenador.Designer.cs">
+      <DependentUpon>FrmEntrenador.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEntrenadores.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmEntrenadores.Designer.cs">
       <DependentUpon>FrmEntrenadores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHorario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHorario.Designer.cs">
+      <DependentUpon>FrmHorario.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmHorarios.cs">
       <SubType>Form</SubType>
@@ -82,11 +112,23 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMarca.Designer.cs">
+      <DependentUpon>FrmMarca.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMarcas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMarcas.Designer.cs">
       <DependentUpon>FrmMarcas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMembresia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMembresia.Designer.cs">
+      <DependentUpon>FrmMembresia.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMembresias.cs">
       <SubType>Form</SubType>
@@ -100,17 +142,35 @@
     <Compile Include="FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProducto.Designer.cs">
+      <DependentUpon>FrmProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmProductos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmProductos.Designer.cs">
       <DependentUpon>FrmProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProveedor.Designer.cs">
+      <DependentUpon>FrmProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmProveedores.Designer.cs">
       <DependentUpon>FrmProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuario.Designer.cs">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUsuarios.cs">
       <SubType>Form</SubType>
@@ -120,17 +180,32 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCategoria.resx">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCategorias.resx">
       <DependentUpon>FrmCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmClase.resx">
+      <DependentUpon>FrmClase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmClases.resx">
       <DependentUpon>FrmClases.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCliente.resx">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmEntrenador.resx">
+      <DependentUpon>FrmEntrenador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEntrenadores.resx">
       <DependentUpon>FrmEntrenadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHorario.resx">
+      <DependentUpon>FrmHorario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHorarios.resx">
       <DependentUpon>FrmHorarios.cs</DependentUpon>
@@ -138,8 +213,14 @@
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMarca.resx">
+      <DependentUpon>FrmMarca.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMarcas.resx">
       <DependentUpon>FrmMarcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMembresia.resx">
+      <DependentUpon>FrmMembresia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMembresias.resx">
       <DependentUpon>FrmMembresias.cs</DependentUpon>
@@ -147,11 +228,20 @@
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmProducto.resx">
+      <DependentUpon>FrmProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmProductos.resx">
       <DependentUpon>FrmProductos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmProveedor.resx">
+      <DependentUpon>FrmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedores.resx">
       <DependentUpon>FrmProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuario.resx">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
