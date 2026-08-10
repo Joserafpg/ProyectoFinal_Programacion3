@@ -9,6 +9,7 @@ namespace Pruebas
             PruebaCategorias.Ejecutar();
             PruebaRoles.Ejecutar();
             PruebaHorarios.Ejecutar();
+            PruebaMembresia.Ejecutar();
         }
     }
 }
