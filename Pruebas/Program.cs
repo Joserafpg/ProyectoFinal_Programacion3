@@ -14,6 +14,8 @@ namespace Pruebas
             PruebaProveedor.Ejecutar();
             PruebaEntrenadores.Ejecutar();
             PruebaClases.Ejecutar();
+            PruebaClientes.Ejecutar();
+            PruebaProductos.Ejecutar();
 
         }
     }
