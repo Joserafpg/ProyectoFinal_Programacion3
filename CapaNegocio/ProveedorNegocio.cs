@@ -30,6 +30,8 @@ namespace CapaNegocio
             }
             catch (SqlException ex)
             {
+                if (ex.Number == 2627 || ex.Number == 2601)
+                    return "Ya existe un proveedor con ese RNC.";
                 return "Error al guardar: " + ex.Message;
             }
         }
@@ -46,6 +48,8 @@ namespace CapaNegocio
             }
             catch (SqlException ex)
             {
+                if (ex.Number == 2627 || ex.Number == 2601)
+                    return "Ya existe un proveedor con ese RNC.";
                 return "Error al guardar: " + ex.Message;
             }
         }

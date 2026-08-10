@@ -214,6 +214,9 @@ create table proveedores(
 	estado bit NOT NULL DEFAULT 1
 )
 
+-- el rnc no se puede repetir, pero si se permite mas de un proveedor sin rnc
+create unique index UQ_proveedores_rnc on proveedores(rnc) where rnc is not null
+
 -- ventas (pos)
 
 create table ventas(
