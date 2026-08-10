@@ -36,8 +36,8 @@
             this.btnMinimizar = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Label();
             this.panelIzquierdo.SuspendLayout();
-            this.panelDerecho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            this.panelDerecho.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelIzquierdo
@@ -48,7 +48,7 @@
             this.panelIzquierdo.Controls.Add(this.picLogo);
             this.panelIzquierdo.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelIzquierdo.Location = new System.Drawing.Point(0, 0);
-            this.panelIzquierdo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelIzquierdo.Margin = new System.Windows.Forms.Padding(4);
             this.panelIzquierdo.Name = "panelIzquierdo";
             this.panelIzquierdo.Size = new System.Drawing.Size(533, 689);
             this.panelIzquierdo.TabIndex = 0;
@@ -76,16 +76,16 @@
             this.lblMarca.Location = new System.Drawing.Point(114, 281);
             this.lblMarca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(309, 46);
+            this.lblMarca.Size = new System.Drawing.Size(303, 45);
             this.lblMarca.TabIndex = 1;
             this.lblMarca.Text = "SmartFit Software";
             // 
             // picLogo
             // 
-            this.picLogo.Image = global::ProyectoFinal_Programacion3.Properties.Resources.icono_logo_login;
             this.picLogo.BackColor = System.Drawing.Color.Transparent;
+            this.picLogo.Image = global::ProyectoFinal_Programacion3.Properties.Resources.icono_logo_login;
             this.picLogo.Location = new System.Drawing.Point(222, 172);
-            this.picLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picLogo.Margin = new System.Windows.Forms.Padding(4);
             this.picLogo.Name = "picLogo";
             this.picLogo.Size = new System.Drawing.Size(90, 90);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -110,7 +110,7 @@
             this.panelDerecho.Controls.Add(this.btnCerrar);
             this.panelDerecho.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDerecho.Location = new System.Drawing.Point(533, 0);
-            this.panelDerecho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelDerecho.Margin = new System.Windows.Forms.Padding(4);
             this.panelDerecho.Name = "panelDerecho";
             this.panelDerecho.Size = new System.Drawing.Size(720, 689);
             this.panelDerecho.TabIndex = 1;
@@ -137,7 +137,7 @@
             this.btnEntrar.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
             this.btnEntrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(63)))), ((int)(((byte)(22)))));
             this.btnEntrar.Location = new System.Drawing.Point(93, 495);
-            this.btnEntrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEntrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(533, 57);
             this.btnEntrar.TabIndex = 3;
@@ -159,7 +159,7 @@
             // 
             this.lineClave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.lineClave.Location = new System.Drawing.Point(93, 421);
-            this.lineClave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lineClave.Margin = new System.Windows.Forms.Padding(4);
             this.lineClave.Name = "lineClave";
             this.lineClave.Size = new System.Drawing.Size(533, 2);
             this.lineClave.TabIndex = 10;
@@ -170,7 +170,7 @@
             this.txtClave.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtClave.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txtClave.Location = new System.Drawing.Point(93, 389);
-            this.txtClave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtClave.Margin = new System.Windows.Forms.Padding(4);
             this.txtClave.Name = "txtClave";
             this.txtClave.Size = new System.Drawing.Size(533, 25);
             this.txtClave.TabIndex = 2;
@@ -192,7 +192,7 @@
             // 
             this.lineUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.lineUsuario.Location = new System.Drawing.Point(93, 325);
-            this.lineUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lineUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.lineUsuario.Name = "lineUsuario";
             this.lineUsuario.Size = new System.Drawing.Size(533, 2);
             this.lineUsuario.TabIndex = 8;
@@ -203,7 +203,7 @@
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txtUsuario.Location = new System.Drawing.Point(93, 293);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(533, 25);
             this.txtUsuario.TabIndex = 1;
@@ -256,6 +256,7 @@
             this.btnMinimizar.Size = new System.Drawing.Size(38, 32);
             this.btnMinimizar.TabIndex = 4;
             this.btnMinimizar.Text = "—";
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
             // btnCerrar
             // 
@@ -281,15 +282,15 @@
             this.Controls.Add(this.panelDerecho);
             this.Controls.Add(this.panelIzquierdo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SmartFit Software - Iniciar sesión";
             this.panelIzquierdo.ResumeLayout(false);
             this.panelIzquierdo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.panelDerecho.ResumeLayout(false);
             this.panelDerecho.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
