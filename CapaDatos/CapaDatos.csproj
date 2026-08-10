@@ -48,6 +48,7 @@
     <Compile Include="MarcaDatos.cs" />
     <Compile Include="MembresiaDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProveedorDatos.cs" />
     <Compile Include="RolDatos.cs" />
     <Compile Include="UsuarioDatos.cs" />
   </ItemGroup>

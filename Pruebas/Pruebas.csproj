@@ -51,6 +51,7 @@
     <Compile Include="PruebaLogin.cs" />
     <Compile Include="PruebaMarcas.cs" />
     <Compile Include="PruebaMembresia.cs" />
+    <Compile Include="PruebaProveedor.cs" />
     <Compile Include="PruebaRoles.cs" />
   </ItemGroup>
   <ItemGroup>
