@@ -74,6 +74,7 @@
             // panelBusqueda
             // 
             this.panelBusqueda.BackColor = System.Drawing.Color.White;
+            this.panelBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelBusqueda.Controls.Add(this.txtBuscar);
             this.panelBusqueda.Controls.Add(this.lblLupa);
             this.panelBusqueda.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -131,6 +132,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(1145, 0);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             this.btnNuevo.Size = new System.Drawing.Size(173, 54);
             this.btnNuevo.TabIndex = 2;
             this.btnNuevo.Text = "+  Nuevo";
@@ -140,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(1387, 807);
             this.Controls.Add(this.dgvDatos);
             this.Controls.Add(this.spGrid);

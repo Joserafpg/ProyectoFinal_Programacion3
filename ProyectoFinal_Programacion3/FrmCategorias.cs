@@ -23,5 +23,14 @@ namespace ProyectoFinal_Programacion3
             dgvDatos.ClearSelection();
             dgvDatos.CurrentCell = null;
         }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            FrmCategoria dialogo = new FrmCategoria();
+            if (dialogo.ShowDialog(this) == DialogResult.OK)
+            {
+                dgvDatos.DataSource = categoriaNegocio.Listar();
+            }
+        }
     }
 }

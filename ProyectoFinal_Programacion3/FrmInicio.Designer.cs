@@ -90,7 +90,6 @@
             //
             this.cboVer.BackColor = System.Drawing.Color.White;
             this.cboVer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboVer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboVer.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboVer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.cboVer.Items.AddRange(new object[] {
@@ -107,7 +106,6 @@
             //
             this.cboEstado.BackColor = System.Drawing.Color.White;
             this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboEstado.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.cboEstado.Items.AddRange(new object[] {
@@ -123,6 +121,7 @@
             //
             this.panelBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.panelBusqueda.BackColor = System.Drawing.Color.White;
+            this.panelBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelBusqueda.Controls.Add(this.txtBuscar);
             this.panelBusqueda.Controls.Add(this.lblLupa);
             this.panelBusqueda.Location = new System.Drawing.Point(372, 0);
@@ -175,6 +174,7 @@
             // cardClientes
             //
             this.cardClientes.BackColor = System.Drawing.Color.White;
+            this.cardClientes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cardClientes.Controls.Add(this.lblCantClientes);
             this.cardClientes.Controls.Add(this.lblCardClientes);
             this.cardClientes.Dock = System.Windows.Forms.DockStyle.Left;
@@ -213,6 +213,7 @@
             // cardMembresias
             //
             this.cardMembresias.BackColor = System.Drawing.Color.White;
+            this.cardMembresias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cardMembresias.Controls.Add(this.lblCantMembresias);
             this.cardMembresias.Controls.Add(this.lblCardMembresias);
             this.cardMembresias.Dock = System.Windows.Forms.DockStyle.Left;
@@ -251,6 +252,7 @@
             // cardClases
             //
             this.cardClases.BackColor = System.Drawing.Color.White;
+            this.cardClases.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cardClases.Controls.Add(this.lblCantClases);
             this.cardClases.Controls.Add(this.lblCardClases);
             this.cardClases.Dock = System.Windows.Forms.DockStyle.Left;
@@ -289,6 +291,7 @@
             // cardProductos
             //
             this.cardProductos.BackColor = System.Drawing.Color.White;
+            this.cardProductos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cardProductos.Controls.Add(this.lblCantProductos);
             this.cardProductos.Controls.Add(this.lblCardProductos);
             this.cardProductos.Dock = System.Windows.Forms.DockStyle.Left;
@@ -321,7 +324,7 @@
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(1040, 656);
             this.Controls.Add(this.dgvDatos);
             this.Controls.Add(this.spFiltros);

@@ -67,6 +67,7 @@
             // panelBusqueda
             // 
             this.panelBusqueda.BackColor = System.Drawing.Color.White;
+            this.panelBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelBusqueda.Controls.Add(this.txtBuscar);
             this.panelBusqueda.Controls.Add(this.lblLupa);
             this.panelBusqueda.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -114,6 +115,7 @@
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.btnNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(63)))), ((int)(((byte)(22)))));
             this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             this.btnNuevo.Size = new System.Drawing.Size(130, 44);
             this.btnNuevo.TabIndex = 2;
             this.btnNuevo.Text = "+  Nuevo";
@@ -123,13 +125,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(253)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(1040, 656);
             this.Controls.Add(this.dgvDatos);
             this.Controls.Add(this.spGrid);
             this.Controls.Add(this.panelBarra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmProductos";
+            this.Load += new System.EventHandler(this.FrmProductos_Load);
             this.Padding = new System.Windows.Forms.Padding(28, 24, 24, 28);
             this.Text = "Productos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();

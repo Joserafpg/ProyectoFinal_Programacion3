@@ -9,6 +9,6 @@ namespace ProyectoFinal_Programacion3
         {
             InitializeComponent();
         }
+
     }
 }
-

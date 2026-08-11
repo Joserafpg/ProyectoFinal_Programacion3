@@ -17,102 +17,30 @@
 
         private void InitializeComponent()
         {
-            this.panelFondo = new System.Windows.Forms.Panel();
             this.panelCamposDialogo = new System.Windows.Forms.Panel();
-            this.spNombre = new System.Windows.Forms.Panel();
-            this.lineNombre = new System.Windows.Forms.Panel();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.lblNombre = new System.Windows.Forms.Label();
             this.panelBotones = new System.Windows.Forms.Panel();
-            this.btnDesactivar = new System.Windows.Forms.Button();
-            this.spBoton2 = new System.Windows.Forms.Panel();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.spBoton = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.panelTituloDialogo = new System.Windows.Forms.Panel();
-            this.lblTituloDialogo = new System.Windows.Forms.Label();
-            this.lblCerrarDialogo = new System.Windows.Forms.Label();
-            this.lineaAcento = new System.Windows.Forms.Panel();
-            this.panelFondo.SuspendLayout();
+            this.spBoton = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.spBoton2 = new System.Windows.Forms.Panel();
+            this.btnDesactivar = new System.Windows.Forms.Button();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.spNombre = new System.Windows.Forms.Panel();
             this.panelCamposDialogo.SuspendLayout();
             this.panelBotones.SuspendLayout();
-            this.panelTituloDialogo.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelFondo
-            // 
-            this.panelFondo.BackColor = System.Drawing.Color.White;
-            this.panelFondo.Controls.Add(this.panelCamposDialogo);
-            this.panelFondo.Controls.Add(this.panelBotones);
-            this.panelFondo.Controls.Add(this.panelTituloDialogo);
-            this.panelFondo.Controls.Add(this.lineaAcento);
-            this.panelFondo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFondo.Location = new System.Drawing.Point(1, 1);
-            this.panelFondo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panelFondo.Name = "panelFondo";
-            this.panelFondo.Size = new System.Drawing.Size(558, 448);
-            this.panelFondo.TabIndex = 0;
             // 
             // panelCamposDialogo
             // 
             this.panelCamposDialogo.AutoScroll = true;
             this.panelCamposDialogo.Controls.Add(this.spNombre);
-            this.panelCamposDialogo.Controls.Add(this.lineNombre);
             this.panelCamposDialogo.Controls.Add(this.txtNombre);
             this.panelCamposDialogo.Controls.Add(this.lblNombre);
             this.panelCamposDialogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCamposDialogo.Location = new System.Drawing.Point(0, 73);
-            this.panelCamposDialogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelCamposDialogo.Name = "panelCamposDialogo";
-            this.panelCamposDialogo.Padding = new System.Windows.Forms.Padding(37, 12, 37, 12);
-            this.panelCamposDialogo.Size = new System.Drawing.Size(558, 171);
-            this.panelCamposDialogo.TabIndex = 1;
-            // 
-            // spNombre
-            // 
-            this.spNombre.Dock = System.Windows.Forms.DockStyle.Top;
-            this.spNombre.Location = new System.Drawing.Point(37, 64);
-            this.spNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.spNombre.Name = "spNombre";
-            this.spNombre.Size = new System.Drawing.Size(484, 20);
-            this.spNombre.TabIndex = 0;
-            // 
-            // lineNombre
-            // 
-            this.lineNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.lineNombre.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lineNombre.Location = new System.Drawing.Point(37, 62);
-            this.lineNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.lineNombre.Name = "lineNombre";
-            this.lineNombre.Size = new System.Drawing.Size(484, 2);
-            this.lineNombre.TabIndex = 0;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.BackColor = System.Drawing.Color.White;
-            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNombre.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
-            this.txtNombre.Location = new System.Drawing.Point(37, 38);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(484, 24);
-            this.txtNombre.TabIndex = 1;
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
-            this.lblNombre.Location = new System.Drawing.Point(37, 12);
-            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.lblNombre.Size = new System.Drawing.Size(68, 26);
-            this.lblNombre.TabIndex = 0;
-            this.lblNombre.Text = "Nombre";
+            this.panelCamposDialogo.Size = new System.Drawing.Size(372, 84);
+            this.panelCamposDialogo.TabIndex = 0;
             // 
             // panelBotones
             // 
@@ -122,67 +50,10 @@
             this.panelBotones.Controls.Add(this.spBoton);
             this.panelBotones.Controls.Add(this.btnGuardar);
             this.panelBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBotones.Location = new System.Drawing.Point(0, 244);
-            this.panelBotones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelBotones.Name = "panelBotones";
-            this.panelBotones.Padding = new System.Windows.Forms.Padding(37, 10, 37, 25);
-            this.panelBotones.Size = new System.Drawing.Size(558, 204);
-            this.panelBotones.TabIndex = 2;
-            // 
-            // btnDesactivar
-            // 
-            this.btnDesactivar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(241)))), ((int)(((byte)(242)))));
-            this.btnDesactivar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDesactivar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDesactivar.FlatAppearance.BorderSize = 0;
-            this.btnDesactivar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.btnDesactivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDesactivar.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.btnDesactivar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
-            this.btnDesactivar.Location = new System.Drawing.Point(37, 133);
-            this.btnDesactivar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnDesactivar.Name = "btnDesactivar";
-            this.btnDesactivar.Size = new System.Drawing.Size(484, 47);
-            this.btnDesactivar.TabIndex = 0;
-            this.btnDesactivar.Text = "Desactivar";
-            this.btnDesactivar.UseVisualStyleBackColor = false;
-            // 
-            // spBoton2
-            // 
-            this.spBoton2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.spBoton2.Location = new System.Drawing.Point(37, 123);
-            this.spBoton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.spBoton2.Name = "spBoton2";
-            this.spBoton2.Size = new System.Drawing.Size(484, 10);
-            this.spBoton2.TabIndex = 0;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
-            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
-            this.btnCancelar.Location = new System.Drawing.Point(37, 74);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(484, 49);
-            this.btnCancelar.TabIndex = 3;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // spBoton
-            // 
-            this.spBoton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.spBoton.Location = new System.Drawing.Point(37, 62);
-            this.spBoton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.spBoton.Name = "spBoton";
-            this.spBoton.Size = new System.Drawing.Size(484, 12);
-            this.spBoton.TabIndex = 0;
+            this.panelBotones.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+            this.panelBotones.Size = new System.Drawing.Size(372, 146);
+            this.panelBotones.TabIndex = 1;
             // 
             // btnGuardar
             // 
@@ -194,94 +65,101 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(63)))), ((int)(((byte)(22)))));
-            this.btnGuardar.Location = new System.Drawing.Point(37, 10);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(484, 52);
+            this.btnGuardar.Size = new System.Drawing.Size(372, 42);
             this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             // 
-            // panelTituloDialogo
+            // spBoton
             // 
-            this.panelTituloDialogo.Controls.Add(this.lblTituloDialogo);
-            this.panelTituloDialogo.Controls.Add(this.lblCerrarDialogo);
-            this.panelTituloDialogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTituloDialogo.Location = new System.Drawing.Point(0, 4);
-            this.panelTituloDialogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panelTituloDialogo.Name = "panelTituloDialogo";
-            this.panelTituloDialogo.Padding = new System.Windows.Forms.Padding(37, 22, 16, 0);
-            this.panelTituloDialogo.Size = new System.Drawing.Size(558, 69);
-            this.panelTituloDialogo.TabIndex = 0;
+            this.spBoton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spBoton.Name = "spBoton";
+            this.spBoton.Size = new System.Drawing.Size(372, 10);
+            this.spBoton.TabIndex = 0;
             // 
-            // lblTituloDialogo
+            // btnCancelar
             // 
-            this.lblTituloDialogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTituloDialogo.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Bold);
-            this.lblTituloDialogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(65)))));
-            this.lblTituloDialogo.Location = new System.Drawing.Point(37, 22);
-            this.lblTituloDialogo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTituloDialogo.Name = "lblTituloDialogo";
-            this.lblTituloDialogo.Size = new System.Drawing.Size(457, 47);
-            this.lblTituloDialogo.TabIndex = 0;
-            this.lblTituloDialogo.Text = "Marca";
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(372, 40);
+            this.btnCancelar.TabIndex = 3;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // lblCerrarDialogo
+            // spBoton2
             // 
-            this.lblCerrarDialogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblCerrarDialogo.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblCerrarDialogo.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lblCerrarDialogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(124)))), ((int)(((byte)(140)))));
-            this.lblCerrarDialogo.Location = new System.Drawing.Point(494, 22);
-            this.lblCerrarDialogo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCerrarDialogo.Name = "lblCerrarDialogo";
-            this.lblCerrarDialogo.Size = new System.Drawing.Size(48, 47);
-            this.lblCerrarDialogo.TabIndex = 0;
-            this.lblCerrarDialogo.Text = "✕";
-            this.lblCerrarDialogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.spBoton2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spBoton2.Name = "spBoton2";
+            this.spBoton2.Size = new System.Drawing.Size(372, 8);
+            this.spBoton2.TabIndex = 0;
             // 
-            // lineaAcento
+            // btnDesactivar
             // 
-            this.lineaAcento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(211)))), ((int)(((byte)(77)))));
-            this.lineaAcento.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lineaAcento.Location = new System.Drawing.Point(0, 0);
-            this.lineaAcento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.lineaAcento.Name = "lineaAcento";
-            this.lineaAcento.Size = new System.Drawing.Size(558, 4);
-            this.lineaAcento.TabIndex = 0;
+            this.btnDesactivar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDesactivar.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.btnDesactivar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnDesactivar.Name = "btnDesactivar";
+            this.btnDesactivar.Size = new System.Drawing.Size(372, 38);
+            this.btnDesactivar.TabIndex = 0;
+            this.btnDesactivar.Text = "Desactivar";
+            this.btnDesactivar.UseVisualStyleBackColor = true;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.lblNombre.Size = new System.Drawing.Size(60, 20);
+            this.lblNombre.TabIndex = 0;
+            this.lblNombre.Text = "Nombre";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(372, 25);
+            this.txtNombre.TabIndex = 1;
+            // 
+            // spNombre
+            // 
+            this.spNombre.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spNombre.Name = "spNombre";
+            this.spNombre.Size = new System.Drawing.Size(372, 14);
+            this.spNombre.TabIndex = 0;
             // 
             // FrmMarca
             // 
             this.AcceptButton = this.btnGuardar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(237)))), ((int)(((byte)(243)))));
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(560, 450);
-            this.Controls.Add(this.panelFondo);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ClientSize = new System.Drawing.Size(420, 260);
+            this.Controls.Add(this.panelCamposDialogo);
+            this.Controls.Add(this.panelBotones);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmMarca";
-            this.Padding = new System.Windows.Forms.Padding(1);
+            this.Padding = new System.Windows.Forms.Padding(24, 12, 24, 18);
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Marca";
-            this.panelFondo.ResumeLayout(false);
             this.panelCamposDialogo.ResumeLayout(false);
             this.panelCamposDialogo.PerformLayout();
             this.panelBotones.ResumeLayout(false);
-            this.panelTituloDialogo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelFondo;
-        private System.Windows.Forms.Panel lineaAcento;
-        private System.Windows.Forms.Panel panelTituloDialogo;
-        private System.Windows.Forms.Label lblTituloDialogo;
-        private System.Windows.Forms.Label lblCerrarDialogo;
         private System.Windows.Forms.Panel panelCamposDialogo;
         private System.Windows.Forms.Panel panelBotones;
         private System.Windows.Forms.Button btnGuardar;
@@ -291,7 +169,6 @@
         private System.Windows.Forms.Button btnDesactivar;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Panel lineNombre;
         private System.Windows.Forms.Panel spNombre;
     }
 }
