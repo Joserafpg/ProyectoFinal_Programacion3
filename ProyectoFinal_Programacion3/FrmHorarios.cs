@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using CapaEntidades;
 using CapaNegocio;
 
 namespace ProyectoFinal_Programacion3
@@ -26,6 +27,21 @@ namespace ProyectoFinal_Programacion3
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FrmHorario dialogo = new FrmHorario();
+            if (dialogo.ShowDialog(this) == DialogResult.OK)
+            {
+                dgvDatos.DataSource = horarioNegocio.Listar();
+            }
+        }
+
+        private void dgvDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+            Horario seleccionado = (Horario)dgvDatos.Rows[e.RowIndex].DataBoundItem;
+            FrmHorario dialogo = new FrmHorario(seleccionado);
             if (dialogo.ShowDialog(this) == DialogResult.OK)
             {
                 dgvDatos.DataSource = horarioNegocio.Listar();

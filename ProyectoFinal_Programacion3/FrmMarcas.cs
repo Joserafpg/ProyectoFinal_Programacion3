@@ -1,6 +1,7 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using CapaEntidades;
 using CapaNegocio;
+using System;
+using System.Windows.Forms;
 
 namespace ProyectoFinal_Programacion3
 {
@@ -29,6 +30,23 @@ namespace ProyectoFinal_Programacion3
             if (dialogo.ShowDialog(this) == DialogResult.OK)
             {
                 dgvDatos.DataSource = marcaNegocio.Listar();
+            }
+        }
+
+        private void dgvDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex < 0)
+            {
+                return;
+            }
+            else
+            {
+                Marca seleccionada = (Marca)dgvDatos.Rows[e.RowIndex].DataBoundItem;
+                FrmMarca dialogo = new FrmMarca(seleccionada);
+                if (dialogo.ShowDialog(this) == DialogResult.OK)
+                {
+                    dgvDatos.DataSource = marcaNegocio.Listar();
+                }
             }
         }
     }

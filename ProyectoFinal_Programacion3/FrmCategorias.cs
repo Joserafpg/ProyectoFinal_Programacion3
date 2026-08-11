@@ -8,7 +8,6 @@ namespace ProyectoFinal_Programacion3
     public partial class FrmCategorias : Form
     {
         CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-        Categoria categoria = null;
 
         public FrmCategorias()
         {
@@ -51,8 +50,6 @@ namespace ProyectoFinal_Programacion3
                     dgvDatos.DataSource = categoriaNegocio.Listar();
                 }
             }
-
-
         }
     }
 }

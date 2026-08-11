@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using CapaEntidades;
 using CapaNegocio;
 
 namespace ProyectoFinal_Programacion3
@@ -27,6 +28,21 @@ namespace ProyectoFinal_Programacion3
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             FrmCliente dialogo = new FrmCliente();
+            if (dialogo.ShowDialog(this) == DialogResult.OK)
+            {
+                dgvDatos.DataSource = clienteNegocio.Listar();
+            }
+        }
+
+        private void dgvDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+
+            Cliente seleccionado = (Cliente)dgvDatos.Rows[e.RowIndex].DataBoundItem;
+            FrmCliente dialogo = new FrmCliente(seleccionado);
             if (dialogo.ShowDialog(this) == DialogResult.OK)
             {
                 dgvDatos.DataSource = clienteNegocio.Listar();

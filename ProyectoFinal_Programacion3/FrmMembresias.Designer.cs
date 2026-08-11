@@ -40,6 +40,7 @@
             this.dgvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDatos.MultiSelect = false;
             this.dgvDatos.Name = "dgvDatos";
+            this.dgvDatos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellDoubleClick);
             this.dgvDatos.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvDatos_DataBindingComplete);
             this.dgvDatos.ReadOnly = true;
             this.dgvDatos.RowHeadersVisible = false;

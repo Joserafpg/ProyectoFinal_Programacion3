@@ -84,6 +84,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(63)))), ((int)(((byte)(22)))));
             this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             this.btnGuardar.Size = new System.Drawing.Size(372, 42);
             this.btnGuardar.TabIndex = 5;
             this.btnGuardar.Text = "Guardar";
@@ -120,6 +121,7 @@
             this.btnDesactivar.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.btnDesactivar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
             this.btnDesactivar.Name = "btnDesactivar";
+            this.btnDesactivar.Click += new System.EventHandler(this.btnDesactivar_Click);
             this.btnDesactivar.Size = new System.Drawing.Size(372, 38);
             this.btnDesactivar.TabIndex = 0;
             this.btnDesactivar.Text = "Desactivar";

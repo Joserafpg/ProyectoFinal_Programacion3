@@ -38,6 +38,7 @@ namespace ProyectoFinal_Programacion3
                 Categoria categoria = new Categoria();
                 categoria.Nombre = txtNombre.Text;
                 categoria.Descripcion = txtDescripcion.Text;
+                categoria.Estado = true;
 
                 mensaje = categoriaNegocio.Insertar(categoria);
             }
@@ -55,6 +56,7 @@ namespace ProyectoFinal_Programacion3
             else
             {
                 MessageBox.Show("Operacion realizada con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult = DialogResult.OK;
                 Close();
             }
         }
@@ -63,23 +65,19 @@ namespace ProyectoFinal_Programacion3
         {
             string mensaje;
 
-            if (MessageBox.Show("¿Está seguro de elimainar esta categoria?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("¿Está seguro de desactivar esta categoria?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 mensaje = categoriaNegocio.CambiarEstado(categoriaEditar.IdCategoria, false);
                 if(mensaje.Length > 0 )
                 {
-                    MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
                     MessageBox.Show("Operacion realizada con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult = DialogResult.OK;
                     Close();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Operacion cancelada", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
             }
         }
     }
