@@ -16,7 +16,7 @@ namespace CapaDatos
 
             using (var conexion = Conexion.ObtenerConexion())
             {
-                string sql = "select id_categoria, nombre, descripcion, estado from categorias order by nombre";
+                string sql = "select id_categoria, nombre, descripcion, estado from categorias where estado = 1 order by nombre ";
 
                 using (var cmd = new SqlCommand(sql, conexion))
                 {

@@ -26,12 +26,61 @@ namespace ProyectoFinal_Programacion3
             txtNombre.Text = categoriaEditar.Nombre;
             txtDescripcion.Text = categoriaEditar.Descripcion;
 
-            btnDesactivar.Visible = false;
+            btnDesactivar.Visible = true;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            string mensaje;
 
+            if (categoriaEditar == null)
+            {
+                Categoria categoria = new Categoria();
+                categoria.Nombre = txtNombre.Text;
+                categoria.Descripcion = txtDescripcion.Text;
+
+                mensaje = categoriaNegocio.Insertar(categoria);
+            }
+            else {
+                categoriaEditar.Nombre = txtNombre.Text;
+                categoriaEditar.Descripcion = txtDescripcion.Text;
+
+                mensaje = categoriaNegocio.Actualizar(categoriaEditar);
+            }
+
+            if (mensaje.Length > 0) 
+            {
+                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Operacion realizada con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+        }
+
+        private void btnDesactivar_Click(object sender, EventArgs e)
+        {
+            string mensaje;
+
+            if (MessageBox.Show("¿Está seguro de elimainar esta categoria?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                mensaje = categoriaNegocio.CambiarEstado(categoriaEditar.IdCategoria, false);
+                if(mensaje.Length > 0 )
+                {
+                    MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Operacion realizada con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Operacion cancelada", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
         }
     }
 }

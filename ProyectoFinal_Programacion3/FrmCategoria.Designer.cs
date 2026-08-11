@@ -144,8 +144,9 @@
             this.btnDesactivar.Name = "btnDesactivar";
             this.btnDesactivar.Size = new System.Drawing.Size(496, 47);
             this.btnDesactivar.TabIndex = 0;
-            this.btnDesactivar.Text = "Desactivar";
+            this.btnDesactivar.Text = "Eliminar";
             this.btnDesactivar.UseVisualStyleBackColor = true;
+            this.btnDesactivar.Click += new System.EventHandler(this.btnDesactivar_Click);
             // 
             // spBoton2
             // 
