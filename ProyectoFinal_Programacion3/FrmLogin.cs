@@ -19,9 +19,12 @@ namespace ProyectoFinal_Programacion3
 
             if(mensaje == "")
             {
-                FrmPrincipal principal = new FrmPrincipal();
-                principal.Show();
                 this.Hide();
+                FrmPrincipal principal = new FrmPrincipal();
+                principal.ShowDialog();
+                txtClave.Clear();
+                this.Show();
+                txtUsuario.Focus();
             }
             else
             {

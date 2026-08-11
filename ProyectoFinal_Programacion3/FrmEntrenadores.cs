@@ -16,6 +16,11 @@ namespace ProyectoFinal_Programacion3
         {
             dgvDatos.DataSource = entrenadorNegocio.Listar();
         }
+
+        private void dgvDatos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvDatos.ClearSelection();
+            dgvDatos.CurrentCell = null;
+        }
     }
 }
-

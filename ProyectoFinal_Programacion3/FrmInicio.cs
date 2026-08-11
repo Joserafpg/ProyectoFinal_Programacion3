@@ -9,5 +9,11 @@ namespace ProyectoFinal_Programacion3
         {
             InitializeComponent();
         }
+
+        private void dgvDatos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvDatos.ClearSelection();
+            dgvDatos.CurrentCell = null;
+        }
     }
 }
