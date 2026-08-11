@@ -8,7 +8,9 @@ namespace ProyectoFinal_Programacion3
         public FrmClase()
         {
             InitializeComponent();
+            txtCupoMaximo.KeyPress += Validaciones.SoloNumeros;
         }
+
 
     }
 }

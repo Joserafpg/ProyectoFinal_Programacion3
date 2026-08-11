@@ -124,6 +124,7 @@
             this.txtNombre.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.MaxLength = 100;
             this.txtNombre.Size = new System.Drawing.Size(372, 25);
             this.txtNombre.TabIndex = 1;
             // 

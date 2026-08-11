@@ -189,6 +189,7 @@
             this.txtCodigo.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.MaxLength = 20;
             this.txtCodigo.Size = new System.Drawing.Size(372, 25);
             this.txtCodigo.TabIndex = 1;
             // 
@@ -216,6 +217,7 @@
             this.txtCodigoBarras.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCodigoBarras.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtCodigoBarras.Name = "txtCodigoBarras";
+            this.txtCodigoBarras.MaxLength = 30;
             this.txtCodigoBarras.Size = new System.Drawing.Size(372, 25);
             this.txtCodigoBarras.TabIndex = 2;
             // 
@@ -243,6 +245,7 @@
             this.txtNombre.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.MaxLength = 100;
             this.txtNombre.Size = new System.Drawing.Size(372, 25);
             this.txtNombre.TabIndex = 3;
             // 
@@ -271,6 +274,7 @@
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.MaxLength = 250;
             this.txtDescripcion.Size = new System.Drawing.Size(372, 56);
             this.txtDescripcion.TabIndex = 4;
             // 
@@ -354,6 +358,7 @@
             this.txtPrecioCompra.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtPrecioCompra.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPrecioCompra.Name = "txtPrecioCompra";
+            this.txtPrecioCompra.MaxLength = 10;
             this.txtPrecioCompra.Size = new System.Drawing.Size(372, 25);
             this.txtPrecioCompra.TabIndex = 7;
             // 
@@ -381,6 +386,7 @@
             this.txtPrecioVenta.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtPrecioVenta.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPrecioVenta.Name = "txtPrecioVenta";
+            this.txtPrecioVenta.MaxLength = 10;
             this.txtPrecioVenta.Size = new System.Drawing.Size(372, 25);
             this.txtPrecioVenta.TabIndex = 8;
             // 
@@ -408,6 +414,7 @@
             this.txtStock.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtStock.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtStock.Name = "txtStock";
+            this.txtStock.MaxLength = 6;
             this.txtStock.Size = new System.Drawing.Size(372, 25);
             this.txtStock.TabIndex = 9;
             // 
@@ -435,6 +442,7 @@
             this.txtStockMinimo.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtStockMinimo.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtStockMinimo.Name = "txtStockMinimo";
+            this.txtStockMinimo.MaxLength = 6;
             this.txtStockMinimo.Size = new System.Drawing.Size(372, 25);
             this.txtStockMinimo.TabIndex = 10;
             // 
@@ -563,4 +571,3 @@
         private System.Windows.Forms.Panel spImagen;
     }
 }
-

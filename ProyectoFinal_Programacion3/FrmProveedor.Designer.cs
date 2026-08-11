@@ -148,6 +148,7 @@
             this.txtNombre.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.MaxLength = 100;
             this.txtNombre.Size = new System.Drawing.Size(372, 25);
             this.txtNombre.TabIndex = 1;
             // 
@@ -175,6 +176,7 @@
             this.txtRnc.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtRnc.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtRnc.Name = "txtRnc";
+            this.txtRnc.MaxLength = 15;
             this.txtRnc.Size = new System.Drawing.Size(372, 25);
             this.txtRnc.TabIndex = 2;
             // 
@@ -202,6 +204,7 @@
             this.txtTelefono.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtTelefono.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.MaxLength = 15;
             this.txtTelefono.Size = new System.Drawing.Size(372, 25);
             this.txtTelefono.TabIndex = 3;
             // 
@@ -229,6 +232,7 @@
             this.txtCorreo.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCorreo.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.MaxLength = 100;
             this.txtCorreo.Size = new System.Drawing.Size(372, 25);
             this.txtCorreo.TabIndex = 4;
             // 
@@ -257,6 +261,7 @@
             this.txtDireccion.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.MaxLength = 250;
             this.txtDireccion.Size = new System.Drawing.Size(372, 56);
             this.txtDireccion.TabIndex = 5;
             // 
@@ -317,4 +322,3 @@
         private System.Windows.Forms.Panel spDireccion;
     }
 }
-

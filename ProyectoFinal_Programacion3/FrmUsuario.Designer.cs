@@ -148,6 +148,7 @@
             this.txtNombreUsuario.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtNombreUsuario.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
+            this.txtNombreUsuario.MaxLength = 30;
             this.txtNombreUsuario.Size = new System.Drawing.Size(372, 25);
             this.txtNombreUsuario.TabIndex = 1;
             // 
@@ -175,6 +176,7 @@
             this.txtNombreCompleto.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtNombreCompleto.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNombreCompleto.Name = "txtNombreCompleto";
+            this.txtNombreCompleto.MaxLength = 100;
             this.txtNombreCompleto.Size = new System.Drawing.Size(372, 25);
             this.txtNombreCompleto.TabIndex = 2;
             // 
@@ -202,6 +204,7 @@
             this.txtCorreo.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCorreo.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.MaxLength = 100;
             this.txtCorreo.Size = new System.Drawing.Size(372, 25);
             this.txtCorreo.TabIndex = 3;
             // 
@@ -257,6 +260,7 @@
             this.txtClave.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtClave.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtClave.Name = "txtClave";
+            this.txtClave.MaxLength = 50;
             this.txtClave.Size = new System.Drawing.Size(372, 25);
             this.txtClave.TabIndex = 5;
             this.txtClave.UseSystemPasswordChar = true;
@@ -318,4 +322,3 @@
         private System.Windows.Forms.Panel spClave;
     }
 }
-

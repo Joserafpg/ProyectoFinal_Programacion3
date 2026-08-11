@@ -142,6 +142,7 @@
             this.txtNombre.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.MaxLength = 50;
             this.txtNombre.Size = new System.Drawing.Size(372, 25);
             this.txtNombre.TabIndex = 1;
             // 
@@ -170,6 +171,7 @@
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.MaxLength = 250;
             this.txtDescripcion.Size = new System.Drawing.Size(372, 56);
             this.txtDescripcion.TabIndex = 2;
             // 
@@ -197,6 +199,7 @@
             this.txtDuracionDias.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtDuracionDias.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtDuracionDias.Name = "txtDuracionDias";
+            this.txtDuracionDias.MaxLength = 4;
             this.txtDuracionDias.Size = new System.Drawing.Size(372, 25);
             this.txtDuracionDias.TabIndex = 3;
             // 
@@ -224,6 +227,7 @@
             this.txtPrecio.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtPrecio.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.MaxLength = 10;
             this.txtPrecio.Size = new System.Drawing.Size(372, 25);
             this.txtPrecio.TabIndex = 4;
             // 
@@ -281,4 +285,3 @@
         private System.Windows.Forms.Panel spPrecio;
     }
 }
-

@@ -27,9 +27,12 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.spNombre = new System.Windows.Forms.Panel();
-            this.lblDias = new System.Windows.Forms.Label();
-            this.txtDias = new System.Windows.Forms.TextBox();
-            this.spDias = new System.Windows.Forms.Panel();
+            this.lblDiaDesde = new System.Windows.Forms.Label();
+            this.cboDiaDesde = new System.Windows.Forms.ComboBox();
+            this.spDiaDesde = new System.Windows.Forms.Panel();
+            this.lblDiaHasta = new System.Windows.Forms.Label();
+            this.cboDiaHasta = new System.Windows.Forms.ComboBox();
+            this.spDiaHasta = new System.Windows.Forms.Panel();
             this.lblHoraInicio = new System.Windows.Forms.Label();
             this.dtpHoraInicio = new System.Windows.Forms.DateTimePicker();
             this.spHoraInicio = new System.Windows.Forms.Panel();
@@ -49,9 +52,12 @@
             this.panelCamposDialogo.Controls.Add(this.spHoraInicio);
             this.panelCamposDialogo.Controls.Add(this.dtpHoraInicio);
             this.panelCamposDialogo.Controls.Add(this.lblHoraInicio);
-            this.panelCamposDialogo.Controls.Add(this.spDias);
-            this.panelCamposDialogo.Controls.Add(this.txtDias);
-            this.panelCamposDialogo.Controls.Add(this.lblDias);
+            this.panelCamposDialogo.Controls.Add(this.spDiaHasta);
+            this.panelCamposDialogo.Controls.Add(this.cboDiaHasta);
+            this.panelCamposDialogo.Controls.Add(this.lblDiaHasta);
+            this.panelCamposDialogo.Controls.Add(this.spDiaDesde);
+            this.panelCamposDialogo.Controls.Add(this.cboDiaDesde);
+            this.panelCamposDialogo.Controls.Add(this.lblDiaDesde);
             this.panelCamposDialogo.Controls.Add(this.spNombre);
             this.panelCamposDialogo.Controls.Add(this.txtNombre);
             this.panelCamposDialogo.Controls.Add(this.lblNombre);
@@ -85,7 +91,7 @@
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(63)))), ((int)(((byte)(22)))));
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(372, 42);
-            this.btnGuardar.TabIndex = 5;
+            this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             // 
@@ -103,7 +109,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(372, 40);
-            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -142,6 +148,7 @@
             this.txtNombre.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.MaxLength = 50;
             this.txtNombre.Size = new System.Drawing.Size(372, 25);
             this.txtNombre.TabIndex = 1;
             // 
@@ -151,33 +158,78 @@
             this.spNombre.Name = "spNombre";
             this.spNombre.Size = new System.Drawing.Size(372, 14);
             this.spNombre.TabIndex = 0;
-            // 
-            // lblDias
-            // 
-            this.lblDias.AutoSize = true;
-            this.lblDias.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblDias.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblDias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
-            this.lblDias.Name = "lblDias";
-            this.lblDias.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.lblDias.Size = new System.Drawing.Size(60, 20);
-            this.lblDias.TabIndex = 0;
-            this.lblDias.Text = "Días (ej. Lunes a Viernes)";
-            // 
-            // txtDias
-            // 
-            this.txtDias.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtDias.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtDias.Name = "txtDias";
-            this.txtDias.Size = new System.Drawing.Size(372, 25);
-            this.txtDias.TabIndex = 2;
-            // 
-            // spDias
-            // 
-            this.spDias.Dock = System.Windows.Forms.DockStyle.Top;
-            this.spDias.Name = "spDias";
-            this.spDias.Size = new System.Drawing.Size(372, 14);
-            this.spDias.TabIndex = 0;
+            //
+            // lblDiaDesde
+            //
+            this.lblDiaDesde.AutoSize = true;
+            this.lblDiaDesde.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblDiaDesde.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblDiaDesde.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
+            this.lblDiaDesde.Name = "lblDiaDesde";
+            this.lblDiaDesde.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.lblDiaDesde.Size = new System.Drawing.Size(60, 20);
+            this.lblDiaDesde.TabIndex = 0;
+            this.lblDiaDesde.Text = "Desde el día";
+            //
+            // cboDiaDesde
+            //
+            this.cboDiaDesde.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cboDiaDesde.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDiaDesde.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cboDiaDesde.Items.AddRange(new object[] {
+            "Lunes",
+            "Martes",
+            "Miércoles",
+            "Jueves",
+            "Viernes",
+            "Sábado",
+            "Domingo"});
+            this.cboDiaDesde.Name = "cboDiaDesde";
+            this.cboDiaDesde.Size = new System.Drawing.Size(372, 28);
+            this.cboDiaDesde.TabIndex = 2;
+            //
+            // spDiaDesde
+            //
+            this.spDiaDesde.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spDiaDesde.Name = "spDiaDesde";
+            this.spDiaDesde.Size = new System.Drawing.Size(372, 14);
+            this.spDiaDesde.TabIndex = 0;
+            //
+            // lblDiaHasta
+            //
+            this.lblDiaHasta.AutoSize = true;
+            this.lblDiaHasta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblDiaHasta.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblDiaHasta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
+            this.lblDiaHasta.Name = "lblDiaHasta";
+            this.lblDiaHasta.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.lblDiaHasta.Size = new System.Drawing.Size(60, 20);
+            this.lblDiaHasta.TabIndex = 0;
+            this.lblDiaHasta.Text = "Hasta el día";
+            //
+            // cboDiaHasta
+            //
+            this.cboDiaHasta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cboDiaHasta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDiaHasta.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cboDiaHasta.Items.AddRange(new object[] {
+            "Lunes",
+            "Martes",
+            "Miércoles",
+            "Jueves",
+            "Viernes",
+            "Sábado",
+            "Domingo"});
+            this.cboDiaHasta.Name = "cboDiaHasta";
+            this.cboDiaHasta.Size = new System.Drawing.Size(372, 28);
+            this.cboDiaHasta.TabIndex = 3;
+            //
+            // spDiaHasta
+            //
+            this.spDiaHasta.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spDiaHasta.Name = "spDiaHasta";
+            this.spDiaHasta.Size = new System.Drawing.Size(372, 14);
+            this.spDiaHasta.TabIndex = 0;
             // 
             // lblHoraInicio
             // 
@@ -199,7 +251,7 @@
             this.dtpHoraInicio.ShowUpDown = true;
             this.dtpHoraInicio.Name = "dtpHoraInicio";
             this.dtpHoraInicio.Size = new System.Drawing.Size(372, 25);
-            this.dtpHoraInicio.TabIndex = 3;
+            this.dtpHoraInicio.TabIndex = 4;
             // 
             // spHoraInicio
             // 
@@ -228,7 +280,7 @@
             this.dtpHoraFin.ShowUpDown = true;
             this.dtpHoraFin.Name = "dtpHoraFin";
             this.dtpHoraFin.Size = new System.Drawing.Size(372, 25);
-            this.dtpHoraFin.TabIndex = 4;
+            this.dtpHoraFin.TabIndex = 5;
             // 
             // spHoraFin
             // 
@@ -243,7 +295,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(420, 452);
+            this.ClientSize = new System.Drawing.Size(420, 522);
             this.Controls.Add(this.panelCamposDialogo);
             this.Controls.Add(this.panelBotones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -273,9 +325,12 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Panel spNombre;
-        private System.Windows.Forms.Label lblDias;
-        private System.Windows.Forms.TextBox txtDias;
-        private System.Windows.Forms.Panel spDias;
+        private System.Windows.Forms.Label lblDiaDesde;
+        private System.Windows.Forms.ComboBox cboDiaDesde;
+        private System.Windows.Forms.Panel spDiaDesde;
+        private System.Windows.Forms.Label lblDiaHasta;
+        private System.Windows.Forms.ComboBox cboDiaHasta;
+        private System.Windows.Forms.Panel spDiaHasta;
         private System.Windows.Forms.Label lblHoraInicio;
         private System.Windows.Forms.DateTimePicker dtpHoraInicio;
         private System.Windows.Forms.Panel spHoraInicio;

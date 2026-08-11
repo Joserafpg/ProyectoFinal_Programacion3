@@ -160,6 +160,7 @@
             this.txtNombre.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.MaxLength = 50;
             this.txtNombre.Size = new System.Drawing.Size(372, 25);
             this.txtNombre.TabIndex = 1;
             // 
@@ -188,6 +189,7 @@
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.MaxLength = 250;
             this.txtDescripcion.Size = new System.Drawing.Size(372, 56);
             this.txtDescripcion.TabIndex = 2;
             // 
@@ -309,6 +311,7 @@
             this.txtCupoMaximo.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCupoMaximo.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtCupoMaximo.Name = "txtCupoMaximo";
+            this.txtCupoMaximo.MaxLength = 3;
             this.txtCupoMaximo.Size = new System.Drawing.Size(372, 25);
             this.txtCupoMaximo.TabIndex = 6;
             // 
@@ -403,4 +406,3 @@
         private System.Windows.Forms.Panel spEntrenador;
     }
 }
-

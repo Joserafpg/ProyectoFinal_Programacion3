@@ -8,7 +8,9 @@ namespace ProyectoFinal_Programacion3
         public FrmUsuario()
         {
             InitializeComponent();
+            txtNombreCompleto.KeyPress += Validaciones.SoloLetras;
         }
+
 
     }
 }

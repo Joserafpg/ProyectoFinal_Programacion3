@@ -8,7 +8,14 @@ namespace ProyectoFinal_Programacion3
         public FrmEntrenador()
         {
             InitializeComponent();
+            txtNombre.KeyPress += Validaciones.SoloLetras;
+            txtApellido.KeyPress += Validaciones.SoloLetras;
+            txtCedula.KeyPress += Validaciones.SoloNumerosYGuiones;
+            txtTelefono.KeyPress += Validaciones.SoloNumerosYGuiones;
+            txtEspecialidad.KeyPress += Validaciones.SoloLetras;
         }
+
+
 
     }
 }

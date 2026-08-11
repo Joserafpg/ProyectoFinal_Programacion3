@@ -8,7 +8,11 @@ namespace ProyectoFinal_Programacion3
         public FrmMembresia()
         {
             InitializeComponent();
+            txtDuracionDias.KeyPress += Validaciones.SoloNumeros;
+            txtPrecio.KeyPress += Validaciones.SoloDecimales;
         }
+
+
 
     }
 }

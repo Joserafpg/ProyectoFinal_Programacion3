@@ -8,7 +8,14 @@ namespace ProyectoFinal_Programacion3
         public FrmProducto()
         {
             InitializeComponent();
+            txtCodigoBarras.KeyPress += Validaciones.SoloNumeros;
+            txtPrecioCompra.KeyPress += Validaciones.SoloDecimales;
+            txtPrecioVenta.KeyPress += Validaciones.SoloDecimales;
+            txtStock.KeyPress += Validaciones.SoloNumeros;
+            txtStockMinimo.KeyPress += Validaciones.SoloNumeros;
         }
+
+
 
     }
 }
