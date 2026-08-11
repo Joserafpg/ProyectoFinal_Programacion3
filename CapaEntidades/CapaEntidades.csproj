@@ -54,6 +54,8 @@
     <Compile Include="Seguridad\Permiso.cs" />
     <Compile Include="Seguridad\Rol.cs" />
     <Compile Include="Seguridad\Usuario.cs" />
+    <Compile Include="Ventas\Venta.cs" />
+    <Compile Include="Ventas\VentaDetalle.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

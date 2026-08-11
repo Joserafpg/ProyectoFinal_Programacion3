@@ -46,6 +46,7 @@
     <Compile Include="ClaseDatos.cs" />
     <Compile Include="ClienteDatos.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="ConfiguracionDatos.cs" />
     <Compile Include="EntrenadorDatos.cs" />
     <Compile Include="HorarioDatos.cs" />
     <Compile Include="MarcaDatos.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="ProveedorDatos.cs" />
     <Compile Include="RolDatos.cs" />
     <Compile Include="UsuarioDatos.cs" />
+    <Compile Include="VentaDatos.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaEntidades\CapaEntidades.csproj">

@@ -13,6 +13,11 @@ namespace ProyectoFinal_Programacion3
         {
             InitializeComponent();
             AbrirFormulario(new FrmInicio(), "Inicio", btnInicio);
+
+            if (Sesion.UsuarioActual != null)
+            {
+                lblUsuarioActual.Text = Sesion.UsuarioActual.NombreCompleto + " · " + Sesion.UsuarioActual.NombreRol;
+            }
         }
 
         private void AbrirFormulario(Form formulario, string titulo, Button boton)
@@ -61,10 +66,7 @@ namespace ProyectoFinal_Programacion3
 
         private void btnPos_Click(object sender, EventArgs e)
         {
-            // modulo de ventas pendiente
-            CerrarFormularioActivo();
-            lblTituloPagina.Text = "Punto de venta";
-            ResaltarBoton(btnPos);
+            AbrirFormulario(new FrmPos(), "Punto de venta", btnPos);
         }
 
         private void btnClientes_Click(object sender, EventArgs e)

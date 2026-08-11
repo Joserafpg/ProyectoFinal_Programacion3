@@ -15,10 +15,11 @@ namespace ProyectoFinal_Programacion3
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             // aqui va la logica del login
-            usuarioNegocio.Login(txtUsuario.Text, txtClave.Text, out string mensaje);
+            var usuario = usuarioNegocio.Login(txtUsuario.Text, txtClave.Text, out string mensaje);
 
             if(mensaje == "")
             {
+                Sesion.UsuarioActual = usuario;
                 this.Hide();
                 FrmPrincipal principal = new FrmPrincipal();
                 principal.ShowDialog();
