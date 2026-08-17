@@ -63,7 +63,7 @@
             this.panelCamposDialogo.Controls.Add(this.lblNombre);
             this.panelCamposDialogo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCamposDialogo.Location = new System.Drawing.Point(32, 15);
-            this.panelCamposDialogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelCamposDialogo.Margin = new System.Windows.Forms.Padding(4);
             this.panelCamposDialogo.Name = "panelCamposDialogo";
             this.panelCamposDialogo.Size = new System.Drawing.Size(496, 425);
             this.panelCamposDialogo.TabIndex = 0;
@@ -72,7 +72,7 @@
             // 
             this.spHoraFin.Dock = System.Windows.Forms.DockStyle.Top;
             this.spHoraFin.Location = new System.Drawing.Point(0, 345);
-            this.spHoraFin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spHoraFin.Margin = new System.Windows.Forms.Padding(4);
             this.spHoraFin.Name = "spHoraFin";
             this.spHoraFin.Size = new System.Drawing.Size(496, 17);
             this.spHoraFin.TabIndex = 0;
@@ -83,7 +83,7 @@
             this.dtpHoraFin.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.dtpHoraFin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpHoraFin.Location = new System.Drawing.Point(0, 315);
-            this.dtpHoraFin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpHoraFin.Margin = new System.Windows.Forms.Padding(4);
             this.dtpHoraFin.Name = "dtpHoraFin";
             this.dtpHoraFin.ShowUpDown = true;
             this.dtpHoraFin.Size = new System.Drawing.Size(496, 30);
@@ -107,7 +107,7 @@
             // 
             this.spHoraInicio.Dock = System.Windows.Forms.DockStyle.Top;
             this.spHoraInicio.Location = new System.Drawing.Point(0, 273);
-            this.spHoraInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spHoraInicio.Margin = new System.Windows.Forms.Padding(4);
             this.spHoraInicio.Name = "spHoraInicio";
             this.spHoraInicio.Size = new System.Drawing.Size(496, 17);
             this.spHoraInicio.TabIndex = 0;
@@ -118,7 +118,7 @@
             this.dtpHoraInicio.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.dtpHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpHoraInicio.Location = new System.Drawing.Point(0, 243);
-            this.dtpHoraInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpHoraInicio.Margin = new System.Windows.Forms.Padding(4);
             this.dtpHoraInicio.Name = "dtpHoraInicio";
             this.dtpHoraInicio.ShowUpDown = true;
             this.dtpHoraInicio.Size = new System.Drawing.Size(496, 30);
@@ -142,7 +142,7 @@
             // 
             this.spDiaHasta.Dock = System.Windows.Forms.DockStyle.Top;
             this.spDiaHasta.Location = new System.Drawing.Point(0, 201);
-            this.spDiaHasta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spDiaHasta.Margin = new System.Windows.Forms.Padding(4);
             this.spDiaHasta.Name = "spDiaHasta";
             this.spDiaHasta.Size = new System.Drawing.Size(496, 17);
             this.spDiaHasta.TabIndex = 0;
@@ -161,7 +161,7 @@
             "Sábado",
             "Domingo"});
             this.cboDiaHasta.Location = new System.Drawing.Point(0, 170);
-            this.cboDiaHasta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboDiaHasta.Margin = new System.Windows.Forms.Padding(4);
             this.cboDiaHasta.Name = "cboDiaHasta";
             this.cboDiaHasta.Size = new System.Drawing.Size(496, 31);
             this.cboDiaHasta.TabIndex = 3;
@@ -184,7 +184,7 @@
             // 
             this.spDiaDesde.Dock = System.Windows.Forms.DockStyle.Top;
             this.spDiaDesde.Location = new System.Drawing.Point(0, 128);
-            this.spDiaDesde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spDiaDesde.Margin = new System.Windows.Forms.Padding(4);
             this.spDiaDesde.Name = "spDiaDesde";
             this.spDiaDesde.Size = new System.Drawing.Size(496, 17);
             this.spDiaDesde.TabIndex = 0;
@@ -203,7 +203,7 @@
             "Sábado",
             "Domingo"});
             this.cboDiaDesde.Location = new System.Drawing.Point(0, 97);
-            this.cboDiaDesde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboDiaDesde.Margin = new System.Windows.Forms.Padding(4);
             this.cboDiaDesde.Name = "cboDiaDesde";
             this.cboDiaDesde.Size = new System.Drawing.Size(496, 31);
             this.cboDiaDesde.TabIndex = 2;
@@ -226,7 +226,7 @@
             // 
             this.spNombre.Dock = System.Windows.Forms.DockStyle.Top;
             this.spNombre.Location = new System.Drawing.Point(0, 55);
-            this.spNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spNombre.Margin = new System.Windows.Forms.Padding(4);
             this.spNombre.Name = "spNombre";
             this.spNombre.Size = new System.Drawing.Size(496, 17);
             this.spNombre.TabIndex = 0;
@@ -236,7 +236,7 @@
             this.txtNombre.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNombre.Location = new System.Drawing.Point(0, 25);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(496, 30);
@@ -265,7 +265,7 @@
             this.panelBotones.Controls.Add(this.btnGuardar);
             this.panelBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBotones.Location = new System.Drawing.Point(32, 440);
-            this.panelBotones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBotones.Margin = new System.Windows.Forms.Padding(4);
             this.panelBotones.Name = "panelBotones";
             this.panelBotones.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.panelBotones.Size = new System.Drawing.Size(496, 180);
@@ -277,7 +277,7 @@
             this.btnDesactivar.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.btnDesactivar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
             this.btnDesactivar.Location = new System.Drawing.Point(0, 133);
-            this.btnDesactivar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDesactivar.Margin = new System.Windows.Forms.Padding(4);
             this.btnDesactivar.Name = "btnDesactivar";
             this.btnDesactivar.Size = new System.Drawing.Size(496, 47);
             this.btnDesactivar.TabIndex = 0;
@@ -289,7 +289,7 @@
             // 
             this.spBoton2.Dock = System.Windows.Forms.DockStyle.Top;
             this.spBoton2.Location = new System.Drawing.Point(0, 123);
-            this.spBoton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spBoton2.Margin = new System.Windows.Forms.Padding(4);
             this.spBoton2.Name = "spBoton2";
             this.spBoton2.Size = new System.Drawing.Size(496, 10);
             this.spBoton2.TabIndex = 0;
@@ -300,7 +300,7 @@
             this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnCancelar.Location = new System.Drawing.Point(0, 74);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(496, 49);
             this.btnCancelar.TabIndex = 7;
@@ -311,7 +311,7 @@
             // 
             this.spBoton.Dock = System.Windows.Forms.DockStyle.Top;
             this.spBoton.Location = new System.Drawing.Point(0, 62);
-            this.spBoton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spBoton.Margin = new System.Windows.Forms.Padding(4);
             this.spBoton.Name = "spBoton";
             this.spBoton.Size = new System.Drawing.Size(496, 12);
             this.spBoton.TabIndex = 0;
@@ -327,7 +327,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(63)))), ((int)(((byte)(22)))));
             this.btnGuardar.Location = new System.Drawing.Point(0, 10);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(496, 52);
             this.btnGuardar.TabIndex = 6;
@@ -345,7 +345,7 @@
             this.Controls.Add(this.panelCamposDialogo);
             this.Controls.Add(this.panelBotones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmHorario";

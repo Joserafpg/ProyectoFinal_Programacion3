@@ -40,7 +40,7 @@
             this.dgvDatos.ColumnHeadersHeight = 29;
             this.dgvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDatos.Location = new System.Drawing.Point(37, 106);
-            this.dgvDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDatos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDatos.MultiSelect = false;
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.ReadOnly = true;
@@ -56,7 +56,7 @@
             // 
             this.spGrid.Dock = System.Windows.Forms.DockStyle.Top;
             this.spGrid.Location = new System.Drawing.Point(37, 84);
-            this.spGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spGrid.Margin = new System.Windows.Forms.Padding(4);
             this.spGrid.Name = "spGrid";
             this.spGrid.Size = new System.Drawing.Size(1318, 22);
             this.spGrid.TabIndex = 0;
@@ -68,7 +68,7 @@
             this.panelBarra.Controls.Add(this.btnNuevo);
             this.panelBarra.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBarra.Location = new System.Drawing.Point(37, 30);
-            this.panelBarra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBarra.Margin = new System.Windows.Forms.Padding(4);
             this.panelBarra.Name = "panelBarra";
             this.panelBarra.Size = new System.Drawing.Size(1318, 54);
             this.panelBarra.TabIndex = 1;
@@ -81,7 +81,7 @@
             this.panelBusqueda.Controls.Add(this.lblLupa);
             this.panelBusqueda.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBusqueda.Location = new System.Drawing.Point(0, 0);
-            this.panelBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.panelBusqueda.Name = "panelBusqueda";
             this.panelBusqueda.Padding = new System.Windows.Forms.Padding(19, 15, 19, 15);
             this.panelBusqueda.Size = new System.Drawing.Size(1124, 54);
@@ -95,10 +95,11 @@
             this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.txtBuscar.Location = new System.Drawing.Point(59, 15);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(1044, 24);
             this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // lblLupa
             // 
@@ -116,7 +117,7 @@
             // 
             this.spNuevo.Dock = System.Windows.Forms.DockStyle.Right;
             this.spNuevo.Location = new System.Drawing.Point(1124, 0);
-            this.spNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.spNuevo.Name = "spNuevo";
             this.spNuevo.Size = new System.Drawing.Size(21, 54);
             this.spNuevo.TabIndex = 0;
@@ -132,7 +133,7 @@
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.btnNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(63)))), ((int)(((byte)(22)))));
             this.btnNuevo.Location = new System.Drawing.Point(1145, 0);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(173, 54);
             this.btnNuevo.TabIndex = 2;
@@ -150,7 +151,7 @@
             this.Controls.Add(this.spGrid);
             this.Controls.Add(this.panelBarra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmProductos";
             this.Padding = new System.Windows.Forms.Padding(37, 30, 32, 34);
             this.Text = "Productos";

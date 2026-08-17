@@ -1,7 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using CapaEntidades;
+﻿using CapaEntidades;
 using CapaNegocio;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace ProyectoFinal_Programacion3
 {
@@ -46,6 +47,11 @@ namespace ProyectoFinal_Programacion3
             {
                 dgvDatos.DataSource = horarioNegocio.Listar();
             }
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            dgvDatos.DataSource = horarioNegocio.Listar(txtBuscar.Text);
         }
     }
 }

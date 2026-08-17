@@ -104,7 +104,7 @@
             this.panelCamposDialogo.Controls.Add(this.lblCodigo);
             this.panelCamposDialogo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCamposDialogo.Location = new System.Drawing.Point(32, 15);
-            this.panelCamposDialogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelCamposDialogo.Margin = new System.Windows.Forms.Padding(4);
             this.panelCamposDialogo.Name = "panelCamposDialogo";
             this.panelCamposDialogo.Size = new System.Drawing.Size(496, 571);
             this.panelCamposDialogo.TabIndex = 0;
@@ -113,7 +113,7 @@
             // 
             this.spImagen.Dock = System.Windows.Forms.DockStyle.Top;
             this.spImagen.Location = new System.Drawing.Point(0, 967);
-            this.spImagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spImagen.Margin = new System.Windows.Forms.Padding(4);
             this.spImagen.Name = "spImagen";
             this.spImagen.Size = new System.Drawing.Size(475, 17);
             this.spImagen.TabIndex = 0;
@@ -123,7 +123,7 @@
             this.btnCargarImagen.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCargarImagen.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.btnCargarImagen.Location = new System.Drawing.Point(0, 930);
-            this.btnCargarImagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCargarImagen.Margin = new System.Windows.Forms.Padding(4);
             this.btnCargarImagen.Name = "btnCargarImagen";
             this.btnCargarImagen.Size = new System.Drawing.Size(475, 37);
             this.btnCargarImagen.TabIndex = 11;
@@ -135,7 +135,7 @@
             // 
             this.spFotoImagen.Dock = System.Windows.Forms.DockStyle.Top;
             this.spFotoImagen.Location = new System.Drawing.Point(0, 920);
-            this.spFotoImagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spFotoImagen.Margin = new System.Windows.Forms.Padding(4);
             this.spFotoImagen.Name = "spFotoImagen";
             this.spFotoImagen.Size = new System.Drawing.Size(475, 10);
             this.spFotoImagen.TabIndex = 0;
@@ -146,7 +146,7 @@
             this.picImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picImagen.Dock = System.Windows.Forms.DockStyle.Top;
             this.picImagen.Location = new System.Drawing.Point(0, 785);
-            this.picImagen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picImagen.Margin = new System.Windows.Forms.Padding(4);
             this.picImagen.Name = "picImagen";
             this.picImagen.Size = new System.Drawing.Size(475, 135);
             this.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -171,7 +171,7 @@
             // 
             this.spStockMinimo.Dock = System.Windows.Forms.DockStyle.Top;
             this.spStockMinimo.Location = new System.Drawing.Point(0, 743);
-            this.spStockMinimo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spStockMinimo.Margin = new System.Windows.Forms.Padding(4);
             this.spStockMinimo.Name = "spStockMinimo";
             this.spStockMinimo.Size = new System.Drawing.Size(475, 17);
             this.spStockMinimo.TabIndex = 0;
@@ -181,7 +181,7 @@
             this.txtStockMinimo.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtStockMinimo.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtStockMinimo.Location = new System.Drawing.Point(0, 713);
-            this.txtStockMinimo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStockMinimo.Margin = new System.Windows.Forms.Padding(4);
             this.txtStockMinimo.MaxLength = 6;
             this.txtStockMinimo.Name = "txtStockMinimo";
             this.txtStockMinimo.Size = new System.Drawing.Size(475, 30);
@@ -205,7 +205,7 @@
             // 
             this.spStock.Dock = System.Windows.Forms.DockStyle.Top;
             this.spStock.Location = new System.Drawing.Point(0, 671);
-            this.spStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spStock.Margin = new System.Windows.Forms.Padding(4);
             this.spStock.Name = "spStock";
             this.spStock.Size = new System.Drawing.Size(475, 17);
             this.spStock.TabIndex = 0;
@@ -215,7 +215,7 @@
             this.txtStock.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtStock.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtStock.Location = new System.Drawing.Point(0, 641);
-            this.txtStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStock.Margin = new System.Windows.Forms.Padding(4);
             this.txtStock.MaxLength = 6;
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(475, 30);
@@ -239,7 +239,7 @@
             // 
             this.spPrecioVenta.Dock = System.Windows.Forms.DockStyle.Top;
             this.spPrecioVenta.Location = new System.Drawing.Point(0, 599);
-            this.spPrecioVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spPrecioVenta.Margin = new System.Windows.Forms.Padding(4);
             this.spPrecioVenta.Name = "spPrecioVenta";
             this.spPrecioVenta.Size = new System.Drawing.Size(475, 17);
             this.spPrecioVenta.TabIndex = 0;
@@ -249,7 +249,7 @@
             this.txtPrecioVenta.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtPrecioVenta.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPrecioVenta.Location = new System.Drawing.Point(0, 569);
-            this.txtPrecioVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrecioVenta.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecioVenta.MaxLength = 10;
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Size = new System.Drawing.Size(475, 30);
@@ -273,7 +273,7 @@
             // 
             this.spPrecioCompra.Dock = System.Windows.Forms.DockStyle.Top;
             this.spPrecioCompra.Location = new System.Drawing.Point(0, 527);
-            this.spPrecioCompra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spPrecioCompra.Margin = new System.Windows.Forms.Padding(4);
             this.spPrecioCompra.Name = "spPrecioCompra";
             this.spPrecioCompra.Size = new System.Drawing.Size(475, 17);
             this.spPrecioCompra.TabIndex = 0;
@@ -283,7 +283,7 @@
             this.txtPrecioCompra.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtPrecioCompra.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPrecioCompra.Location = new System.Drawing.Point(0, 497);
-            this.txtPrecioCompra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrecioCompra.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecioCompra.MaxLength = 10;
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(475, 30);
@@ -307,7 +307,7 @@
             // 
             this.spMarca.Dock = System.Windows.Forms.DockStyle.Top;
             this.spMarca.Location = new System.Drawing.Point(0, 455);
-            this.spMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spMarca.Margin = new System.Windows.Forms.Padding(4);
             this.spMarca.Name = "spMarca";
             this.spMarca.Size = new System.Drawing.Size(475, 17);
             this.spMarca.TabIndex = 0;
@@ -318,7 +318,7 @@
             this.cboMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMarca.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboMarca.Location = new System.Drawing.Point(0, 424);
-            this.cboMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboMarca.Margin = new System.Windows.Forms.Padding(4);
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(475, 31);
             this.cboMarca.TabIndex = 6;
@@ -341,7 +341,7 @@
             // 
             this.spCategoria.Dock = System.Windows.Forms.DockStyle.Top;
             this.spCategoria.Location = new System.Drawing.Point(0, 382);
-            this.spCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.spCategoria.Name = "spCategoria";
             this.spCategoria.Size = new System.Drawing.Size(475, 17);
             this.spCategoria.TabIndex = 0;
@@ -352,7 +352,7 @@
             this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboCategoria.Location = new System.Drawing.Point(0, 351);
-            this.cboCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(475, 31);
             this.cboCategoria.TabIndex = 5;
@@ -375,7 +375,7 @@
             // 
             this.spDescripcion.Dock = System.Windows.Forms.DockStyle.Top;
             this.spDescripcion.Location = new System.Drawing.Point(0, 309);
-            this.spDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.spDescripcion.Name = "spDescripcion";
             this.spDescripcion.Size = new System.Drawing.Size(475, 17);
             this.spDescripcion.TabIndex = 0;
@@ -385,7 +385,7 @@
             this.txtDescripcion.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtDescripcion.Location = new System.Drawing.Point(0, 241);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescripcion.MaxLength = 250;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
@@ -410,7 +410,7 @@
             // 
             this.spNombre.Dock = System.Windows.Forms.DockStyle.Top;
             this.spNombre.Location = new System.Drawing.Point(0, 199);
-            this.spNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spNombre.Margin = new System.Windows.Forms.Padding(4);
             this.spNombre.Name = "spNombre";
             this.spNombre.Size = new System.Drawing.Size(475, 17);
             this.spNombre.TabIndex = 0;
@@ -420,7 +420,7 @@
             this.txtNombre.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNombre.Location = new System.Drawing.Point(0, 169);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(475, 30);
@@ -444,7 +444,7 @@
             // 
             this.spCodigoBarras.Dock = System.Windows.Forms.DockStyle.Top;
             this.spCodigoBarras.Location = new System.Drawing.Point(0, 127);
-            this.spCodigoBarras.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spCodigoBarras.Margin = new System.Windows.Forms.Padding(4);
             this.spCodigoBarras.Name = "spCodigoBarras";
             this.spCodigoBarras.Size = new System.Drawing.Size(475, 17);
             this.spCodigoBarras.TabIndex = 0;
@@ -454,7 +454,7 @@
             this.txtCodigoBarras.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCodigoBarras.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtCodigoBarras.Location = new System.Drawing.Point(0, 97);
-            this.txtCodigoBarras.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodigoBarras.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigoBarras.MaxLength = 30;
             this.txtCodigoBarras.Name = "txtCodigoBarras";
             this.txtCodigoBarras.Size = new System.Drawing.Size(475, 30);
@@ -478,7 +478,7 @@
             // 
             this.spCodigo.Dock = System.Windows.Forms.DockStyle.Top;
             this.spCodigo.Location = new System.Drawing.Point(0, 55);
-            this.spCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.spCodigo.Name = "spCodigo";
             this.spCodigo.Size = new System.Drawing.Size(475, 17);
             this.spCodigo.TabIndex = 0;
@@ -488,7 +488,7 @@
             this.txtCodigo.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtCodigo.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtCodigo.Location = new System.Drawing.Point(0, 25);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigo.MaxLength = 20;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(475, 30);
@@ -517,7 +517,7 @@
             this.panelBotones.Controls.Add(this.btnGuardar);
             this.panelBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBotones.Location = new System.Drawing.Point(32, 586);
-            this.panelBotones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBotones.Margin = new System.Windows.Forms.Padding(4);
             this.panelBotones.Name = "panelBotones";
             this.panelBotones.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.panelBotones.Size = new System.Drawing.Size(496, 180);
@@ -529,7 +529,7 @@
             this.btnDesactivar.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.btnDesactivar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
             this.btnDesactivar.Location = new System.Drawing.Point(0, 133);
-            this.btnDesactivar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDesactivar.Margin = new System.Windows.Forms.Padding(4);
             this.btnDesactivar.Name = "btnDesactivar";
             this.btnDesactivar.Size = new System.Drawing.Size(496, 47);
             this.btnDesactivar.TabIndex = 0;
@@ -541,7 +541,7 @@
             // 
             this.spBoton2.Dock = System.Windows.Forms.DockStyle.Top;
             this.spBoton2.Location = new System.Drawing.Point(0, 123);
-            this.spBoton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spBoton2.Margin = new System.Windows.Forms.Padding(4);
             this.spBoton2.Name = "spBoton2";
             this.spBoton2.Size = new System.Drawing.Size(496, 10);
             this.spBoton2.TabIndex = 0;
@@ -552,7 +552,7 @@
             this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnCancelar.Location = new System.Drawing.Point(0, 74);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(496, 49);
             this.btnCancelar.TabIndex = 13;
@@ -563,7 +563,7 @@
             // 
             this.spBoton.Dock = System.Windows.Forms.DockStyle.Top;
             this.spBoton.Location = new System.Drawing.Point(0, 62);
-            this.spBoton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spBoton.Margin = new System.Windows.Forms.Padding(4);
             this.spBoton.Name = "spBoton";
             this.spBoton.Size = new System.Drawing.Size(496, 12);
             this.spBoton.TabIndex = 0;
@@ -579,7 +579,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(63)))), ((int)(((byte)(22)))));
             this.btnGuardar.Location = new System.Drawing.Point(0, 10);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(496, 52);
             this.btnGuardar.TabIndex = 12;
@@ -597,7 +597,7 @@
             this.Controls.Add(this.panelCamposDialogo);
             this.Controls.Add(this.panelBotones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmProducto";

@@ -47,5 +47,10 @@ namespace ProyectoFinal_Programacion3
                 dgvDatos.DataSource = claseNegocio.Listar();
             }
         }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            dgvDatos.DataSource = claseNegocio.Listar(txtBuscar.Text);
+        }
     }
 }
