@@ -94,11 +94,23 @@
     <Compile Include="FrmCliente.Designer.cs">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmClienteDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClienteDetalle.Designer.cs">
+      <DependentUpon>FrmClienteDetalle.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmClientes.Designer.cs">
       <DependentUpon>FrmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetalleVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetalleVenta.Designer.cs">
+      <DependentUpon>FrmDetalleVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEntrenador.cs">
       <SubType>Form</SubType>
@@ -242,8 +254,14 @@
     <EmbeddedResource Include="FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmClienteDetalle.resx">
+      <DependentUpon>FrmClienteDetalle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetalleVenta.resx">
+      <DependentUpon>FrmDetalleVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEntrenador.resx">
       <DependentUpon>FrmEntrenador.cs</DependentUpon>
