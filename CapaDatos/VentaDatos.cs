@@ -10,7 +10,7 @@ namespace CapaDatos
 {
     public class VentaDatos
     {
-        public int Insertar(Venta venta)
+        public int Insertar(Venta venta, int diasCredito)
         {
             using (var conexion = Conexion.ObtenerConexion())
             {
@@ -60,6 +60,21 @@ namespace CapaDatos
                             {
                                 cmd.Parameters.AddWithValue("@cantidad", detalle.Cantidad);
                                 cmd.Parameters.AddWithValue("@idProducto", detalle.IdProducto);
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+
+                        if (venta.TipoPago == "Credito")
+                        {
+                            string sqlCuenta = "insert into cuentas_cobrar (id_venta, id_cliente, monto_original, saldo, fecha_vencimiento) " +
+                                               "values (@idVenta, @idCliente, @total, @total, dateadd(day, @dias, cast(getdate() as date)))";
+
+                            using (var cmd = new SqlCommand(sqlCuenta, conexion, transaccion))
+                            {
+                                cmd.Parameters.AddWithValue("@idVenta", idVenta);
+                                cmd.Parameters.AddWithValue("@idCliente", venta.IdCliente);
+                                cmd.Parameters.AddWithValue("@total", venta.Total);
+                                cmd.Parameters.AddWithValue("@dias", diasCredito);
                                 cmd.ExecuteNonQuery();
                             }
                         }

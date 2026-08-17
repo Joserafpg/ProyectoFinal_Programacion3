@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -209,7 +209,14 @@ namespace ProyectoFinal_Programacion3
             }
             else
             {
-                MessageBox.Show("Venta #" + idVenta + " registrada. Total: RD$" + venta.Total.ToString("N2"), "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string aviso = "Venta #" + idVenta + " registrada. Total: RD$" + venta.Total.ToString("N2");
+
+                if (venta.TipoPago == "Credito")
+                {
+                    aviso += "\n\nQueda a crédito a nombre de " + clienteSeleccionado.NombreCompleto + ". Vence el " + DateTime.Today.AddDays(VentaNegocio.DiasCredito).ToString("dd/MM/yyyy") + ".";
+                }
+
+                MessageBox.Show(aviso, "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 carrito.Clear();
                 txtBuscar.Clear();
                 clienteSeleccionado = null;

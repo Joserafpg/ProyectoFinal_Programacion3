@@ -310,7 +310,8 @@ namespace ProyectoFinal_Programacion3
             this.cboTipoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipoPago.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.cboTipoPago.Items.AddRange(new object[] {
-            "Contado"});
+            "Contado",
+            "Credito"});
             this.cboTipoPago.Location = new System.Drawing.Point(0, 92);
             this.cboTipoPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboTipoPago.Name = "cboTipoPago";

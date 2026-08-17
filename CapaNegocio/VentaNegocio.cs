@@ -11,6 +11,7 @@ namespace CapaNegocio
     public class VentaNegocio
     {
         private VentaDatos datos = new VentaDatos();
+        public const int DiasCredito = 30;
 
         public string Insertar(Venta venta, out int idVenta)
         {
@@ -21,6 +22,9 @@ namespace CapaNegocio
 
             if (venta.IdUsuario <= 0)
                 return "No se pudo identificar el usuario que realiza la venta.";
+
+            if (venta.TipoPago == "Credito" && venta.IdCliente == null)
+                return "Para vender a crédito debe seleccionar un cliente.";
 
             var productos = new ProductoDatos().Listar();
 
@@ -40,7 +44,7 @@ namespace CapaNegocio
 
             try
             {
-                idVenta = datos.Insertar(venta);
+                idVenta = datos.Insertar(venta, DiasCredito);
                 return "";
             }
             catch (Exception ex)
