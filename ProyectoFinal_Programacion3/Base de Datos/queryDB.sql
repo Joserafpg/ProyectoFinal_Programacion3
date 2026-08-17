@@ -1,4 +1,4 @@
-set ansi_nulls on
+﻿set ansi_nulls on
 set quoted_identifier on
 go
 
@@ -368,4 +368,193 @@ values (1, 'Mi Gimnasio', 18.00, 500.00, 'Gracias por su compra')
 -- cliente generico para cobrar las visitas del dia
 insert into clientes (nombre, apellido, cedula)
 values ('Visitante', 'Del Dia', '000-0000000-0')
+go
+
+-- =====================================================================
+-- datos de prueba (las fechas son relativas a hoy para que el demo se vea actual)
+-- =====================================================================
+
+set xact_abort on
+begin transaction
+
+-- usuarios de prueba: cajero / Cajero123 y recepcion / Recepcion123
+insert into usuarios (id_rol, nombre_usuario, clave, nombre_completo, correo) values
+(2, 'cajero', CONVERT(nvarchar(64), HASHBYTES('SHA2_256', 'Cajero123'), 2), 'Pedro Cajero', 'cajero@gimnasio.com'),
+(3, 'recepcion', CONVERT(nvarchar(64), HASHBYTES('SHA2_256', 'Recepcion123'), 2), 'Maria Recepcion', 'recepcion@gimnasio.com')
+
+-- inventario
+insert into categorias (nombre, descripcion)
+select 'Suplementos', 'Proteinas, creatina y vitaminas' where not exists (select 1 from categorias where nombre = 'Suplementos')
+
+insert into categorias (nombre, descripcion) values
+('Bebidas', 'Agua, isotonicas y energeticas'),
+('Ropa deportiva', 'Camisetas, shorts y licras'),
+('Accesorios', 'Guantes, shakers y correas'),
+('Snacks', 'Barras y snacks proteicos')
+
+insert into marcas (nombre) values
+('Optimum Nutrition'), ('MuscleTech'), ('Gatorade'), ('Monster'), ('Dasani'), ('Nike'), ('Under Armour'), ('Quest'), ('SmartFit')
+
+insert into proveedores (nombre, rnc, telefono, correo, direccion) values
+('Suplementos del Caribe SRL', '131-12345-6', '809-555-1010', 'ventas@suplecaribe.com', 'Av. Estrella Sadhala, Santiago'),
+('Bebidas Nacionales SA', '101-98765-4', '809-555-2020', 'pedidos@bebidasnac.com', 'Zona Franca, Santiago'),
+('Deportes Cibao', '130-55555-1', '809-555-3030', 'info@deportescibao.com', 'Calle del Sol #45, Santiago')
+
+insert into productos (codigo, nombre, descripcion, id_categoria, id_marca, precio_compra, precio_venta, stock, stock_minimo) values
+('P100', 'Proteina Whey 2lb', 'Sabor chocolate', (select id_categoria from categorias where nombre = 'Suplementos'), (select id_marca from marcas where nombre = 'Optimum Nutrition'), 2200, 3200, 15, 5),
+('P101', 'Creatina Monohidrato 300g', 'Sin sabor', (select id_categoria from categorias where nombre = 'Suplementos'), (select id_marca from marcas where nombre = 'MuscleTech'), 900, 1450, 3, 5),
+('P102', 'Pre-entreno 30 servicios', 'Sabor fruit punch', (select id_categoria from categorias where nombre = 'Suplementos'), (select id_marca from marcas where nombre = 'MuscleTech'), 1500, 2300, 8, 4),
+('P103', 'Multivitaminico 60 capsulas', null, (select id_categoria from categorias where nombre = 'Suplementos'), (select id_marca from marcas where nombre = 'Optimum Nutrition'), 600, 950, 12, 5),
+('P104', 'Agua 500ml', null, (select id_categoria from categorias where nombre = 'Bebidas'), (select id_marca from marcas where nombre = 'Dasani'), 20, 50, 120, 40),
+('P105', 'Bebida isotonica 600ml', 'Sabor naranja', (select id_categoria from categorias where nombre = 'Bebidas'), (select id_marca from marcas where nombre = 'Gatorade'), 45, 90, 4, 24),
+('P106', 'Bebida energetica 250ml', null, (select id_categoria from categorias where nombre = 'Bebidas'), (select id_marca from marcas where nombre = 'Monster'), 70, 130, 30, 12),
+('P107', 'Camiseta dry-fit', 'Talla M y L', (select id_categoria from categorias where nombre = 'Ropa deportiva'), (select id_marca from marcas where nombre = 'Nike'), 650, 1200, 20, 5),
+('P108', 'Short deportivo', 'Talla M y L', (select id_categoria from categorias where nombre = 'Ropa deportiva'), (select id_marca from marcas where nombre = 'Under Armour'), 700, 1300, 10, 5),
+('P109', 'Guantes de gimnasio', 'Talla unica', (select id_categoria from categorias where nombre = 'Accesorios'), (select id_marca from marcas where nombre = 'Nike'), 400, 800, 6, 5),
+('P110', 'Shaker 700ml', 'Con logo del gimnasio', (select id_categoria from categorias where nombre = 'Accesorios'), (select id_marca from marcas where nombre = 'SmartFit'), 150, 350, 25, 10),
+('P111', 'Correas de agarre', 'Par', (select id_categoria from categorias where nombre = 'Accesorios'), (select id_marca from marcas where nombre = 'Under Armour'), 300, 600, 2, 5),
+('P112', 'Barra de proteina', 'Chocolate chip', (select id_categoria from categorias where nombre = 'Snacks'), (select id_marca from marcas where nombre = 'Quest'), 80, 150, 40, 20)
+
+-- horarios, entrenadores y clases
+insert into horarios (nombre, dias, hora_inicio, hora_fin) values
+('Manana', 'Lunes a Viernes', '06:00', '12:00'),
+('Tarde', 'Lunes a Viernes', '14:00', '20:00'),
+('Fin de semana', 'Sabado a Domingo', '08:00', '14:00')
+
+insert into entrenadores (nombre, apellido, cedula, telefono, correo, especialidad, id_horario) values
+('Maria', 'Rodriguez', '031-1111111-1', '829-111-1111', 'maria@gimnasio.com', 'Musculacion', (select id_horario from horarios where nombre = 'Manana')),
+('Pedro', 'Martinez', '031-2222222-2', '829-222-2222', 'pedro@gimnasio.com', 'CrossFit y funcional', (select id_horario from horarios where nombre = 'Tarde')),
+('Laura', 'Sanchez', '031-3333333-3', '829-333-3333', 'laura@gimnasio.com', 'Yoga y pilates', (select id_horario from horarios where nombre = 'Manana')),
+('Jose', 'Reyes', '031-4444444-4', '829-444-4444', 'jose@gimnasio.com', 'Boxeo', (select id_horario from horarios where nombre = 'Fin de semana'))
+
+insert into clases (nombre, descripcion, id_entrenador, dia_semana, hora_inicio, hora_fin, cupo_maximo) values
+('Zumba', 'Baile aerobico', (select id_entrenador from entrenadores where cedula = '031-3333333-3'), 'Lunes', '18:00', '19:00', 20),
+('CrossFit', 'Alta intensidad', (select id_entrenador from entrenadores where cedula = '031-2222222-2'), 'Martes', '17:00', '18:00', 15),
+('Yoga', 'Flexibilidad y respiracion', (select id_entrenador from entrenadores where cedula = '031-3333333-3'), 'Miercoles', '07:00', '08:00', 12),
+('Funcional', 'Circuitos con peso corporal', (select id_entrenador from entrenadores where cedula = '031-2222222-2'), 'Jueves', '18:00', '19:00', 15),
+('Pilates', 'Fuerza del core', (select id_entrenador from entrenadores where cedula = '031-3333333-3'), 'Viernes', '07:00', '08:00', 12),
+('Boxeo', 'Tecnica y saco', (select id_entrenador from entrenadores where cedula = '031-4444444-4'), 'Sabado', '09:00', '10:00', 10)
+
+-- planes de membresia
+insert into membresias (nombre, descripcion, duracion_dias, precio) values
+('Mensual', 'Acceso ilimitado por 30 dias', 30, 1500),
+('Trimestral', 'Acceso ilimitado por 3 meses', 90, 4000),
+('Semestral', 'Acceso ilimitado por 6 meses', 180, 7500),
+('Anual', 'Acceso ilimitado por un ano', 365, 14000),
+('Estudiante', 'Mensual con descuento, presentando carnet', 30, 1200)
+
+-- clientes
+insert into clientes (nombre, apellido, cedula, telefono, correo, direccion, fecha_nacimiento, sexo) values
+('Ana', 'Garcia', '402-2222222-2', '829-555-0001', 'ana.garcia@gmail.com', 'Los Jardines, Santiago', '1998-03-12', 'F'),
+('Luis', 'Fernandez', '402-3333333-3', '829-555-0002', 'luisfer@gmail.com', 'Villa Olga, Santiago', '1995-07-08', 'M'),
+('Carla', 'Nunez', '031-5555555-5', '829-555-0003', 'carla.n@hotmail.com', 'La Trinitaria, Santiago', '2001-11-23', 'F'),
+('Miguel', 'Torres', '402-6666666-6', '829-555-0004', 'mtorres@gmail.com', 'Cerros de Gurabo, Santiago', '1990-01-30', 'M'),
+('Sofia', 'Ramirez', '031-7777777-7', '829-555-0005', 'sofia.r@gmail.com', 'El Embrujo, Santiago', '1999-05-17', 'F'),
+('Andres', 'Polanco', '402-8888888-8', '829-555-0006', 'apolanco@gmail.com', 'Reparto del Este, Santiago', '1988-09-02', 'M'),
+('Valeria', 'Castillo', '031-9999999-9', '829-555-0007', 'vale.castillo@gmail.com', 'Jardines Metropolitanos, Santiago', '2002-02-14', 'F'),
+('Roberto', 'Jimenez', '402-1010101-0', '829-555-0008', 'rjimenez@gmail.com', 'Bella Vista, Santiago', '1993-12-05', 'M')
+
+-- membresias asignadas con su pago (mismo patron que usa el sistema)
+declare @idUsuario int = (select id_usuario from usuarios where nombre_usuario = 'admin')
+declare @hoy date = cast(getdate() as date)
+declare @idCliente int, @idMembresia int, @idClienteMembresia int, @idPago int, @idVenta int, @idProducto int
+
+-- Ana: Mensual activa (empezo hace 10 dias)
+set @idCliente = (select id_cliente from clientes where cedula = '402-2222222-2')
+set @idMembresia = (select id_membresia from membresias where nombre = 'Mensual')
+insert into cliente_membresia (id_cliente, id_membresia, fecha_inicio, fecha_fin) values (@idCliente, @idMembresia, dateadd(day, -10, @hoy), dateadd(day, 19, @hoy))
+set @idClienteMembresia = scope_identity()
+insert into pagos (fecha, id_cliente, id_usuario, metodo_pago, monto_total) values (dateadd(day, -10, getdate()), @idCliente, @idUsuario, 'Efectivo', 1500)
+set @idPago = scope_identity()
+insert into pagos_detalle (id_pago, id_cliente_membresia, concepto, monto) values (@idPago, @idClienteMembresia, 'Membresía Mensual (30 días)', 1500)
+
+-- Luis: Trimestral activa (empezo hace 30 dias)
+set @idCliente = (select id_cliente from clientes where cedula = '402-3333333-3')
+set @idMembresia = (select id_membresia from membresias where nombre = 'Trimestral')
+insert into cliente_membresia (id_cliente, id_membresia, fecha_inicio, fecha_fin) values (@idCliente, @idMembresia, dateadd(day, -30, @hoy), dateadd(day, 59, @hoy))
+set @idClienteMembresia = scope_identity()
+insert into pagos (fecha, id_cliente, id_usuario, metodo_pago, monto_total) values (dateadd(day, -30, getdate()), @idCliente, @idUsuario, 'Tarjeta', 4000)
+set @idPago = scope_identity()
+insert into pagos_detalle (id_pago, id_cliente_membresia, concepto, monto) values (@idPago, @idClienteMembresia, 'Membresía Trimestral (90 días)', 4000)
+
+-- Carla: Mensual VENCIDA hace 11 dias (debe renovar)
+set @idCliente = (select id_cliente from clientes where cedula = '031-5555555-5')
+set @idMembresia = (select id_membresia from membresias where nombre = 'Mensual')
+insert into cliente_membresia (id_cliente, id_membresia, fecha_inicio, fecha_fin) values (@idCliente, @idMembresia, dateadd(day, -40, @hoy), dateadd(day, -11, @hoy))
+set @idClienteMembresia = scope_identity()
+insert into pagos (fecha, id_cliente, id_usuario, metodo_pago, monto_total) values (dateadd(day, -40, getdate()), @idCliente, @idUsuario, 'Efectivo', 1500)
+set @idPago = scope_identity()
+insert into pagos_detalle (id_pago, id_cliente_membresia, concepto, monto) values (@idPago, @idClienteMembresia, 'Membresía Mensual (30 días)', 1500)
+
+-- Miguel: Anual activa (empezo hace 100 dias)
+set @idCliente = (select id_cliente from clientes where cedula = '402-6666666-6')
+set @idMembresia = (select id_membresia from membresias where nombre = 'Anual')
+insert into cliente_membresia (id_cliente, id_membresia, fecha_inicio, fecha_fin) values (@idCliente, @idMembresia, dateadd(day, -100, @hoy), dateadd(day, 264, @hoy))
+set @idClienteMembresia = scope_identity()
+insert into pagos (fecha, id_cliente, id_usuario, metodo_pago, monto_total) values (dateadd(day, -100, getdate()), @idCliente, @idUsuario, 'Transferencia', 14000)
+set @idPago = scope_identity()
+insert into pagos_detalle (id_pago, id_cliente_membresia, concepto, monto) values (@idPago, @idClienteMembresia, 'Membresía Anual (365 días)', 14000)
+
+-- Sofia: Estudiante VENCIDA hace 3 dias (debe renovar)
+set @idCliente = (select id_cliente from clientes where cedula = '031-7777777-7')
+set @idMembresia = (select id_membresia from membresias where nombre = 'Estudiante')
+insert into cliente_membresia (id_cliente, id_membresia, fecha_inicio, fecha_fin) values (@idCliente, @idMembresia, dateadd(day, -32, @hoy), dateadd(day, -3, @hoy))
+set @idClienteMembresia = scope_identity()
+insert into pagos (fecha, id_cliente, id_usuario, metodo_pago, monto_total) values (dateadd(day, -32, getdate()), @idCliente, @idUsuario, 'Efectivo', 1200)
+set @idPago = scope_identity()
+insert into pagos_detalle (id_pago, id_cliente_membresia, concepto, monto) values (@idPago, @idClienteMembresia, 'Membresía Estudiante (30 días)', 1200)
+
+-- Andres: Semestral activa que vence en 5 dias
+set @idCliente = (select id_cliente from clientes where cedula = '402-8888888-8')
+set @idMembresia = (select id_membresia from membresias where nombre = 'Semestral')
+insert into cliente_membresia (id_cliente, id_membresia, fecha_inicio, fecha_fin) values (@idCliente, @idMembresia, dateadd(day, -174, @hoy), dateadd(day, 5, @hoy))
+set @idClienteMembresia = scope_identity()
+insert into pagos (fecha, id_cliente, id_usuario, metodo_pago, monto_total) values (dateadd(day, -174, getdate()), @idCliente, @idUsuario, 'Tarjeta', 7500)
+set @idPago = scope_identity()
+insert into pagos_detalle (id_pago, id_cliente_membresia, concepto, monto) values (@idPago, @idClienteMembresia, 'Membresía Semestral (180 días)', 7500)
+
+-- Roberto no tiene membresia: hoy pago la visita del dia
+set @idCliente = (select id_cliente from clientes where cedula = '402-1010101-0')
+insert into pagos (id_cliente, id_usuario, metodo_pago, monto_total) values (@idCliente, @idUsuario, 'Efectivo', 500)
+set @idPago = scope_identity()
+insert into pagos_detalle (id_pago, concepto, monto) values (@idPago, 'Visita del día', 500)
+
+-- entradas de hoy y de ayer
+insert into asistencia (id_cliente, fecha) values
+((select id_cliente from clientes where cedula = '402-2222222-2'), dateadd(minute, 7 * 60 + 15, cast(@hoy as datetime))),
+((select id_cliente from clientes where cedula = '402-3333333-3'), dateadd(minute, 8 * 60 + 30, cast(@hoy as datetime))),
+((select id_cliente from clientes where cedula = '402-1010101-0'), dateadd(minute, 9 * 60 + 5, cast(@hoy as datetime))),
+((select id_cliente from clientes where cedula = '402-6666666-6'), dateadd(minute, 18 * 60 + 10, cast(dateadd(day, -1, @hoy) as datetime))),
+((select id_cliente from clientes where cedula = '402-8888888-8'), dateadd(minute, 19 * 60 + 40, cast(dateadd(day, -1, @hoy) as datetime)))
+
+-- ventas del pos (los precios quedan congelados en el detalle)
+
+-- venta 1: hoy, consumidor final, contado: 2 aguas + 3 barras
+insert into ventas (fecha, id_cliente, id_usuario, tipo_pago, subtotal, descuento, impuesto, total)
+values (dateadd(minute, 10 * 60 + 20, cast(@hoy as datetime)), null, @idUsuario, 'Contado', 550, 0, 99, 649)
+set @idVenta = scope_identity()
+insert into venta_detalle (id_venta, id_producto, cantidad, precio, descuento, subtotal) values
+(@idVenta, (select id_producto from productos where codigo = 'P104'), 2, 50, 0, 100),
+(@idVenta, (select id_producto from productos where codigo = 'P112'), 3, 150, 0, 450)
+
+-- venta 2: ayer, Ana, contado: 1 proteina
+set @idCliente = (select id_cliente from clientes where cedula = '402-2222222-2')
+insert into ventas (fecha, id_cliente, id_usuario, tipo_pago, subtotal, descuento, impuesto, total)
+values (dateadd(minute, 17 * 60 + 45, cast(dateadd(day, -1, @hoy) as datetime)), @idCliente, @idUsuario, 'Contado', 3200, 0, 576, 3776)
+set @idVenta = scope_identity()
+insert into venta_detalle (id_venta, id_producto, cantidad, precio, descuento, subtotal) values
+(@idVenta, (select id_producto from productos where codigo = 'P100'), 1, 3200, 0, 3200)
+
+-- venta 3: hace 3 dias, Luis, A CREDITO (queda pendiente en cuentas por cobrar): 2 camisetas + 1 shaker
+set @idCliente = (select id_cliente from clientes where cedula = '402-3333333-3')
+insert into ventas (fecha, id_cliente, id_usuario, tipo_pago, subtotal, descuento, impuesto, total)
+values (dateadd(minute, 16 * 60, cast(dateadd(day, -3, @hoy) as datetime)), @idCliente, @idUsuario, 'Credito', 2750, 0, 495, 3245)
+set @idVenta = scope_identity()
+insert into venta_detalle (id_venta, id_producto, cantidad, precio, descuento, subtotal) values
+(@idVenta, (select id_producto from productos where codigo = 'P107'), 2, 1200, 0, 2400),
+(@idVenta, (select id_producto from productos where codigo = 'P110'), 1, 350, 0, 350)
+insert into cuentas_cobrar (id_venta, id_cliente, monto_original, saldo, fecha_vencimiento)
+values (@idVenta, @idCliente, 3245, 3245, dateadd(day, 27, @hoy))
+
+commit transaction
 go
