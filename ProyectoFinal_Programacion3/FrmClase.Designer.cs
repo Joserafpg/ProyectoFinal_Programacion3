@@ -18,33 +18,33 @@
         private void InitializeComponent()
         {
             this.panelCamposDialogo = new System.Windows.Forms.Panel();
-            this.panelBotones = new System.Windows.Forms.Panel();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.spBoton = new System.Windows.Forms.Panel();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.spBoton2 = new System.Windows.Forms.Panel();
-            this.btnDesactivar = new System.Windows.Forms.Button();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.spNombre = new System.Windows.Forms.Panel();
-            this.lblDescripcion = new System.Windows.Forms.Label();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.spDescripcion = new System.Windows.Forms.Panel();
-            this.lblDiaSemana = new System.Windows.Forms.Label();
-            this.cboDiaSemana = new System.Windows.Forms.ComboBox();
-            this.spDiaSemana = new System.Windows.Forms.Panel();
-            this.lblHoraInicio = new System.Windows.Forms.Label();
-            this.dtpHoraInicio = new System.Windows.Forms.DateTimePicker();
-            this.spHoraInicio = new System.Windows.Forms.Panel();
-            this.lblHoraFin = new System.Windows.Forms.Label();
-            this.dtpHoraFin = new System.Windows.Forms.DateTimePicker();
-            this.spHoraFin = new System.Windows.Forms.Panel();
-            this.lblCupoMaximo = new System.Windows.Forms.Label();
-            this.txtCupoMaximo = new System.Windows.Forms.TextBox();
-            this.spCupoMaximo = new System.Windows.Forms.Panel();
-            this.lblEntrenador = new System.Windows.Forms.Label();
-            this.cboEntrenador = new System.Windows.Forms.ComboBox();
             this.spEntrenador = new System.Windows.Forms.Panel();
+            this.cboEntrenador = new System.Windows.Forms.ComboBox();
+            this.lblEntrenador = new System.Windows.Forms.Label();
+            this.spCupoMaximo = new System.Windows.Forms.Panel();
+            this.txtCupoMaximo = new System.Windows.Forms.TextBox();
+            this.lblCupoMaximo = new System.Windows.Forms.Label();
+            this.spHoraFin = new System.Windows.Forms.Panel();
+            this.dtpHoraFin = new System.Windows.Forms.DateTimePicker();
+            this.lblHoraFin = new System.Windows.Forms.Label();
+            this.spHoraInicio = new System.Windows.Forms.Panel();
+            this.dtpHoraInicio = new System.Windows.Forms.DateTimePicker();
+            this.lblHoraInicio = new System.Windows.Forms.Label();
+            this.spDiaSemana = new System.Windows.Forms.Panel();
+            this.cboDiaSemana = new System.Windows.Forms.ComboBox();
+            this.lblDiaSemana = new System.Windows.Forms.Label();
+            this.spDescripcion = new System.Windows.Forms.Panel();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.spNombre = new System.Windows.Forms.Panel();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.panelBotones = new System.Windows.Forms.Panel();
+            this.btnDesactivar = new System.Windows.Forms.Button();
+            this.spBoton2 = new System.Windows.Forms.Panel();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.spBoton = new System.Windows.Forms.Panel();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.panelCamposDialogo.SuspendLayout();
             this.panelBotones.SuspendLayout();
             this.SuspendLayout();
@@ -74,145 +74,158 @@
             this.panelCamposDialogo.Controls.Add(this.txtNombre);
             this.panelCamposDialogo.Controls.Add(this.lblNombre);
             this.panelCamposDialogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCamposDialogo.Location = new System.Drawing.Point(32, 15);
+            this.panelCamposDialogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelCamposDialogo.Name = "panelCamposDialogo";
-            this.panelCamposDialogo.Size = new System.Drawing.Size(372, 464);
+            this.panelCamposDialogo.Size = new System.Drawing.Size(496, 571);
             this.panelCamposDialogo.TabIndex = 0;
             // 
-            // panelBotones
+            // spEntrenador
             // 
-            this.panelBotones.Controls.Add(this.btnDesactivar);
-            this.panelBotones.Controls.Add(this.spBoton2);
-            this.panelBotones.Controls.Add(this.btnCancelar);
-            this.panelBotones.Controls.Add(this.spBoton);
-            this.panelBotones.Controls.Add(this.btnGuardar);
-            this.panelBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBotones.Name = "panelBotones";
-            this.panelBotones.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.panelBotones.Size = new System.Drawing.Size(372, 146);
-            this.panelBotones.TabIndex = 1;
+            this.spEntrenador.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spEntrenador.Location = new System.Drawing.Point(0, 527);
+            this.spEntrenador.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spEntrenador.Name = "spEntrenador";
+            this.spEntrenador.Size = new System.Drawing.Size(496, 17);
+            this.spEntrenador.TabIndex = 0;
             // 
-            // btnGuardar
+            // cboEntrenador
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(211)))), ((int)(((byte)(77)))));
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(191)))), ((int)(((byte)(36)))));
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
-            this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(63)))), ((int)(((byte)(22)))));
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            this.btnGuardar.Size = new System.Drawing.Size(372, 42);
-            this.btnGuardar.TabIndex = 8;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.cboEntrenador.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cboEntrenador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEntrenador.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cboEntrenador.Location = new System.Drawing.Point(0, 496);
+            this.cboEntrenador.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboEntrenador.Name = "cboEntrenador";
+            this.cboEntrenador.Size = new System.Drawing.Size(496, 31);
+            this.cboEntrenador.TabIndex = 7;
             // 
-            // spBoton
+            // lblEntrenador
             // 
-            this.spBoton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.spBoton.Name = "spBoton";
-            this.spBoton.Size = new System.Drawing.Size(372, 10);
-            this.spBoton.TabIndex = 0;
+            this.lblEntrenador.AutoSize = true;
+            this.lblEntrenador.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblEntrenador.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblEntrenador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
+            this.lblEntrenador.Location = new System.Drawing.Point(0, 471);
+            this.lblEntrenador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEntrenador.Name = "lblEntrenador";
+            this.lblEntrenador.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.lblEntrenador.Size = new System.Drawing.Size(87, 25);
+            this.lblEntrenador.TabIndex = 0;
+            this.lblEntrenador.Text = "Entrenador";
             // 
-            // btnCancelar
+            // spCupoMaximo
             // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(372, 40);
-            this.btnCancelar.TabIndex = 9;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.spCupoMaximo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spCupoMaximo.Location = new System.Drawing.Point(0, 454);
+            this.spCupoMaximo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spCupoMaximo.Name = "spCupoMaximo";
+            this.spCupoMaximo.Size = new System.Drawing.Size(496, 17);
+            this.spCupoMaximo.TabIndex = 0;
             // 
-            // spBoton2
+            // txtCupoMaximo
             // 
-            this.spBoton2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.spBoton2.Name = "spBoton2";
-            this.spBoton2.Size = new System.Drawing.Size(372, 8);
-            this.spBoton2.TabIndex = 0;
+            this.txtCupoMaximo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtCupoMaximo.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtCupoMaximo.Location = new System.Drawing.Point(0, 424);
+            this.txtCupoMaximo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCupoMaximo.MaxLength = 3;
+            this.txtCupoMaximo.Name = "txtCupoMaximo";
+            this.txtCupoMaximo.Size = new System.Drawing.Size(496, 30);
+            this.txtCupoMaximo.TabIndex = 6;
             // 
-            // btnDesactivar
+            // lblCupoMaximo
             // 
-            this.btnDesactivar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDesactivar.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.btnDesactivar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
-            this.btnDesactivar.Name = "btnDesactivar";
-            this.btnDesactivar.Click += new System.EventHandler(this.btnDesactivar_Click);
-            this.btnDesactivar.Size = new System.Drawing.Size(372, 38);
-            this.btnDesactivar.TabIndex = 0;
-            this.btnDesactivar.Text = "Desactivar";
-            this.btnDesactivar.UseVisualStyleBackColor = true;
+            this.lblCupoMaximo.AutoSize = true;
+            this.lblCupoMaximo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblCupoMaximo.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblCupoMaximo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
+            this.lblCupoMaximo.Location = new System.Drawing.Point(0, 399);
+            this.lblCupoMaximo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCupoMaximo.Name = "lblCupoMaximo";
+            this.lblCupoMaximo.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.lblCupoMaximo.Size = new System.Drawing.Size(107, 25);
+            this.lblCupoMaximo.TabIndex = 0;
+            this.lblCupoMaximo.Text = "Cupo máximo";
             // 
-            // lblNombre
+            // spHoraFin
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.lblNombre.Size = new System.Drawing.Size(60, 20);
-            this.lblNombre.TabIndex = 0;
-            this.lblNombre.Text = "Nombre";
+            this.spHoraFin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spHoraFin.Location = new System.Drawing.Point(0, 382);
+            this.spHoraFin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spHoraFin.Name = "spHoraFin";
+            this.spHoraFin.Size = new System.Drawing.Size(496, 17);
+            this.spHoraFin.TabIndex = 0;
             // 
-            // txtNombre
+            // dtpHoraFin
             // 
-            this.txtNombre.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.MaxLength = 50;
-            this.txtNombre.Size = new System.Drawing.Size(372, 25);
-            this.txtNombre.TabIndex = 1;
+            this.dtpHoraFin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dtpHoraFin.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dtpHoraFin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraFin.Location = new System.Drawing.Point(0, 352);
+            this.dtpHoraFin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpHoraFin.Name = "dtpHoraFin";
+            this.dtpHoraFin.ShowUpDown = true;
+            this.dtpHoraFin.Size = new System.Drawing.Size(496, 30);
+            this.dtpHoraFin.TabIndex = 5;
             // 
-            // spNombre
+            // lblHoraFin
             // 
-            this.spNombre.Dock = System.Windows.Forms.DockStyle.Top;
-            this.spNombre.Name = "spNombre";
-            this.spNombre.Size = new System.Drawing.Size(372, 14);
-            this.spNombre.TabIndex = 0;
+            this.lblHoraFin.AutoSize = true;
+            this.lblHoraFin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblHoraFin.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblHoraFin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
+            this.lblHoraFin.Location = new System.Drawing.Point(0, 327);
+            this.lblHoraFin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHoraFin.Name = "lblHoraFin";
+            this.lblHoraFin.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.lblHoraFin.Size = new System.Drawing.Size(87, 25);
+            this.lblHoraFin.TabIndex = 0;
+            this.lblHoraFin.Text = "Hora de fin";
             // 
-            // lblDescripcion
+            // spHoraInicio
             // 
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblDescripcion.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.lblDescripcion.Size = new System.Drawing.Size(60, 20);
-            this.lblDescripcion.TabIndex = 0;
-            this.lblDescripcion.Text = "Descripción";
+            this.spHoraInicio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spHoraInicio.Location = new System.Drawing.Point(0, 310);
+            this.spHoraInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spHoraInicio.Name = "spHoraInicio";
+            this.spHoraInicio.Size = new System.Drawing.Size(496, 17);
+            this.spHoraInicio.TabIndex = 0;
             // 
-            // txtDescripcion
+            // dtpHoraInicio
             // 
-            this.txtDescripcion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtDescripcion.Multiline = true;
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.MaxLength = 250;
-            this.txtDescripcion.Size = new System.Drawing.Size(372, 56);
-            this.txtDescripcion.TabIndex = 2;
+            this.dtpHoraInicio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dtpHoraInicio.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dtpHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraInicio.Location = new System.Drawing.Point(0, 280);
+            this.dtpHoraInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpHoraInicio.Name = "dtpHoraInicio";
+            this.dtpHoraInicio.ShowUpDown = true;
+            this.dtpHoraInicio.Size = new System.Drawing.Size(496, 30);
+            this.dtpHoraInicio.TabIndex = 4;
             // 
-            // spDescripcion
+            // lblHoraInicio
             // 
-            this.spDescripcion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.spDescripcion.Name = "spDescripcion";
-            this.spDescripcion.Size = new System.Drawing.Size(372, 14);
-            this.spDescripcion.TabIndex = 0;
+            this.lblHoraInicio.AutoSize = true;
+            this.lblHoraInicio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblHoraInicio.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblHoraInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
+            this.lblHoraInicio.Location = new System.Drawing.Point(0, 255);
+            this.lblHoraInicio.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHoraInicio.Name = "lblHoraInicio";
+            this.lblHoraInicio.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.lblHoraInicio.Size = new System.Drawing.Size(106, 25);
+            this.lblHoraInicio.TabIndex = 0;
+            this.lblHoraInicio.Text = "Hora de inicio";
             // 
-            // lblDiaSemana
+            // spDiaSemana
             // 
-            this.lblDiaSemana.AutoSize = true;
-            this.lblDiaSemana.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblDiaSemana.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblDiaSemana.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
-            this.lblDiaSemana.Name = "lblDiaSemana";
-            this.lblDiaSemana.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.lblDiaSemana.Size = new System.Drawing.Size(60, 20);
-            this.lblDiaSemana.TabIndex = 0;
-            this.lblDiaSemana.Text = "Día de la semana";
+            this.spDiaSemana.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spDiaSemana.Location = new System.Drawing.Point(0, 238);
+            this.spDiaSemana.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spDiaSemana.Name = "spDiaSemana";
+            this.spDiaSemana.Size = new System.Drawing.Size(496, 17);
+            this.spDiaSemana.TabIndex = 0;
             // 
             // cboDiaSemana
             // 
@@ -227,145 +240,189 @@
             "Viernes",
             "Sábado",
             "Domingo"});
+            this.cboDiaSemana.Location = new System.Drawing.Point(0, 207);
+            this.cboDiaSemana.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboDiaSemana.Name = "cboDiaSemana";
-            this.cboDiaSemana.Size = new System.Drawing.Size(372, 28);
+            this.cboDiaSemana.Size = new System.Drawing.Size(496, 31);
             this.cboDiaSemana.TabIndex = 3;
             // 
-            // spDiaSemana
+            // lblDiaSemana
             // 
-            this.spDiaSemana.Dock = System.Windows.Forms.DockStyle.Top;
-            this.spDiaSemana.Name = "spDiaSemana";
-            this.spDiaSemana.Size = new System.Drawing.Size(372, 14);
-            this.spDiaSemana.TabIndex = 0;
+            this.lblDiaSemana.AutoSize = true;
+            this.lblDiaSemana.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblDiaSemana.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblDiaSemana.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
+            this.lblDiaSemana.Location = new System.Drawing.Point(0, 182);
+            this.lblDiaSemana.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDiaSemana.Name = "lblDiaSemana";
+            this.lblDiaSemana.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.lblDiaSemana.Size = new System.Drawing.Size(128, 25);
+            this.lblDiaSemana.TabIndex = 0;
+            this.lblDiaSemana.Text = "Día de la semana";
             // 
-            // lblHoraInicio
+            // spDescripcion
             // 
-            this.lblHoraInicio.AutoSize = true;
-            this.lblHoraInicio.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblHoraInicio.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblHoraInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
-            this.lblHoraInicio.Name = "lblHoraInicio";
-            this.lblHoraInicio.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.lblHoraInicio.Size = new System.Drawing.Size(60, 20);
-            this.lblHoraInicio.TabIndex = 0;
-            this.lblHoraInicio.Text = "Hora de inicio";
+            this.spDescripcion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spDescripcion.Location = new System.Drawing.Point(0, 165);
+            this.spDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spDescripcion.Name = "spDescripcion";
+            this.spDescripcion.Size = new System.Drawing.Size(496, 17);
+            this.spDescripcion.TabIndex = 0;
             // 
-            // dtpHoraInicio
+            // txtDescripcion
             // 
-            this.dtpHoraInicio.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dtpHoraInicio.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dtpHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraInicio.ShowUpDown = true;
-            this.dtpHoraInicio.Name = "dtpHoraInicio";
-            this.dtpHoraInicio.Size = new System.Drawing.Size(372, 25);
-            this.dtpHoraInicio.TabIndex = 4;
+            this.txtDescripcion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtDescripcion.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtDescripcion.Location = new System.Drawing.Point(0, 97);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescripcion.MaxLength = 250;
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(496, 68);
+            this.txtDescripcion.TabIndex = 2;
             // 
-            // spHoraInicio
+            // lblDescripcion
             // 
-            this.spHoraInicio.Dock = System.Windows.Forms.DockStyle.Top;
-            this.spHoraInicio.Name = "spHoraInicio";
-            this.spHoraInicio.Size = new System.Drawing.Size(372, 14);
-            this.spHoraInicio.TabIndex = 0;
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblDescripcion.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
+            this.lblDescripcion.Location = new System.Drawing.Point(0, 72);
+            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.lblDescripcion.Size = new System.Drawing.Size(91, 25);
+            this.lblDescripcion.TabIndex = 0;
+            this.lblDescripcion.Text = "Descripción";
             // 
-            // lblHoraFin
+            // spNombre
             // 
-            this.lblHoraFin.AutoSize = true;
-            this.lblHoraFin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblHoraFin.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblHoraFin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
-            this.lblHoraFin.Name = "lblHoraFin";
-            this.lblHoraFin.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.lblHoraFin.Size = new System.Drawing.Size(60, 20);
-            this.lblHoraFin.TabIndex = 0;
-            this.lblHoraFin.Text = "Hora de fin";
+            this.spNombre.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spNombre.Location = new System.Drawing.Point(0, 55);
+            this.spNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spNombre.Name = "spNombre";
+            this.spNombre.Size = new System.Drawing.Size(496, 17);
+            this.spNombre.TabIndex = 0;
             // 
-            // dtpHoraFin
+            // txtNombre
             // 
-            this.dtpHoraFin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dtpHoraFin.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dtpHoraFin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpHoraFin.ShowUpDown = true;
-            this.dtpHoraFin.Name = "dtpHoraFin";
-            this.dtpHoraFin.Size = new System.Drawing.Size(372, 25);
-            this.dtpHoraFin.TabIndex = 5;
+            this.txtNombre.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtNombre.Location = new System.Drawing.Point(0, 25);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.MaxLength = 50;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(496, 30);
+            this.txtNombre.TabIndex = 1;
             // 
-            // spHoraFin
+            // lblNombre
             // 
-            this.spHoraFin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.spHoraFin.Name = "spHoraFin";
-            this.spHoraFin.Size = new System.Drawing.Size(372, 14);
-            this.spHoraFin.TabIndex = 0;
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblNombre.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
+            this.lblNombre.Location = new System.Drawing.Point(0, 0);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.lblNombre.Size = new System.Drawing.Size(68, 25);
+            this.lblNombre.TabIndex = 0;
+            this.lblNombre.Text = "Nombre";
             // 
-            // lblCupoMaximo
+            // panelBotones
             // 
-            this.lblCupoMaximo.AutoSize = true;
-            this.lblCupoMaximo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblCupoMaximo.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblCupoMaximo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
-            this.lblCupoMaximo.Name = "lblCupoMaximo";
-            this.lblCupoMaximo.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.lblCupoMaximo.Size = new System.Drawing.Size(60, 20);
-            this.lblCupoMaximo.TabIndex = 0;
-            this.lblCupoMaximo.Text = "Cupo máximo";
+            this.panelBotones.Controls.Add(this.btnDesactivar);
+            this.panelBotones.Controls.Add(this.spBoton2);
+            this.panelBotones.Controls.Add(this.btnCancelar);
+            this.panelBotones.Controls.Add(this.spBoton);
+            this.panelBotones.Controls.Add(this.btnGuardar);
+            this.panelBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelBotones.Location = new System.Drawing.Point(32, 586);
+            this.panelBotones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBotones.Name = "panelBotones";
+            this.panelBotones.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.panelBotones.Size = new System.Drawing.Size(496, 180);
+            this.panelBotones.TabIndex = 1;
             // 
-            // txtCupoMaximo
+            // btnDesactivar
             // 
-            this.txtCupoMaximo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.txtCupoMaximo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtCupoMaximo.Name = "txtCupoMaximo";
-            this.txtCupoMaximo.MaxLength = 3;
-            this.txtCupoMaximo.Size = new System.Drawing.Size(372, 25);
-            this.txtCupoMaximo.TabIndex = 6;
+            this.btnDesactivar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDesactivar.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.btnDesactivar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnDesactivar.Location = new System.Drawing.Point(0, 133);
+            this.btnDesactivar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDesactivar.Name = "btnDesactivar";
+            this.btnDesactivar.Size = new System.Drawing.Size(496, 47);
+            this.btnDesactivar.TabIndex = 0;
+            this.btnDesactivar.Text = "Desactivar";
+            this.btnDesactivar.UseVisualStyleBackColor = true;
+            this.btnDesactivar.Click += new System.EventHandler(this.btnDesactivar_Click);
             // 
-            // spCupoMaximo
+            // spBoton2
             // 
-            this.spCupoMaximo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.spCupoMaximo.Name = "spCupoMaximo";
-            this.spCupoMaximo.Size = new System.Drawing.Size(372, 14);
-            this.spCupoMaximo.TabIndex = 0;
+            this.spBoton2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spBoton2.Location = new System.Drawing.Point(0, 123);
+            this.spBoton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spBoton2.Name = "spBoton2";
+            this.spBoton2.Size = new System.Drawing.Size(496, 10);
+            this.spBoton2.TabIndex = 0;
             // 
-            // lblEntrenador
+            // btnCancelar
             // 
-            this.lblEntrenador.AutoSize = true;
-            this.lblEntrenador.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblEntrenador.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lblEntrenador.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
-            this.lblEntrenador.Name = "lblEntrenador";
-            this.lblEntrenador.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.lblEntrenador.Size = new System.Drawing.Size(60, 20);
-            this.lblEntrenador.TabIndex = 0;
-            this.lblEntrenador.Text = "Entrenador";
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnCancelar.Location = new System.Drawing.Point(0, 74);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(496, 49);
+            this.btnCancelar.TabIndex = 9;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // cboEntrenador
+            // spBoton
             // 
-            this.cboEntrenador.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cboEntrenador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEntrenador.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cboEntrenador.Name = "cboEntrenador";
-            this.cboEntrenador.Size = new System.Drawing.Size(372, 28);
-            this.cboEntrenador.TabIndex = 7;
+            this.spBoton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spBoton.Location = new System.Drawing.Point(0, 62);
+            this.spBoton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spBoton.Name = "spBoton";
+            this.spBoton.Size = new System.Drawing.Size(496, 12);
+            this.spBoton.TabIndex = 0;
             // 
-            // spEntrenador
+            // btnGuardar
             // 
-            this.spEntrenador.Dock = System.Windows.Forms.DockStyle.Top;
-            this.spEntrenador.Name = "spEntrenador";
-            this.spEntrenador.Size = new System.Drawing.Size(372, 14);
-            this.spEntrenador.TabIndex = 0;
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(211)))), ((int)(((byte)(77)))));
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(191)))), ((int)(((byte)(36)))));
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
+            this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(63)))), ((int)(((byte)(22)))));
+            this.btnGuardar.Location = new System.Drawing.Point(0, 10);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(496, 52);
+            this.btnGuardar.TabIndex = 8;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // FrmClase
             // 
             this.AcceptButton = this.btnGuardar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(420, 640);
+            this.ClientSize = new System.Drawing.Size(560, 788);
             this.Controls.Add(this.panelCamposDialogo);
             this.Controls.Add(this.panelBotones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmClase";
-            this.Padding = new System.Windows.Forms.Padding(24, 12, 24, 18);
+            this.Padding = new System.Windows.Forms.Padding(32, 15, 32, 22);
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Clase";

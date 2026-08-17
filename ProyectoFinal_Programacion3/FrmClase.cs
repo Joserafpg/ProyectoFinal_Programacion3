@@ -13,6 +13,7 @@ namespace ProyectoFinal_Programacion3
         public FrmClase()
         {
             InitializeComponent();
+            txtNombre.KeyPress += Validaciones.SoloLetras;
             txtCupoMaximo.KeyPress += Validaciones.SoloNumeros;
 
             cboEntrenador.DataSource = new EntrenadorNegocio().Listar();

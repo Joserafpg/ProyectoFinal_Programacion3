@@ -13,6 +13,7 @@ namespace ProyectoFinal_Programacion3
         public FrmHorario()
         {
             InitializeComponent();
+            txtNombre.KeyPress += Validaciones.SoloLetras;
             btnDesactivar.Visible = false;
         }
 
