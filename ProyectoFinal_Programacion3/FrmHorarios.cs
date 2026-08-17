@@ -21,6 +21,7 @@ namespace ProyectoFinal_Programacion3
 
         private void dgvDatos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
+            Columnas.Mostrar(dgvDatos, "Nombre", "Dias=Días", "HoraInicio=Hora inicio", "HoraFin=Hora fin", "Estado");
             dgvDatos.ClearSelection();
             dgvDatos.CurrentCell = null;
         }

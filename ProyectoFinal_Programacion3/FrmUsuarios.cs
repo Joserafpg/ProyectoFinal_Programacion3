@@ -21,6 +21,7 @@ namespace ProyectoFinal_Programacion3
 
         private void dgvDatos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
+            Columnas.Mostrar(dgvDatos, "NombreUsuario=Usuario", "NombreCompleto=Nombre completo", "Correo", "NombreRol=Rol", "Estado");
             dgvDatos.ClearSelection();
             dgvDatos.CurrentCell = null;
         }

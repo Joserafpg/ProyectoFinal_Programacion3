@@ -62,7 +62,7 @@
             this.dgvDatos.ColumnHeadersHeight = 29;
             this.dgvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDatos.Location = new System.Drawing.Point(37, 256);
-            this.dgvDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDatos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDatos.MultiSelect = false;
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.ReadOnly = true;
@@ -77,7 +77,7 @@
             // 
             this.spFiltros.Dock = System.Windows.Forms.DockStyle.Top;
             this.spFiltros.Location = new System.Drawing.Point(37, 234);
-            this.spFiltros.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spFiltros.Margin = new System.Windows.Forms.Padding(4);
             this.spFiltros.Name = "spFiltros";
             this.spFiltros.Size = new System.Drawing.Size(1318, 22);
             this.spFiltros.TabIndex = 0;
@@ -89,7 +89,7 @@
             this.panelFiltros.Controls.Add(this.panelBusqueda);
             this.panelFiltros.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelFiltros.Location = new System.Drawing.Point(37, 180);
-            this.panelFiltros.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelFiltros.Margin = new System.Windows.Forms.Padding(4);
             this.panelFiltros.Name = "panelFiltros";
             this.panelFiltros.Size = new System.Drawing.Size(1318, 54);
             this.panelFiltros.TabIndex = 1;
@@ -106,7 +106,7 @@
             "Entrenadores",
             "Clases"});
             this.cboVer.Location = new System.Drawing.Point(0, 10);
-            this.cboVer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboVer.Margin = new System.Windows.Forms.Padding(4);
             this.cboVer.Name = "cboVer";
             this.cboVer.Size = new System.Drawing.Size(252, 31);
             this.cboVer.TabIndex = 1;
@@ -122,7 +122,7 @@
             "Activos",
             "Inactivos"});
             this.cboEstado.Location = new System.Drawing.Point(275, 10);
-            this.cboEstado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboEstado.Margin = new System.Windows.Forms.Padding(4);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(199, 31);
             this.cboEstado.TabIndex = 2;
@@ -136,7 +136,7 @@
             this.panelBusqueda.Controls.Add(this.txtBuscar);
             this.panelBusqueda.Controls.Add(this.lblLupa);
             this.panelBusqueda.Location = new System.Drawing.Point(496, 0);
-            this.panelBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.panelBusqueda.Name = "panelBusqueda";
             this.panelBusqueda.Padding = new System.Windows.Forms.Padding(19, 15, 19, 15);
             this.panelBusqueda.Size = new System.Drawing.Size(822, 54);
@@ -150,7 +150,7 @@
             this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.txtBuscar.Location = new System.Drawing.Point(59, 15);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(742, 24);
             this.txtBuscar.TabIndex = 3;
@@ -170,7 +170,7 @@
             // 
             this.spTarjetas.Dock = System.Windows.Forms.DockStyle.Top;
             this.spTarjetas.Location = new System.Drawing.Point(37, 158);
-            this.spTarjetas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spTarjetas.Margin = new System.Windows.Forms.Padding(4);
             this.spTarjetas.Name = "spTarjetas";
             this.spTarjetas.Size = new System.Drawing.Size(1318, 22);
             this.spTarjetas.TabIndex = 0;
@@ -186,7 +186,7 @@
             this.panelTarjetas.Controls.Add(this.cardClientes);
             this.panelTarjetas.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTarjetas.Location = new System.Drawing.Point(37, 30);
-            this.panelTarjetas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelTarjetas.Margin = new System.Windows.Forms.Padding(4);
             this.panelTarjetas.Name = "panelTarjetas";
             this.panelTarjetas.Size = new System.Drawing.Size(1318, 128);
             this.panelTarjetas.TabIndex = 2;
@@ -199,7 +199,7 @@
             this.cardProductos.Controls.Add(this.lblCardProductos);
             this.cardProductos.Dock = System.Windows.Forms.DockStyle.Left;
             this.cardProductos.Location = new System.Drawing.Point(1002, 0);
-            this.cardProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cardProductos.Margin = new System.Windows.Forms.Padding(4);
             this.cardProductos.Name = "cardProductos";
             this.cardProductos.Padding = new System.Windows.Forms.Padding(27, 22, 21, 20);
             this.cardProductos.Size = new System.Drawing.Size(313, 128);
@@ -233,7 +233,7 @@
             // 
             this.spT3.Dock = System.Windows.Forms.DockStyle.Left;
             this.spT3.Location = new System.Drawing.Point(981, 0);
-            this.spT3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spT3.Margin = new System.Windows.Forms.Padding(4);
             this.spT3.Name = "spT3";
             this.spT3.Size = new System.Drawing.Size(21, 128);
             this.spT3.TabIndex = 0;
@@ -246,7 +246,7 @@
             this.cardClases.Controls.Add(this.lblCardClases);
             this.cardClases.Dock = System.Windows.Forms.DockStyle.Left;
             this.cardClases.Location = new System.Drawing.Point(668, 0);
-            this.cardClases.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cardClases.Margin = new System.Windows.Forms.Padding(4);
             this.cardClases.Name = "cardClases";
             this.cardClases.Padding = new System.Windows.Forms.Padding(27, 22, 21, 20);
             this.cardClases.Size = new System.Drawing.Size(313, 128);
@@ -280,7 +280,7 @@
             // 
             this.spT2.Dock = System.Windows.Forms.DockStyle.Left;
             this.spT2.Location = new System.Drawing.Point(647, 0);
-            this.spT2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spT2.Margin = new System.Windows.Forms.Padding(4);
             this.spT2.Name = "spT2";
             this.spT2.Size = new System.Drawing.Size(21, 128);
             this.spT2.TabIndex = 0;
@@ -293,7 +293,7 @@
             this.cardMembresias.Controls.Add(this.lblCardMembresias);
             this.cardMembresias.Dock = System.Windows.Forms.DockStyle.Left;
             this.cardMembresias.Location = new System.Drawing.Point(334, 0);
-            this.cardMembresias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cardMembresias.Margin = new System.Windows.Forms.Padding(4);
             this.cardMembresias.Name = "cardMembresias";
             this.cardMembresias.Padding = new System.Windows.Forms.Padding(27, 22, 21, 20);
             this.cardMembresias.Size = new System.Drawing.Size(313, 128);
@@ -327,7 +327,7 @@
             // 
             this.spT1.Dock = System.Windows.Forms.DockStyle.Left;
             this.spT1.Location = new System.Drawing.Point(313, 0);
-            this.spT1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spT1.Margin = new System.Windows.Forms.Padding(4);
             this.spT1.Name = "spT1";
             this.spT1.Size = new System.Drawing.Size(21, 128);
             this.spT1.TabIndex = 0;
@@ -340,7 +340,7 @@
             this.cardClientes.Controls.Add(this.lblCardClientes);
             this.cardClientes.Dock = System.Windows.Forms.DockStyle.Left;
             this.cardClientes.Location = new System.Drawing.Point(0, 0);
-            this.cardClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cardClientes.Margin = new System.Windows.Forms.Padding(4);
             this.cardClientes.Name = "cardClientes";
             this.cardClientes.Padding = new System.Windows.Forms.Padding(27, 22, 21, 20);
             this.cardClientes.Size = new System.Drawing.Size(313, 128);
@@ -382,7 +382,7 @@
             this.Controls.Add(this.spTarjetas);
             this.Controls.Add(this.panelTarjetas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmInicio";
             this.Padding = new System.Windows.Forms.Padding(37, 30, 32, 34);
             this.Text = "Inicio";

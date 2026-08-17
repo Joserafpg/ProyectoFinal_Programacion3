@@ -15,6 +15,7 @@ namespace ProyectoFinal_Programacion3
 
         private void dgvDatos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
+            Columnas.Mostrar(dgvDatos, "Codigo=Código", "Nombre", "NombreCategoria=Categoría", "NombreMarca=Marca", "PrecioCompra=Precio compra", "PrecioVenta=Precio venta", "Stock", "StockMinimo=Stock mínimo", "Estado");
             dgvDatos.ClearSelection();
             dgvDatos.CurrentCell = null;
         }
