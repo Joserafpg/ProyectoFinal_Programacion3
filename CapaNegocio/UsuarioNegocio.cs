@@ -24,7 +24,17 @@ namespace CapaNegocio
                 return null;
             }
 
-            Usuario usuario = datos.ObtenerPorNombreUsuario(nombreUsuario.Trim());
+            Usuario usuario;
+
+            try
+            {
+                usuario = datos.ObtenerPorNombreUsuario(nombreUsuario.Trim());
+            }
+            catch (SqlException ex)
+            {
+                mensaje = "No se pudo conectar a la base de datos. Verifique que SQL Server esté corriendo.\n\nDetalle: " + ex.Message;
+                return null;
+            }
 
             if (usuario == null)
             {
