@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using CapaEntidades;
 using CapaNegocio;
@@ -10,6 +12,7 @@ namespace ProyectoFinal_Programacion3
     public partial class FrmCliente : Form
     {
         ClienteNegocio clienteNegocio = new ClienteNegocio();
+        ClienteMembresiaNegocio clienteMembresiaNegocio = new ClienteMembresiaNegocio();
         Cliente clienteEditar = null;
         byte[] foto = null;
 
@@ -20,6 +23,14 @@ namespace ProyectoFinal_Programacion3
             txtApellido.KeyPress += Validaciones.SoloLetras;
             txtCedula.KeyPress += Validaciones.SoloNumerosYGuiones;
             txtTelefono.KeyPress += Validaciones.SoloNumerosYGuiones;
+
+            var planes = new MembresiaNegocio().Listar().Where(m => m.Estado).ToList();
+            planes.Insert(0, new Membresia { IdMembresia = 0, Nombre = "Sin membresía" });
+            cboMembresia.DataSource = planes;
+            cboMembresia.DisplayMember = "Nombre";
+            cboMembresia.ValueMember = "IdMembresia";
+            cboMetodoPago.SelectedIndex = 0;
+
             btnDesactivar.Visible = false;
         }
 
@@ -37,6 +48,12 @@ namespace ProyectoFinal_Programacion3
             txtCorreo.Text = cliente.Correo;
             txtDireccion.Text = cliente.Direccion;
             cboSexo.Text = cliente.Sexo;
+
+            var activa = clienteMembresiaNegocio.ObtenerActiva(cliente.IdCliente);
+            if (activa != null)
+            {
+                cboMembresia.SelectedValue = activa.IdMembresia;
+            }
 
             if (cliente.FechaNacimiento != null)
             {
@@ -110,10 +127,44 @@ namespace ProyectoFinal_Programacion3
             }
             else
             {
-                MessageBox.Show("Operacion realizada con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string mensajeMembresia = AsignarMembresiaSiAplica();
+
+                if (mensajeMembresia.Length > 0)
+                {
+                    MessageBox.Show("Cliente guardado, pero no se pudo cobrar la membresía: " + mensajeMembresia, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("Operacion realizada con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
                 DialogResult = DialogResult.OK;
                 Close();
             }
+        }
+
+        private string AsignarMembresiaSiAplica()
+        {
+            Membresia plan = cboMembresia.SelectedItem as Membresia;
+
+            if (plan == null || plan.IdMembresia == 0) return "";
+
+            Cliente cliente = clienteEditar;
+
+            if (cliente == null)
+            {
+                cliente = clienteNegocio.ObtenerPorCedula(txtCedula.Text);
+            }
+
+            if (cliente == null) return "";
+
+            var activa = clienteMembresiaNegocio.ObtenerActiva(cliente.IdCliente);
+
+            if (activa != null && activa.IdMembresia == plan.IdMembresia) return "";
+
+            if (Sesion.UsuarioActual == null) return "debe iniciar sesión para cobrar.";
+
+            return clienteMembresiaNegocio.Asignar(cliente, plan, cboMetodoPago.Text, Sesion.UsuarioActual.IdUsuario);
         }
 
         private void btnDesactivar_Click(object sender, EventArgs e)

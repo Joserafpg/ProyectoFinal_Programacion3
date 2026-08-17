@@ -1,0 +1,107 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
+using CapaEntidades;
+using CapaNegocio;
+
+namespace ProyectoFinal_Programacion3
+{
+    public partial class FrmAsignarMembresia : Form
+    {
+        ClienteMembresiaNegocio clienteMembresiaNegocio = new ClienteMembresiaNegocio();
+        Cliente cliente;
+        List<Membresia> planes = new List<Membresia>();
+
+        public FrmAsignarMembresia()
+        {
+            InitializeComponent();
+            Load += FrmAsignarMembresia_Load;
+            cboPlan.SelectedIndexChanged += cboPlan_SelectedIndexChanged;
+            btnCobrar.Click += btnCobrar_Click;
+        }
+
+        public FrmAsignarMembresia(Cliente clienteSeleccionado) : this()
+        {
+            cliente = clienteSeleccionado;
+        }
+
+        private void FrmAsignarMembresia_Load(object sender, EventArgs e)
+        {
+            if (cliente == null) return;
+
+            lblClienteNombre.Text = cliente.NombreCompleto;
+
+            var activa = clienteMembresiaNegocio.ObtenerActiva(cliente.IdCliente);
+
+            if (activa != null)
+            {
+                lblMembresiaActual.Text = "Membresía actual: " + activa.Membresia + " (vence el " + activa.FechaFin.ToString("dd/MM/yyyy") + ")";
+            }
+            else
+            {
+                var ultima = clienteMembresiaNegocio.ObtenerUltima(cliente.IdCliente);
+                lblMembresiaActual.Text = ultima == null
+                    ? "Sin membresía"
+                    : "Membresía vencida el " + ultima.FechaFin.ToString("dd/MM/yyyy");
+            }
+
+            planes = new MembresiaNegocio().Listar().Where(m => m.Estado).ToList();
+            cboPlan.DataSource = planes;
+            cboPlan.DisplayMember = "Nombre";
+            cboPlan.ValueMember = "IdMembresia";
+
+            cboMetodoPago.SelectedIndex = 0;
+            ActualizarResumen();
+        }
+
+        private void cboPlan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ActualizarResumen();
+        }
+
+        private void ActualizarResumen()
+        {
+            Membresia plan = cboPlan.SelectedItem as Membresia;
+            if (plan == null) return;
+
+            DateTime inicio = DateTime.Today;
+
+            var activa = clienteMembresiaNegocio.ObtenerActiva(cliente.IdCliente);
+            if (activa != null)
+            {
+                inicio = activa.FechaFin.AddDays(1);
+            }
+
+            DateTime fin = inicio.AddDays(plan.DuracionDias - 1);
+
+            lblPrecio.Text = "Precio: RD$" + plan.Precio.ToString("N2");
+            lblVigencia.Text = "Vigencia: " + inicio.ToString("dd/MM/yyyy") + " al " + fin.ToString("dd/MM/yyyy");
+            btnCobrar.Text = "Cobrar RD$" + plan.Precio.ToString("N2");
+        }
+
+        private void btnCobrar_Click(object sender, EventArgs e)
+        {
+            if (Sesion.UsuarioActual == null)
+            {
+                MessageBox.Show("Debe iniciar sesión para cobrar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Membresia plan = cboPlan.SelectedItem as Membresia;
+
+            string mensaje = clienteMembresiaNegocio.Asignar(cliente, plan, cboMetodoPago.Text, Sesion.UsuarioActual.IdUsuario);
+
+            if (mensaje.Length > 0)
+            {
+                MessageBox.Show(mensaje, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                MessageBox.Show("Pago registrado. Membresía asignada correctamente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+        }
+    }
+}

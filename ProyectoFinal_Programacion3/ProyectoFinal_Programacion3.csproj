@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAsignarMembresia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAsignarMembresia.Designer.cs">
+      <DependentUpon>FrmAsignarMembresia.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBuscarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,12 @@
     </Compile>
     <Compile Include="FrmCategorias.Designer.cs">
       <DependentUpon>FrmCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCheckIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCheckIn.Designer.cs">
+      <DependentUpon>FrmCheckIn.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmClase.cs">
       <SubType>Form</SubType>
@@ -206,8 +218,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sesion.cs" />
     <Compile Include="Validaciones.cs" />
+    <EmbeddedResource Include="FrmAsignarMembresia.resx">
+      <DependentUpon>FrmAsignarMembresia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscarCliente.resx">
       <DependentUpon>FrmBuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCheckIn.resx">
+      <DependentUpon>FrmCheckIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCategoria.resx">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
@@ -315,6 +333,7 @@
     <None Include="Resources\icono_logo_login.png" />
     <None Include="Resources\icono_mantenimientos.png" />
     <None Include="Resources\icono_membresias.png" />
+    <None Include="Resources\icono_pagos.png" />
     <None Include="Resources\icono_productos.png" />
     <None Include="Resources\icono_ventas.png" />
   </ItemGroup>

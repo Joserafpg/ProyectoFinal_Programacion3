@@ -140,6 +140,15 @@ namespace ProyectoFinal_Programacion3.Properties
             }
         }
 
+        internal static System.Drawing.Bitmap icono_pagos
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("icono_pagos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
         internal static System.Drawing.Bitmap icono_productos
         {
             get
