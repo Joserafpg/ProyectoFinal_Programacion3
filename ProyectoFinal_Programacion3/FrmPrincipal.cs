@@ -69,9 +69,19 @@ namespace ProyectoFinal_Programacion3
             AbrirFormulario(new FrmPos(), "Punto de venta", btnPos);
         }
 
+        private void btnCheckIn_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmCheckIn(), "Check-in", btnCheckIn);
+        }
+
         private void btnClientes_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmClientes(), "Clientes", btnClientes);
+        }
+
+        public void IrAClientes()
+        {
+            btnClientes.PerformClick();
         }
 
         private void btnMembresias_Click(object sender, EventArgs e)
@@ -127,10 +137,7 @@ namespace ProyectoFinal_Programacion3
 
         private void btnSubConfiguracion_Click(object sender, EventArgs e)
         {
-            // modulo de configuracion pendiente
-            CerrarFormularioActivo();
-            lblTituloPagina.Text = "Configuración";
-            ResaltarBoton(btnSubConfiguracion);
+            AbrirFormulario(new FrmConfiguracion(), "Configuración", btnSubConfiguracion);
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)

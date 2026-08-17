@@ -33,6 +33,7 @@
             this.btnMembresias = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnPos = new System.Windows.Forms.Button();
+            this.btnCheckIn = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.lblSeccionMenu = new System.Windows.Forms.Label();
             this.panelLogo = new System.Windows.Forms.Panel();
@@ -76,9 +77,9 @@
             this.panelMenuScroll.Controls.Add(this.panelSubMenu);
             this.panelMenuScroll.Controls.Add(this.btnMantenimientos);
             this.panelMenuScroll.Controls.Add(this.btnProductos);
-            this.panelMenuScroll.Controls.Add(this.btnMembresias);
             this.panelMenuScroll.Controls.Add(this.btnClientes);
             this.panelMenuScroll.Controls.Add(this.btnPos);
+            this.panelMenuScroll.Controls.Add(this.btnCheckIn);
             this.panelMenuScroll.Controls.Add(this.btnInicio);
             this.panelMenuScroll.Controls.Add(this.lblSeccionMenu);
             this.panelMenuScroll.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -97,13 +98,14 @@
             this.panelSubMenu.Controls.Add(this.btnSubHorarios);
             this.panelSubMenu.Controls.Add(this.btnSubEntrenadores);
             this.panelSubMenu.Controls.Add(this.btnSubProveedores);
+            this.panelSubMenu.Controls.Add(this.btnMembresias);
             this.panelSubMenu.Controls.Add(this.btnSubMarcas);
             this.panelSubMenu.Controls.Add(this.btnSubCategorias);
             this.panelSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMenu.Location = new System.Drawing.Point(0, 361);
             this.panelSubMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelSubMenu.Name = "panelSubMenu";
-            this.panelSubMenu.Size = new System.Drawing.Size(298, 374);
+            this.panelSubMenu.Size = new System.Drawing.Size(298, 421);
             this.panelSubMenu.TabIndex = 9;
             this.panelSubMenu.Visible = false;
             // 
@@ -331,19 +333,16 @@
             this.btnMembresias.FlatAppearance.BorderSize = 0;
             this.btnMembresias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
             this.btnMembresias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMembresias.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.btnMembresias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
-            this.btnMembresias.Image = global::ProyectoFinal_Programacion3.Properties.Resources.icono_membresias;
-            this.btnMembresias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMembresias.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnMembresias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(135)))), ((int)(((byte)(158)))));
             this.btnMembresias.Location = new System.Drawing.Point(0, 199);
             this.btnMembresias.Margin = new System.Windows.Forms.Padding(4);
             this.btnMembresias.Name = "btnMembresias";
-            this.btnMembresias.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnMembresias.Size = new System.Drawing.Size(298, 54);
+            this.btnMembresias.Padding = new System.Windows.Forms.Padding(59, 0, 0, 0);
+            this.btnMembresias.Size = new System.Drawing.Size(298, 47);
             this.btnMembresias.TabIndex = 6;
             this.btnMembresias.Text = "Membresías";
             this.btnMembresias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMembresias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMembresias.UseVisualStyleBackColor = false;
             this.btnMembresias.Click += new System.EventHandler(this.btnMembresias_Click);
             // 
@@ -394,6 +393,29 @@
             this.btnPos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPos.UseVisualStyleBackColor = false;
             this.btnPos.Click += new System.EventHandler(this.btnPos_Click);
+            //
+            // btnCheckIn
+            //
+            this.btnCheckIn.BackColor = System.Drawing.Color.White;
+            this.btnCheckIn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCheckIn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCheckIn.FlatAppearance.BorderSize = 0;
+            this.btnCheckIn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
+            this.btnCheckIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckIn.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.btnCheckIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
+            this.btnCheckIn.Image = global::ProyectoFinal_Programacion3.Properties.Resources.icono_membresias;
+            this.btnCheckIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckIn.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCheckIn.Name = "btnCheckIn";
+            this.btnCheckIn.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnCheckIn.Size = new System.Drawing.Size(298, 54);
+            this.btnCheckIn.TabIndex = 12;
+            this.btnCheckIn.Text = "Check-in";
+            this.btnCheckIn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCheckIn.UseVisualStyleBackColor = false;
+            this.btnCheckIn.Click += new System.EventHandler(this.btnCheckIn_Click);
             // 
             // btnInicio
             // 
@@ -629,6 +651,7 @@
         private System.Windows.Forms.Label lblSeccionMenu;
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.Button btnPos;
+        private System.Windows.Forms.Button btnCheckIn;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnMembresias;
         private System.Windows.Forms.Button btnProductos;
