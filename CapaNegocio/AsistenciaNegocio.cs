@@ -17,6 +17,9 @@ namespace CapaNegocio
             if (idCliente <= 0)
                 return "Cliente no válido.";
 
+            if (new ClienteMembresiaDatos().ObtenerActiva(idCliente) == null)
+                return "El cliente no tiene una membresía activa. Debe renovar o pagar la visita del día.";
+
             if (datos.YaEntroHoy(idCliente))
                 return "Este cliente ya registró su entrada hoy.";
 

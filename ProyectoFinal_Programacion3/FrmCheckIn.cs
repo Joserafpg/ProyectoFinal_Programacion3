@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using CapaEntidades;
@@ -10,93 +11,166 @@ namespace ProyectoFinal_Programacion3
     {
         ClienteNegocio clienteNegocio = new ClienteNegocio();
         ClienteMembresiaNegocio clienteMembresiaNegocio = new ClienteMembresiaNegocio();
-        PagoNegocio pagoNegocio = new PagoNegocio();
+        AsistenciaNegocio asistenciaNegocio = new AsistenciaNegocio();
+
+        Color verde = Color.FromArgb(39, 134, 56);
+        Color rojo = Color.FromArgb(220, 53, 69);
 
         public FrmCheckIn()
         {
             InitializeComponent();
             Load += FrmCheckIn_Load;
-            btnCobrarVisita.Click += btnCobrarVisita_Click;
-            btnExplorar.Click += btnExplorar_Click;
-            dgvMorosos.CellDoubleClick += dgvMorosos_CellDoubleClick;
+            txtCedula.KeyPress += Validaciones.SoloNumerosYGuiones;
+            txtCedula.KeyDown += txtCedula_KeyDown;
+            txtCedula.TextChanged += txtCedula_TextChanged;
+            btnRegistrar.Click += btnRegistrar_Click;
+            btnBuscarCliente.Click += btnBuscarCliente_Click;
+            timerLimpiar.Tick += timerLimpiar_Tick;
+            dgvEntradas.DataBindingComplete += dgvEntradas_DataBindingComplete;
         }
 
         private void FrmCheckIn_Load(object sender, EventArgs e)
         {
-            lblVisita.Text = "Dar acceso sin membresía · Visita del día: RD$" + pagoNegocio.ObtenerMontoVisita().ToString("N2");
-            cboMetodoVisita.SelectedIndex = 0;
-            CargarMorosos();
+            CargarEntradasHoy();
+            txtCedula.Focus();
         }
 
-        private void CargarMorosos()
+        private void CargarEntradasHoy()
         {
-            dgvMorosos.DataSource = clienteMembresiaNegocio.ListarVencidas();
+            var entradas = asistenciaNegocio.ListarHoy();
+            dgvEntradas.DataSource = entradas;
 
-            string[] visibles = { "Cliente", "Cedula", "Membresia", "FechaFin" };
-            foreach (DataGridViewColumn columna in dgvMorosos.Columns)
+            string[] visibles = { "Cliente", "Fecha" };
+            foreach (DataGridViewColumn columna in dgvEntradas.Columns)
             {
                 columna.Visible = visibles.Contains(columna.Name);
             }
 
-            if (dgvMorosos.Columns.Contains("Cedula"))
+            if (dgvEntradas.Columns.Contains("Fecha"))
             {
-                dgvMorosos.Columns["Cedula"].HeaderText = "Cédula";
+                dgvEntradas.Columns["Fecha"].HeaderText = "Hora de entrada";
+                dgvEntradas.Columns["Fecha"].DefaultCellStyle.Format = "hh:mm tt";
             }
 
-            if (dgvMorosos.Columns.Contains("Membresia"))
-            {
-                dgvMorosos.Columns["Membresia"].HeaderText = "Último plan";
-            }
-
-            if (dgvMorosos.Columns.Contains("FechaFin"))
-            {
-                dgvMorosos.Columns["FechaFin"].HeaderText = "Venció el";
-                dgvMorosos.Columns["FechaFin"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            }
-
-            dgvMorosos.ClearSelection();
+            dgvEntradas.ClearSelection();
+            lblEntradas.Text = "Entradas de hoy · " + entradas.Count + " personas";
         }
 
-        private void dgvMorosos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvEntradas_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            if (e.RowIndex < 0) return;
-
-            ClienteMembresia vencida = (ClienteMembresia)dgvMorosos.Rows[e.RowIndex].DataBoundItem;
-            Cliente cliente = clienteNegocio.ObtenerPorCedula(vencida.Cedula);
-
-            if (cliente == null) return;
-
-            FrmClienteDetalle detalle = new FrmClienteDetalle(cliente);
-            detalle.ShowDialog(this);
-            CargarMorosos();
+            dgvEntradas.ClearSelection();
+            dgvEntradas.CurrentCell = null;
         }
 
-        private void btnExplorar_Click(object sender, EventArgs e)
+        private void txtCedula_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                RegistrarEntrada();
+            }
+        }
+
+        private void txtCedula_TextChanged(object sender, EventArgs e)
+        {
+            timerLimpiar.Stop();
+            lblResultado.Text = "";
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            RegistrarEntrada();
+        }
+
+        // por si la persona no se sabe la cedula: se busca por nombre y se registra igual
+        private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
             FrmBuscarCliente buscador = new FrmBuscarCliente();
-            buscador.ModoExplorar = true;
-            buscador.ShowDialog(this);
-            CargarMorosos();
+            buscador.SinConsumidorFinal = true;
+
+            if (buscador.ShowDialog(this) == DialogResult.OK && buscador.ClienteSeleccionado != null)
+            {
+                txtCedula.Text = buscador.ClienteSeleccionado.Cedula;
+                RegistrarEntrada();
+            }
         }
 
-        private void btnCobrarVisita_Click(object sender, EventArgs e)
+        private void RegistrarEntrada()
         {
-            if (Sesion.UsuarioActual == null)
+            string cedula = txtCedula.Text.Trim();
+
+            if (cedula.Length == 0)
             {
-                MessageBox.Show("Debe iniciar sesión para cobrar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MostrarResultado("Escriba su cédula.", rojo);
                 return;
             }
 
-            string mensaje = pagoNegocio.CobrarVisita(cboMetodoVisita.Text, Sesion.UsuarioActual.IdUsuario);
+            Cliente cliente = clienteNegocio.ObtenerPorCedula(cedula);
+
+            if (cliente == null || !cliente.Estado)
+            {
+                MostrarResultado("No encontramos esa cédula. Pase por recepción.", rojo);
+                return;
+            }
+
+            var activa = clienteMembresiaNegocio.ObtenerActiva(cliente.IdCliente);
+
+            if (activa == null)
+            {
+                var ultima = clienteMembresiaNegocio.ObtenerUltima(cliente.IdCliente);
+
+                if (ultima == null)
+                {
+                    MostrarResultado(cliente.NombreCompleto + " · no tiene membresía. Pase por recepción.", rojo);
+                }
+                else
+                {
+                    int dias = (DateTime.Today - ultima.FechaFin).Days;
+                    MostrarResultado(cliente.NombreCompleto + " · su " + ultima.Membresia + " venció el " + ultima.FechaFin.ToString("dd/MM/yyyy") + " (hace " + dias + " días). Pase por recepción.", rojo);
+                }
+
+                return;
+            }
+
+            string confirmacion = cliente.NombreCompleto + "\n" + activa.Membresia + " · vence el " + activa.FechaFin.ToString("dd/MM/yyyy") + "\n\n¿Registrar la entrada?";
+
+            if (MessageBox.Show(confirmacion, "Confirmar entrada", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+            {
+                txtCedula.Clear();
+                txtCedula.Focus();
+                return;
+            }
+
+            string mensaje = asistenciaNegocio.RegistrarEntrada(cliente.IdCliente);
 
             if (mensaje.Length > 0)
             {
-                MessageBox.Show(mensaje, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MostrarResultado(cliente.NombreCompleto + " · " + mensaje, rojo);
+                return;
             }
-            else
-            {
-                MessageBox.Show("Visita cobrada. Puede pasar.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+
+            CargarEntradasHoy();
+            MessageBox.Show("Entrada confirmada.\n\n¡Bienvenido/a, " + cliente.NombreCompleto + "! Puede pasar.", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MostrarResultado("Bienvenido/a, " + cliente.NombreCompleto + " · " + activa.Membresia + " vence el " + activa.FechaFin.ToString("dd/MM/yyyy") + " · Puede pasar", verde);
+        }
+
+        // muestra el mensaje y en unos segundos limpia todo para la siguiente persona
+        private void MostrarResultado(string texto, Color color)
+        {
+            timerLimpiar.Stop();
+            lblResultado.Text = texto;
+            lblResultado.ForeColor = color;
+            txtCedula.SelectAll();
+            txtCedula.Focus();
+            timerLimpiar.Start();
+        }
+
+        private void timerLimpiar_Tick(object sender, EventArgs e)
+        {
+            timerLimpiar.Stop();
+            txtCedula.Clear();
+            lblResultado.Text = "";
+            txtCedula.Focus();
         }
     }
 }

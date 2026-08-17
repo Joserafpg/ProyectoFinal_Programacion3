@@ -148,7 +148,7 @@ namespace CapaDatos
         {
             using (var conexion = Conexion.ObtenerConexion())
             {
-                string sql = "select id_cliente, nombre, apellido, cedula, estado from clientes where cedula = @cedula";
+                string sql = "select id_cliente, nombre, apellido, cedula, estado from clientes where replace(cedula, '-', '') = replace(@cedula, '-', '')";
 
                 using (var cmd = new SqlCommand(sql, conexion))
                 {
