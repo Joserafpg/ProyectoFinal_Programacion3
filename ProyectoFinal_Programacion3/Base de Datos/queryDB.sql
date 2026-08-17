@@ -305,6 +305,7 @@ create table configuracion(
 	direccion nvarchar(200),
 	correo nvarchar(100),
 	porcentaje_impuesto decimal(5,2) NOT NULL DEFAULT 18.00,
+	monto_visita decimal(10,2) NOT NULL DEFAULT 500.00,
 	mensaje_recibo nvarchar(200),
 	logo varbinary(max)
 )
@@ -361,6 +362,10 @@ select 3, id_permiso from permisos where nombre in ('CLIENTES','MEMBRESIAS','CLA
 insert into usuarios (id_rol, nombre_usuario, clave, nombre_completo, correo)
 values (1, 'admin', CONVERT(nvarchar(64), HASHBYTES('SHA2_256', 'Admin123'), 2), 'Administrador del Sistema', 'admin@gimnasio.com')
 
-insert into configuracion (id_configuracion, nombre_gimnasio, porcentaje_impuesto, mensaje_recibo)
-values (1, 'Mi Gimnasio', 18.00, 'Gracias por su compra')
+insert into configuracion (id_configuracion, nombre_gimnasio, porcentaje_impuesto, monto_visita, mensaje_recibo)
+values (1, 'Mi Gimnasio', 18.00, 500.00, 'Gracias por su compra')
+
+-- cliente generico para cobrar las visitas del dia
+insert into clientes (nombre, apellido, cedula)
+values ('Visitante', 'Del Dia', '000-0000000-0')
 go

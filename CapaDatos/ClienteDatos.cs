@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -142,6 +142,37 @@ namespace CapaDatos
                 FechaRegistro = (DateTime)dr["fecha_registro"],
                 Estado = (bool)dr["estado"]
             };
+        }
+
+        public Cliente ObtenerPorCedula(string cedula)
+        {
+            using (var conexion = Conexion.ObtenerConexion())
+            {
+                string sql = "select id_cliente, nombre, apellido, cedula, estado from clientes where cedula = @cedula";
+
+                using (var cmd = new SqlCommand(sql, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@cedula", cedula);
+                    conexion.Open();
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            return new Cliente
+                            {
+                                IdCliente = (int)dr["id_cliente"],
+                                Nombre = dr["nombre"].ToString(),
+                                Apellido = dr["apellido"].ToString(),
+                                Cedula = dr["cedula"].ToString(),
+                                Estado = (bool)dr["estado"]
+                            };
+                        }
+                    }
+                }
+            }
+
+            return null;
         }
     }
 }

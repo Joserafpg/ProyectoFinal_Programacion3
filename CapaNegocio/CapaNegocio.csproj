@@ -41,13 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsistenciaNegocio.cs" />
     <Compile Include="CategoriaNegocio.cs" />
     <Compile Include="ClaseNegocio.cs" />
+    <Compile Include="ClienteMembresiaNegocio.cs" />
     <Compile Include="ClienteNegocio.cs" />
+    <Compile Include="ConfiguracionNegocio.cs" />
     <Compile Include="EntrenadorNegocio.cs" />
     <Compile Include="HorarioNegocio.cs" />
     <Compile Include="MarcaNegocio.cs" />
     <Compile Include="MembresiaNegocio.cs" />
+    <Compile Include="PagoNegocio.cs" />
     <Compile Include="ProductoNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProveedorNegocio.cs" />

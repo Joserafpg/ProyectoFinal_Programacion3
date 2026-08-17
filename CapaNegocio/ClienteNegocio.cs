@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using CapaDatos;
 using CapaEntidades;
@@ -85,6 +85,11 @@ namespace CapaNegocio
                 return "La cédula del cliente es obligatoria.";
 
             return "";
+        }
+
+        public Cliente ObtenerPorCedula(string cedula)
+        {
+            return datos.ObtenerPorCedula(cedula);
         }
     }
 }

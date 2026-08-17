@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes\Asistencia.cs" />
     <Compile Include="Clientes\Cliente.cs" />
+    <Compile Include="Clientes\ClienteMembresia.cs" />
     <Compile Include="Clientes\Membresia.cs" />
+    <Compile Include="Clientes\Pago.cs" />
+    <Compile Include="Configuracion.cs" />
     <Compile Include="Entrenamiento\Clase.cs" />
     <Compile Include="Entrenamiento\Entrenador.cs" />
     <Compile Include="Entrenamiento\Horario.cs" />
