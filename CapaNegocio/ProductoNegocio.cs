@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Data.SqlClient;
 using CapaDatos;
 using CapaEntidades;
@@ -17,6 +18,15 @@ namespace CapaNegocio
         public List<Producto> Listar(string texto)
         {
             return datos.Listar(texto.Trim());
+        }
+
+        // productos activos que estan en o por debajo de su stock minimo (los mas urgentes primero)
+        public List<Producto> ListarBajoStock()
+        {
+            return datos.Listar()
+                .Where(p => p.Estado && p.Stock <= p.StockMinimo)
+                .OrderBy(p => p.Stock - p.StockMinimo)
+                .ToList();
         }
 
         public string Insertar(Producto producto)

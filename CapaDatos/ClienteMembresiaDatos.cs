@@ -164,6 +164,55 @@ namespace CapaDatos
             return lista;
         }
 
+        // ultima membresia de cada cliente que vence entre hoy y los proximos dias indicados
+        public List<ClienteMembresia> ListarPorVencer(int dias)
+        {
+            var lista = new List<ClienteMembresia>();
+
+            using (var conexion = Conexion.ObtenerConexion())
+            {
+                string sql = "select cm.id_cliente_membresia, cm.id_cliente, cm.id_membresia, cm.fecha_inicio, cm.fecha_fin, cm.estado, " +
+                             "m.nombre as membresia, c.nombre + ' ' + c.apellido as cliente, c.cedula " +
+                             "from cliente_membresia cm " +
+                             "inner join membresias m on m.id_membresia = cm.id_membresia " +
+                             "inner join clientes c on c.id_cliente = cm.id_cliente " +
+                             "where c.estado = 1 " +
+                             "and cm.fecha_fin = (select max(cm2.fecha_fin) from cliente_membresia cm2 where cm2.id_cliente = cm.id_cliente) " +
+                             "and cm.fecha_fin between cast(getdate() as date) and dateadd(day, @dias, cast(getdate() as date)) " +
+                             "order by cm.fecha_fin";
+
+                using (var cmd = new SqlCommand(sql, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@dias", dias);
+                    conexion.Open();
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                            lista.Add(Mapear(dr));
+                    }
+                }
+            }
+
+            return lista;
+        }
+
+        public int ContarActivas()
+        {
+            using (var conexion = Conexion.ObtenerConexion())
+            {
+                string sql = "select count(*) from clientes c " +
+                             "where c.estado = 1 and exists (select 1 from cliente_membresia cm " +
+                             "where cm.id_cliente = c.id_cliente and cm.estado = 'Activa' and cm.fecha_fin >= cast(getdate() as date))";
+
+                using (var cmd = new SqlCommand(sql, conexion))
+                {
+                    conexion.Open();
+                    return (int)cmd.ExecuteScalar();
+                }
+            }
+        }
+
         private ClienteMembresia Mapear(SqlDataReader dr)
         {
             return new ClienteMembresia

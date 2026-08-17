@@ -73,5 +73,15 @@ namespace CapaNegocio
         {
             return datos.ListarVencidas();
         }
+
+        public List<ClienteMembresia> ListarPorVencer(int dias)
+        {
+            return datos.ListarPorVencer(dias);
+        }
+
+        public int ContarActivas()
+        {
+            return datos.ContarActivas();
+        }
     }
 }
