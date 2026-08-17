@@ -76,6 +76,89 @@ namespace CapaDatos
             }
         }
 
+        public List<Venta> ListarPorCliente(int idCliente)
+        {
+            var lista = new List<Venta>();
+
+            using (var conexion = Conexion.ObtenerConexion())
+            {
+                string sql = "select v.id_venta, v.fecha, v.tipo_pago, v.subtotal, v.descuento, v.impuesto, v.total, v.estado, " +
+                             "isnull(c.nombre + ' ' + c.apellido, 'Consumidor final') as cliente, u.nombre_completo as usuario " +
+                             "from ventas v " +
+                             "left join clientes c on c.id_cliente = v.id_cliente " +
+                             "inner join usuarios u on u.id_usuario = v.id_usuario " +
+                             "where v.id_cliente = @idCliente " +
+                             "order by v.fecha desc";
+
+                using (var cmd = new SqlCommand(sql, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@idCliente", idCliente);
+                    conexion.Open();
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Venta
+                            {
+                                IdVenta = (int)dr["id_venta"],
+                                Fecha = (DateTime)dr["fecha"],
+                                TipoPago = dr["tipo_pago"].ToString(),
+                                Subtotal = (decimal)dr["subtotal"],
+                                Descuento = (decimal)dr["descuento"],
+                                Impuesto = (decimal)dr["impuesto"],
+                                Total = (decimal)dr["total"],
+                                Estado = dr["estado"].ToString(),
+                                Cliente = dr["cliente"].ToString(),
+                                Usuario = dr["usuario"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
+
+        public List<VentaDetalle> ListarDetalle(int idVenta)
+        {
+            var lista = new List<VentaDetalle>();
+
+            using (var conexion = Conexion.ObtenerConexion())
+            {
+                string sql = "select d.id_detalle, d.id_venta, d.id_producto, p.nombre as producto, d.cantidad, d.precio, d.descuento, d.subtotal " +
+                             "from venta_detalle d " +
+                             "inner join productos p on p.id_producto = d.id_producto " +
+                             "where d.id_venta = @idVenta";
+
+                using (var cmd = new SqlCommand(sql, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@idVenta", idVenta);
+                    conexion.Open();
+
+                    using (var dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new VentaDetalle
+                            {
+                                IdDetalle = (int)dr["id_detalle"],
+                                IdVenta = (int)dr["id_venta"],
+                                IdProducto = (int)dr["id_producto"],
+                                Producto = dr["producto"].ToString(),
+                                Cantidad = (int)dr["cantidad"],
+                                Precio = (decimal)dr["precio"],
+                                Descuento = (decimal)dr["descuento"],
+                                Subtotal = (decimal)dr["subtotal"]
+                            });
+                        }
+                    }
+                }
+            }
+
+            return lista;
+        }
+
         public List<Venta> Listar()
         {
             var lista = new List<Venta>();

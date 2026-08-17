@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using CapaEntidades;
@@ -12,7 +13,8 @@ namespace ProyectoFinal_Programacion3
         ProductoNegocio productoNegocio = new ProductoNegocio();
         VentaNegocio ventaNegocio = new VentaNegocio();
         List<Producto> productos = new List<Producto>();
-        List<VentaDetalle> carrito = new List<VentaDetalle>();
+        BindingList<VentaDetalle> carrito = new BindingList<VentaDetalle>();
+        Cliente clienteSeleccionado = null;
         decimal porcentajeImpuesto = 0;
 
         public FrmPos()
@@ -21,24 +23,38 @@ namespace ProyectoFinal_Programacion3
             Load += FrmPos_Load;
             txtBuscar.TextChanged += txtBuscar_TextChanged;
             dgvProductos.CellDoubleClick += dgvProductos_CellDoubleClick;
+            dgvCarrito.CellEndEdit += dgvCarrito_CellEndEdit;
+            dgvCarrito.DataError += dgvCarrito_DataError;
             btnQuitar.Click += btnQuitar_Click;
             btnCobrar.Click += btnCobrar_Click;
+            btnBuscarCliente.Click += btnBuscarCliente_Click;
+            btnVerVentas.Click += btnVerVentas_Click;
         }
 
         private void FrmPos_Load(object sender, EventArgs e)
         {
             porcentajeImpuesto = ventaNegocio.ObtenerPorcentajeImpuesto();
 
-            var clientes = new ClienteNegocio().Listar();
-            clientes.Insert(0, new Cliente { IdCliente = 0, Nombre = "Consumidor", Apellido = "final" });
-            cboCliente.DataSource = clientes;
-            cboCliente.DisplayMember = "NombreCompleto";
-            cboCliente.ValueMember = "IdCliente";
-
             cboTipoPago.SelectedIndex = 0;
 
+            dgvCarrito.DataSource = carrito;
+            ConfigurarColumnasCarrito();
+
             CargarProductos();
-            RefrescarCarrito();
+            CalcularTotales();
+        }
+
+        private void ConfigurarColumnasCarrito()
+        {
+            string[] visibles = { "Producto", "Cantidad", "Precio", "Subtotal" };
+
+            dgvCarrito.ReadOnly = false;
+
+            foreach (DataGridViewColumn columna in dgvCarrito.Columns)
+            {
+                columna.Visible = visibles.Contains(columna.Name);
+                columna.ReadOnly = columna.Name != "Cantidad";
+            }
         }
 
         private void CargarProductos()
@@ -49,7 +65,6 @@ namespace ProyectoFinal_Programacion3
 
         private void MostrarProductos(List<Producto> lista)
         {
-            dgvProductos.DataSource = null;
             dgvProductos.DataSource = lista;
 
             string[] visibles = { "Codigo", "Nombre", "PrecioVenta", "Stock" };
@@ -80,7 +95,7 @@ namespace ProyectoFinal_Programacion3
 
             Producto producto = (Producto)dgvProductos.Rows[e.RowIndex].DataBoundItem;
 
-            var linea = carrito.Find(c => c.IdProducto == producto.IdProducto);
+            var linea = carrito.FirstOrDefault(c => c.IdProducto == producto.IdProducto);
             int cantidadActual = linea == null ? 0 : linea.Cantidad;
 
             if (cantidadActual + 1 > producto.Stock)
@@ -104,24 +119,43 @@ namespace ProyectoFinal_Programacion3
             {
                 linea.Cantidad++;
                 linea.Subtotal = linea.Cantidad * linea.Precio;
+                dgvCarrito.Refresh();
             }
 
-            RefrescarCarrito();
+            CalcularTotales();
         }
 
-        private void RefrescarCarrito()
+        private void dgvCarrito_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            dgvCarrito.DataSource = null;
-            dgvCarrito.DataSource = carrito;
+            if (dgvCarrito.Columns[e.ColumnIndex].Name != "Cantidad") return;
 
-            string[] visibles = { "Producto", "Cantidad", "Precio", "Subtotal" };
-            foreach (DataGridViewColumn columna in dgvCarrito.Columns)
+            VentaDetalle linea = carrito[e.RowIndex];
+            var producto = productos.Find(p => p.IdProducto == linea.IdProducto);
+
+            if (linea.Cantidad <= 0)
             {
-                columna.Visible = visibles.Contains(columna.Name);
+                linea.Cantidad = 1;
             }
 
-            dgvCarrito.ClearSelection();
+            if (producto != null && linea.Cantidad > producto.Stock)
+            {
+                MessageBox.Show("Solo hay " + producto.Stock + " disponibles de " + producto.Nombre + ".", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                linea.Cantidad = producto.Stock;
+            }
 
+            linea.Subtotal = linea.Cantidad * linea.Precio;
+            dgvCarrito.Refresh();
+            CalcularTotales();
+        }
+
+        private void dgvCarrito_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.ThrowException = false;
+            MessageBox.Show("La cantidad debe ser un número.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void CalcularTotales()
+        {
             decimal subtotal = carrito.Sum(c => c.Subtotal);
             decimal impuesto = Math.Round(subtotal * porcentajeImpuesto / 100, 2);
             decimal total = subtotal + impuesto;
@@ -137,7 +171,7 @@ namespace ProyectoFinal_Programacion3
 
             VentaDetalle linea = (VentaDetalle)dgvCarrito.CurrentRow.DataBoundItem;
             carrito.Remove(linea);
-            RefrescarCarrito();
+            CalcularTotales();
         }
 
         private void btnCobrar_Click(object sender, EventArgs e)
@@ -158,14 +192,14 @@ namespace ProyectoFinal_Programacion3
             decimal impuesto = Math.Round(subtotal * porcentajeImpuesto / 100, 2);
 
             Venta venta = new Venta();
-            venta.IdCliente = (int)cboCliente.SelectedValue == 0 ? (int?)null : (int)cboCliente.SelectedValue;
+            venta.IdCliente = clienteSeleccionado == null ? (int?)null : clienteSeleccionado.IdCliente;
             venta.IdUsuario = Sesion.UsuarioActual.IdUsuario;
             venta.TipoPago = cboTipoPago.Text;
             venta.Subtotal = subtotal;
             venta.Descuento = 0;
             venta.Impuesto = impuesto;
             venta.Total = subtotal + impuesto;
-            venta.Detalles = carrito;
+            venta.Detalles = carrito.ToList();
 
             string mensaje = ventaNegocio.Insertar(venta, out int idVenta);
 
@@ -176,11 +210,29 @@ namespace ProyectoFinal_Programacion3
             else
             {
                 MessageBox.Show("Venta #" + idVenta + " registrada. Total: RD$" + venta.Total.ToString("N2"), "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                carrito = new List<VentaDetalle>();
+                carrito.Clear();
                 txtBuscar.Clear();
-                RefrescarCarrito();
+                clienteSeleccionado = null;
+                txtCliente.Text = "Consumidor final";
+                CalcularTotales();
                 CargarProductos();
             }
+        }
+
+        private void btnBuscarCliente_Click(object sender, EventArgs e)
+        {
+            FrmBuscarCliente dialogo = new FrmBuscarCliente();
+
+            if (dialogo.ShowDialog(this) == DialogResult.OK)
+            {
+                clienteSeleccionado = dialogo.ClienteSeleccionado;
+                txtCliente.Text = clienteSeleccionado == null ? "Consumidor final" : clienteSeleccionado.NombreCompleto;
+            }
+        }
+
+        private void btnVerVentas_Click(object sender, EventArgs e)
+        {
+            new FrmVentas().ShowDialog(this);
         }
     }
 }

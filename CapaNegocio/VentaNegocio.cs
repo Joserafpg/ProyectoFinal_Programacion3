@@ -54,6 +54,16 @@ namespace CapaNegocio
             return datos.Listar();
         }
 
+        public List<VentaDetalle> ListarDetalle(int idVenta)
+        {
+            return datos.ListarDetalle(idVenta);
+        }
+
+        public List<Venta> ListarPorCliente(int idCliente)
+        {
+            return datos.ListarPorCliente(idCliente);
+        }
+
         public decimal ObtenerPorcentajeImpuesto()
         {
             try
