@@ -32,7 +32,7 @@ namespace CapaNegocio
             }
         }
 
-        public string CobrarVisita(string metodoPago, int idUsuario)
+        public string CobrarVisita(string metodoPago, int idUsuario, Cliente cliente)
         {
             if (string.IsNullOrWhiteSpace(metodoPago))
                 return "Debe seleccionar el método de pago.";
@@ -40,7 +40,10 @@ namespace CapaNegocio
             if (idUsuario <= 0)
                 return "No se pudo identificar el usuario que cobra.";
 
-            var visitante = new ClienteDatos().ObtenerPorCedula("000-0000000-0");
+            var visitante = cliente;
+
+            if (visitante == null)
+                visitante = new ClienteDatos().ObtenerPorCedula("000-0000000-0");
 
             if (visitante == null)
                 return "No existe el cliente Visitante en la base de datos.";

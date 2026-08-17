@@ -13,6 +13,7 @@ namespace ProyectoFinal_Programacion3
 
         public Cliente ClienteSeleccionado = null;
         public bool ModoExplorar = false;
+        public bool SinConsumidorFinal = false;
 
         public FrmBuscarCliente()
         {
@@ -32,6 +33,11 @@ namespace ProyectoFinal_Programacion3
                 Text = "Explorar clientes";
                 btnConsumidor.Visible = false;
                 btnSeleccionar.Text = "Ver detalles";
+            }
+
+            if (SinConsumidorFinal)
+            {
+                btnConsumidor.Visible = false;
             }
 
             clientes = new ClienteNegocio().Listar().Where(c => c.Estado).ToList();

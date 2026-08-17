@@ -74,6 +74,11 @@ namespace ProyectoFinal_Programacion3
             AbrirFormulario(new FrmCheckIn(), "Check-in", btnCheckIn);
         }
 
+        private void btnPagos_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmPagos(), "Pagos", btnPagos);
+        }
+
         private void btnClientes_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmClientes(), "Clientes", btnClientes);

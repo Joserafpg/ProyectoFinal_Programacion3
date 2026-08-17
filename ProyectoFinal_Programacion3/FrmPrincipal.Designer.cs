@@ -34,6 +34,7 @@
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnPos = new System.Windows.Forms.Button();
             this.btnCheckIn = new System.Windows.Forms.Button();
+            this.btnPagos = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.lblSeccionMenu = new System.Windows.Forms.Label();
             this.panelLogo = new System.Windows.Forms.Panel();
@@ -79,6 +80,7 @@
             this.panelMenuScroll.Controls.Add(this.btnProductos);
             this.panelMenuScroll.Controls.Add(this.btnClientes);
             this.panelMenuScroll.Controls.Add(this.btnPos);
+            this.panelMenuScroll.Controls.Add(this.btnPagos);
             this.panelMenuScroll.Controls.Add(this.btnCheckIn);
             this.panelMenuScroll.Controls.Add(this.btnInicio);
             this.panelMenuScroll.Controls.Add(this.lblSeccionMenu);
@@ -394,9 +396,32 @@
             this.btnPos.UseVisualStyleBackColor = false;
             this.btnPos.Click += new System.EventHandler(this.btnPos_Click);
             //
-            // btnCheckIn
+            // btnPagos
             //
-            this.btnCheckIn.BackColor = System.Drawing.Color.White;
+            this.btnPagos.BackColor = System.Drawing.Color.White;
+            this.btnPagos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPagos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPagos.FlatAppearance.BorderSize = 0;
+            this.btnPagos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
+            this.btnPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagos.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.btnPagos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
+            this.btnPagos.Image = global::ProyectoFinal_Programacion3.Properties.Resources.icono_pagos;
+            this.btnPagos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPagos.Location = new System.Drawing.Point(0, 91);
+            this.btnPagos.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPagos.Name = "btnPagos";
+            this.btnPagos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnPagos.Size = new System.Drawing.Size(298, 54);
+            this.btnPagos.TabIndex = 12;
+            this.btnPagos.Text = "Pagos";
+            this.btnPagos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPagos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPagos.UseVisualStyleBackColor = false;
+            this.btnPagos.Click += new System.EventHandler(this.btnPagos_Click);
+            //
+            // btnCheckIn
+            //            this.btnCheckIn.BackColor = System.Drawing.Color.White;
             this.btnCheckIn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCheckIn.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCheckIn.FlatAppearance.BorderSize = 0;
@@ -652,6 +677,7 @@
         private System.Windows.Forms.Button btnInicio;
         private System.Windows.Forms.Button btnPos;
         private System.Windows.Forms.Button btnCheckIn;
+        private System.Windows.Forms.Button btnPagos;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnMembresias;
         private System.Windows.Forms.Button btnProductos;
