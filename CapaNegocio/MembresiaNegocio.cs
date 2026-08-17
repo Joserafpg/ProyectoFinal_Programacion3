@@ -18,6 +18,11 @@ namespace CapaNegocio
             return datos.Listar();
         }
 
+        public List<Membresia> Listar(string texto)
+        {
+            return datos.Listar(texto.Trim());
+        }
+
         public string Insertar(Membresia membresia)
         {
             string error = Validar(membresia);

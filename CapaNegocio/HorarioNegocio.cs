@@ -18,6 +18,11 @@ namespace CapaNegocio
             return datos.Listar();
         }
 
+        public List<Horario> Listar(string texto)
+        {
+            return datos.Listar(texto.Trim());
+        }
+
         public string Insertar(Horario horario)
         {
             string error = Validar(horario);

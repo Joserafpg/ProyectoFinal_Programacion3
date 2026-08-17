@@ -33,7 +33,7 @@ namespace CapaDatos
             return lista;
         }
 
-        public List<Cliente> Buscar(string texto)
+        public List<Cliente> Listar(string texto)
         {
             var lista = new List<Cliente>();
 

@@ -12,14 +12,20 @@ namespace CapaDatos
     {
         public List<Horario> Listar()
         {
+            return Listar("");
+        }
+
+        public List<Horario> Listar(string texto)
+        {
             var lista = new List<Horario>();
 
             using (var conexion = Conexion.ObtenerConexion())
             {
-                string sql = "select id_horario, nombre, dias, hora_inicio, hora_fin, estado from horarios order by hora_inicio";
+                string sql = "select id_horario, nombre, dias, hora_inicio, hora_fin, estado from horarios where nombre like @texto or dias like @texto order by hora_inicio";
 
                 using (var cmd = new SqlCommand(sql, conexion))
                 {
+                    cmd.Parameters.AddWithValue("@texto", "%" + texto + "%");
                     conexion.Open();
 
                     using (var dr = cmd.ExecuteReader())

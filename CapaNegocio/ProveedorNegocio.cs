@@ -18,6 +18,11 @@ namespace CapaNegocio
             return datos.Listar();
         }
 
+        public List<Proveedor> Listar(string texto)
+        {
+            return datos.Listar(texto.Trim());
+        }
+
         public string Insertar(Proveedor proveedor)
         {
             if (string.IsNullOrWhiteSpace(proveedor.Nombre))

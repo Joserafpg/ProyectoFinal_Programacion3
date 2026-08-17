@@ -29,13 +29,13 @@ namespace Pruebas
             Console.WriteLine("[" + DateTime.Now + "] " + (invalido != "" ? "Cliente invalido rechazado: " + invalido : "ERROR: acepto cliente sin cedula!"));
 
             Console.WriteLine("[" + DateTime.Now + "] Busqueda por 'Juan':");
-            foreach (var c in negocio.Buscar("Juan"))
+            foreach (var c in negocio.Listar("Juan"))
             {
                 Console.WriteLine("[" + DateTime.Now + "] " + c.IdCliente + " | " + c.NombreCompleto + " | " + c.Cedula + " | " + (c.Estado ? "Activo" : "Inactivo"));
             }
 
             Console.WriteLine("[" + DateTime.Now + "] Busqueda por cedula '402':");
-            foreach (var c in negocio.Buscar("402"))
+            foreach (var c in negocio.Listar("402"))
             {
                 Console.WriteLine("[" + DateTime.Now + "] " + c.IdCliente + " | " + c.NombreCompleto + " | " + c.Cedula);
             }

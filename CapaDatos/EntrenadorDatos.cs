@@ -9,6 +9,11 @@ namespace CapaDatos
     {
         public List<Entrenador> Listar()
         {
+            return Listar("");
+        }
+
+        public List<Entrenador> Listar(string texto)
+        {
             var lista = new List<Entrenador>();
 
             using (var conexion = Conexion.ObtenerConexion())
@@ -17,10 +22,12 @@ namespace CapaDatos
                                e.especialidad, e.id_horario, e.estado, h.nombre as horario
                                from entrenadores e
                                inner join horarios h on h.id_horario = e.id_horario
+                               where e.nombre like @texto or e.apellido like @texto or e.cedula like @texto
                                order by e.nombre, e.apellido";
 
                 using (var cmd = new SqlCommand(sql, conexion))
                 {
+                    cmd.Parameters.AddWithValue("@texto", "%" + texto + "%");
                     conexion.Open();
 
                     using (var dr = cmd.ExecuteReader())

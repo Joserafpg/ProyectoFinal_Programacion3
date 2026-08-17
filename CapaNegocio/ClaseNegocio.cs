@@ -14,6 +14,11 @@ namespace CapaNegocio
             return datos.Listar();
         }
 
+        public List<Clase> Listar(string texto)
+        {
+            return datos.Listar(texto.Trim());
+        }
+
         public string Insertar(Clase clase)
         {
             string error = Validar(clase);

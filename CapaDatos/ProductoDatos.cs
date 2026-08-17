@@ -10,6 +10,11 @@ namespace CapaDatos
     {
         public List<Producto> Listar()
         {
+            return Listar("");
+        }
+
+        public List<Producto> Listar(string texto)
+        {
             var lista = new List<Producto>();
 
             using (var conexion = Conexion.ObtenerConexion())
@@ -21,10 +26,12 @@ namespace CapaDatos
                                from productos p
                                inner join categorias c on c.id_categoria = p.id_categoria
                                inner join marcas m on m.id_marca = p.id_marca
+                               where p.codigo like @texto or p.nombre like @texto
                                order by p.nombre";
 
                 using (var cmd = new SqlCommand(sql, conexion))
                 {
+                    cmd.Parameters.AddWithValue("@texto", "%" + texto + "%");
                     conexion.Open();
 
                     using (var dr = cmd.ExecuteReader())

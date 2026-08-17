@@ -9,6 +9,11 @@ namespace CapaDatos
     {
         public List<Clase> Listar()
         {
+            return Listar("");
+        }
+
+        public List<Clase> Listar(string texto)
+        {
             var lista = new List<Clase>();
 
             using (var conexion = Conexion.ObtenerConexion())
@@ -18,10 +23,12 @@ namespace CapaDatos
                                e.nombre + ' ' + e.apellido as entrenador
                                from clases c
                                inner join entrenadores e on e.id_entrenador = c.id_entrenador
+                               where c.nombre like @texto or e.nombre like @texto
                                order by c.nombre";
 
                 using (var cmd = new SqlCommand(sql, conexion))
                 {
+                    cmd.Parameters.AddWithValue("@texto", "%" + texto + "%");
                     conexion.Open();
 
                     using (var dr = cmd.ExecuteReader())

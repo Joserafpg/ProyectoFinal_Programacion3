@@ -18,6 +18,11 @@ namespace CapaNegocio
             return datos.Listar();
         }
 
+        public List<Categoria> Listar(string texto)
+        {
+            return datos.Listar(texto.Trim());
+        }
+
         public string Insertar(Categoria categoria)
         {
             if (string.IsNullOrWhiteSpace(categoria.Nombre))

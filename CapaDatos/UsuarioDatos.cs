@@ -81,6 +81,11 @@ namespace CapaDatos
 
         public List<Usuario> Listar()
         {
+            return Listar("");
+        }
+
+        public List<Usuario> Listar(string texto)
+        {
             var lista = new List<Usuario>();
 
             using (var conexion = Conexion.ObtenerConexion())
@@ -89,10 +94,12 @@ namespace CapaDatos
                                u.correo, u.fecha_creacion, u.estado, r.nombre as nombre_rol
                                from usuarios u
                                inner join roles r on r.id_rol = u.id_rol
+                               where u.nombre_usuario like @texto or u.nombre_completo like @texto
                                order by u.nombre_usuario";
 
                 using (var cmd = new SqlCommand(sql, conexion))
                 {
+                    cmd.Parameters.AddWithValue("@texto", "%" + texto + "%");
                     conexion.Open();
 
                     using (var dr = cmd.ExecuteReader())

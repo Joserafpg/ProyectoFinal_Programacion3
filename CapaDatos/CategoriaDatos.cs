@@ -12,14 +12,20 @@ namespace CapaDatos
     {
         public List<Categoria> Listar()
         {
+            return Listar("");
+        }
+
+        public List<Categoria> Listar(string texto)
+        {
             var lista = new List<Categoria>();
 
             using (var conexion = Conexion.ObtenerConexion())
             {
-                string sql = "select id_categoria, nombre, descripcion, estado from categorias where estado = 1 order by nombre ";
+                string sql = "select id_categoria, nombre, descripcion, estado from categorias where estado = 1 and nombre like @texto order by nombre";
 
                 using (var cmd = new SqlCommand(sql, conexion))
                 {
+                    cmd.Parameters.AddWithValue("@texto", "%" + texto + "%");
                     conexion.Open();
 
                     using (var dr = cmd.ExecuteReader())

@@ -14,12 +14,9 @@ namespace CapaNegocio
             return datos.Listar();
         }
 
-        public List<Cliente> Buscar(string texto)
+        public List<Cliente> Listar(string texto)
         {
-            if (string.IsNullOrWhiteSpace(texto))
-                return datos.Listar();
-
-            return datos.Buscar(texto.Trim());
+            return datos.Listar(texto.Trim());
         }
 
         public string Insertar(Cliente cliente)
