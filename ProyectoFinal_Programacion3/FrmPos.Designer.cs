@@ -1,4 +1,4 @@
-namespace ProyectoFinal_Programacion3
+﻿namespace ProyectoFinal_Programacion3
 {
     partial class FrmPos
     {
@@ -65,7 +65,7 @@ namespace ProyectoFinal_Programacion3
             this.dgvProductos.ColumnHeadersHeight = 29;
             this.dgvProductos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProductos.Location = new System.Drawing.Point(32, 96);
-            this.dgvProductos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvProductos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvProductos.MultiSelect = false;
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
@@ -79,7 +79,7 @@ namespace ProyectoFinal_Programacion3
             // 
             this.spBusq.Dock = System.Windows.Forms.DockStyle.Top;
             this.spBusq.Location = new System.Drawing.Point(32, 79);
-            this.spBusq.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spBusq.Margin = new System.Windows.Forms.Padding(4);
             this.spBusq.Name = "spBusq";
             this.spBusq.Size = new System.Drawing.Size(769, 17);
             this.spBusq.TabIndex = 0;
@@ -91,7 +91,7 @@ namespace ProyectoFinal_Programacion3
             this.panelBarra.Controls.Add(this.btnVerVentas);
             this.panelBarra.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBarra.Location = new System.Drawing.Point(32, 25);
-            this.panelBarra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBarra.Margin = new System.Windows.Forms.Padding(4);
             this.panelBarra.Name = "panelBarra";
             this.panelBarra.Size = new System.Drawing.Size(769, 54);
             this.panelBarra.TabIndex = 1;
@@ -104,7 +104,7 @@ namespace ProyectoFinal_Programacion3
             this.panelBusqueda.Controls.Add(this.lblLupa);
             this.panelBusqueda.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBusqueda.Location = new System.Drawing.Point(0, 0);
-            this.panelBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.panelBusqueda.Name = "panelBusqueda";
             this.panelBusqueda.Padding = new System.Windows.Forms.Padding(19, 15, 19, 15);
             this.panelBusqueda.Size = new System.Drawing.Size(540, 54);
@@ -118,7 +118,7 @@ namespace ProyectoFinal_Programacion3
             this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.txtBuscar.Location = new System.Drawing.Point(59, 15);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(460, 24);
             this.txtBuscar.TabIndex = 1;
@@ -138,7 +138,7 @@ namespace ProyectoFinal_Programacion3
             // 
             this.spVentas.Dock = System.Windows.Forms.DockStyle.Right;
             this.spVentas.Location = new System.Drawing.Point(540, 0);
-            this.spVentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spVentas.Margin = new System.Windows.Forms.Padding(4);
             this.spVentas.Name = "spVentas";
             this.spVentas.Size = new System.Drawing.Size(16, 54);
             this.spVentas.TabIndex = 0;
@@ -148,7 +148,7 @@ namespace ProyectoFinal_Programacion3
             this.btnVerVentas.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnVerVentas.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.btnVerVentas.Location = new System.Drawing.Point(556, 0);
-            this.btnVerVentas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVerVentas.Margin = new System.Windows.Forms.Padding(4);
             this.btnVerVentas.Name = "btnVerVentas";
             this.btnVerVentas.Size = new System.Drawing.Size(213, 54);
             this.btnVerVentas.TabIndex = 7;
@@ -159,7 +159,7 @@ namespace ProyectoFinal_Programacion3
             // 
             this.spDiv.Dock = System.Windows.Forms.DockStyle.Right;
             this.spDiv.Location = new System.Drawing.Point(801, 25);
-            this.spDiv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spDiv.Margin = new System.Windows.Forms.Padding(4);
             this.spDiv.Name = "spDiv";
             this.spDiv.Size = new System.Drawing.Size(21, 752);
             this.spDiv.TabIndex = 0;
@@ -178,7 +178,7 @@ namespace ProyectoFinal_Programacion3
             this.panelCarrito.Controls.Add(this.btnCobrar);
             this.panelCarrito.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelCarrito.Location = new System.Drawing.Point(822, 25);
-            this.panelCarrito.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelCarrito.Margin = new System.Windows.Forms.Padding(4);
             this.panelCarrito.Name = "panelCarrito";
             this.panelCarrito.Padding = new System.Windows.Forms.Padding(21, 17, 21, 20);
             this.panelCarrito.Size = new System.Drawing.Size(533, 752);
@@ -194,7 +194,7 @@ namespace ProyectoFinal_Programacion3
             this.dgvCarrito.ColumnHeadersHeight = 29;
             this.dgvCarrito.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCarrito.Location = new System.Drawing.Point(21, 59);
-            this.dgvCarrito.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvCarrito.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCarrito.MultiSelect = false;
             this.dgvCarrito.Name = "dgvCarrito";
             this.dgvCarrito.ReadOnly = true;
@@ -203,12 +203,13 @@ namespace ProyectoFinal_Programacion3
             this.dgvCarrito.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCarrito.Size = new System.Drawing.Size(489, 327);
             this.dgvCarrito.TabIndex = 2;
+            this.dgvCarrito.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarrito_CellDoubleClick);
             // 
             // spTitulo
             // 
             this.spTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.spTitulo.Location = new System.Drawing.Point(21, 49);
-            this.spTitulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spTitulo.Margin = new System.Windows.Forms.Padding(4);
             this.spTitulo.Name = "spTitulo";
             this.spTitulo.Size = new System.Drawing.Size(489, 10);
             this.spTitulo.TabIndex = 0;
@@ -230,7 +231,7 @@ namespace ProyectoFinal_Programacion3
             this.btnQuitar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnQuitar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnQuitar.Location = new System.Drawing.Point(21, 386);
-            this.btnQuitar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQuitar.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(489, 37);
             this.btnQuitar.TabIndex = 3;
@@ -244,7 +245,7 @@ namespace ProyectoFinal_Programacion3
             this.panelTotales.Controls.Add(this.lblSubtotal);
             this.panelTotales.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelTotales.Location = new System.Drawing.Point(21, 423);
-            this.panelTotales.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelTotales.Margin = new System.Windows.Forms.Padding(4);
             this.panelTotales.Name = "panelTotales";
             this.panelTotales.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.panelTotales.Size = new System.Drawing.Size(489, 108);
@@ -298,7 +299,7 @@ namespace ProyectoFinal_Programacion3
             this.panelPago.Controls.Add(this.lblCliente);
             this.panelPago.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelPago.Location = new System.Drawing.Point(21, 531);
-            this.panelPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelPago.Margin = new System.Windows.Forms.Padding(4);
             this.panelPago.Name = "panelPago";
             this.panelPago.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
             this.panelPago.Size = new System.Drawing.Size(489, 128);
@@ -313,7 +314,7 @@ namespace ProyectoFinal_Programacion3
             "Contado",
             "Credito"});
             this.cboTipoPago.Location = new System.Drawing.Point(0, 92);
-            this.cboTipoPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboTipoPago.Margin = new System.Windows.Forms.Padding(4);
             this.cboTipoPago.Name = "cboTipoPago";
             this.cboTipoPago.Size = new System.Drawing.Size(489, 29);
             this.cboTipoPago.TabIndex = 5;
@@ -334,7 +335,7 @@ namespace ProyectoFinal_Programacion3
             // 
             this.spPago.Dock = System.Windows.Forms.DockStyle.Top;
             this.spPago.Location = new System.Drawing.Point(0, 61);
-            this.spPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spPago.Margin = new System.Windows.Forms.Padding(4);
             this.spPago.Name = "spPago";
             this.spPago.Size = new System.Drawing.Size(489, 10);
             this.spPago.TabIndex = 0;
@@ -345,7 +346,7 @@ namespace ProyectoFinal_Programacion3
             this.panelClienteFila.Controls.Add(this.btnBuscarCliente);
             this.panelClienteFila.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelClienteFila.Location = new System.Drawing.Point(0, 28);
-            this.panelClienteFila.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelClienteFila.Margin = new System.Windows.Forms.Padding(4);
             this.panelClienteFila.Name = "panelClienteFila";
             this.panelClienteFila.Size = new System.Drawing.Size(489, 33);
             this.panelClienteFila.TabIndex = 0;
@@ -356,7 +357,7 @@ namespace ProyectoFinal_Programacion3
             this.txtCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCliente.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txtCliente.Location = new System.Drawing.Point(0, 0);
-            this.txtCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.ReadOnly = true;
             this.txtCliente.Size = new System.Drawing.Size(389, 29);
@@ -369,7 +370,7 @@ namespace ProyectoFinal_Programacion3
             this.btnBuscarCliente.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnBuscarCliente.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnBuscarCliente.Location = new System.Drawing.Point(389, 0);
-            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(100, 33);
             this.btnBuscarCliente.TabIndex = 4;
@@ -392,7 +393,7 @@ namespace ProyectoFinal_Programacion3
             // 
             this.spCobrar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.spCobrar.Location = new System.Drawing.Point(21, 659);
-            this.spCobrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spCobrar.Margin = new System.Windows.Forms.Padding(4);
             this.spCobrar.Name = "spCobrar";
             this.spCobrar.Size = new System.Drawing.Size(489, 12);
             this.spCobrar.TabIndex = 0;
@@ -408,7 +409,7 @@ namespace ProyectoFinal_Programacion3
             this.btnCobrar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.btnCobrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(63)))), ((int)(((byte)(22)))));
             this.btnCobrar.Location = new System.Drawing.Point(21, 671);
-            this.btnCobrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCobrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCobrar.Name = "btnCobrar";
             this.btnCobrar.Size = new System.Drawing.Size(489, 59);
             this.btnCobrar.TabIndex = 6;
@@ -427,7 +428,7 @@ namespace ProyectoFinal_Programacion3
             this.Controls.Add(this.spDiv);
             this.Controls.Add(this.panelCarrito);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPos";
             this.Padding = new System.Windows.Forms.Padding(32, 25, 32, 30);
             this.Text = "Punto de venta";

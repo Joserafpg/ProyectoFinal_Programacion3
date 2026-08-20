@@ -1,10 +1,10 @@
-﻿using System;
+﻿using CapaEntidades;
+using CapaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
-using CapaEntidades;
-using CapaNegocio;
 
 namespace ProyectoFinal_Programacion3
 {
@@ -24,6 +24,7 @@ namespace ProyectoFinal_Programacion3
             txtBuscar.TextChanged += txtBuscar_TextChanged;
             dgvProductos.CellDoubleClick += dgvProductos_CellDoubleClick;
             dgvCarrito.CellEndEdit += dgvCarrito_CellEndEdit;
+            dgvCarrito.CellDoubleClick += dgvCarrito_CellDoubleClick;
             dgvCarrito.DataError += dgvCarrito_DataError;
             btnQuitar.Click += btnQuitar_Click;
             btnCobrar.Click += btnCobrar_Click;
@@ -240,6 +241,20 @@ namespace ProyectoFinal_Programacion3
         private void btnVerVentas_Click(object sender, EventArgs e)
         {
             new FrmVentas().ShowDialog(this);
+        }
+
+        // doble click sobre una linea del carrito la quita, con confirmacion
+        private void dgvCarrito_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            VentaDetalle detalle = (VentaDetalle)dgvCarrito.Rows[e.RowIndex].DataBoundItem;
+
+            if (MessageBox.Show("¿Desea quitar " + detalle.Producto + " del carrito?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                carrito.Remove(detalle);
+                CalcularTotales();
+            }
         }
     }
 }
