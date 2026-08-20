@@ -18,9 +18,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dgvEntradas = new System.Windows.Forms.DataGridView();
-            this.lblEntradas = new System.Windows.Forms.Label();
-            this.spE = new System.Windows.Forms.Panel();
             this.panelEntrada = new System.Windows.Forms.Panel();
             this.lblResultado = new System.Windows.Forms.Label();
             this.spT2 = new System.Windows.Forms.Panel();
@@ -35,50 +32,10 @@
             this.spT = new System.Windows.Forms.Panel();
             this.lblTituloEntrada = new System.Windows.Forms.Label();
             this.timerLimpiar = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEntradas)).BeginInit();
             this.panelEntrada.SuspendLayout();
             this.panelFila.SuspendLayout();
             this.panelTxt.SuspendLayout();
             this.SuspendLayout();
-            //
-            // dgvEntradas
-            //
-            this.dgvEntradas.AllowUserToAddRows = false;
-            this.dgvEntradas.AllowUserToDeleteRows = false;
-            this.dgvEntradas.AllowUserToResizeRows = false;
-            this.dgvEntradas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvEntradas.BackgroundColor = System.Drawing.Color.White;
-            this.dgvEntradas.ColumnHeadersHeight = 29;
-            this.dgvEntradas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvEntradas.Location = new System.Drawing.Point(32, 245);
-            this.dgvEntradas.MultiSelect = false;
-            this.dgvEntradas.Name = "dgvEntradas";
-            this.dgvEntradas.ReadOnly = true;
-            this.dgvEntradas.RowHeadersVisible = false;
-            this.dgvEntradas.RowHeadersWidth = 51;
-            this.dgvEntradas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEntradas.Size = new System.Drawing.Size(1323, 532);
-            this.dgvEntradas.TabIndex = 3;
-            //
-            // lblEntradas
-            //
-            this.lblEntradas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblEntradas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblEntradas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(65)))));
-            this.lblEntradas.Location = new System.Drawing.Point(32, 205);
-            this.lblEntradas.Name = "lblEntradas";
-            this.lblEntradas.Size = new System.Drawing.Size(1323, 40);
-            this.lblEntradas.TabIndex = 2;
-            this.lblEntradas.Text = "Entradas de hoy";
-            this.lblEntradas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            //
-            // spE
-            //
-            this.spE.Dock = System.Windows.Forms.DockStyle.Top;
-            this.spE.Location = new System.Drawing.Point(32, 190);
-            this.spE.Name = "spE";
-            this.spE.Size = new System.Drawing.Size(1323, 15);
-            this.spE.TabIndex = 0;
             //
             // panelEntrada
             //
@@ -247,15 +204,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(1387, 807);
-            this.Controls.Add(this.dgvEntradas);
-            this.Controls.Add(this.lblEntradas);
-            this.Controls.Add(this.spE);
             this.Controls.Add(this.panelEntrada);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCheckIn";
             this.Padding = new System.Windows.Forms.Padding(32, 25, 32, 30);
             this.Text = "Check-in";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEntradas)).EndInit();
             this.panelEntrada.ResumeLayout(false);
             this.panelFila.ResumeLayout(false);
             this.panelFila.PerformLayout();
@@ -267,9 +220,6 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvEntradas;
-        private System.Windows.Forms.Label lblEntradas;
-        private System.Windows.Forms.Panel spE;
         private System.Windows.Forms.Panel panelEntrada;
         private System.Windows.Forms.Label lblResultado;
         private System.Windows.Forms.Panel spT2;

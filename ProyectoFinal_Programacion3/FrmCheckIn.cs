@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using CapaEntidades;
 using CapaNegocio;
@@ -26,40 +25,11 @@ namespace ProyectoFinal_Programacion3
             btnRegistrar.Click += btnRegistrar_Click;
             btnBuscarCliente.Click += btnBuscarCliente_Click;
             timerLimpiar.Tick += timerLimpiar_Tick;
-            dgvEntradas.DataBindingComplete += dgvEntradas_DataBindingComplete;
         }
 
         private void FrmCheckIn_Load(object sender, EventArgs e)
         {
-            CargarEntradasHoy();
             txtCedula.Focus();
-        }
-
-        private void CargarEntradasHoy()
-        {
-            var entradas = asistenciaNegocio.ListarHoy();
-            dgvEntradas.DataSource = entradas;
-
-            string[] visibles = { "Cliente", "Fecha" };
-            foreach (DataGridViewColumn columna in dgvEntradas.Columns)
-            {
-                columna.Visible = visibles.Contains(columna.Name);
-            }
-
-            if (dgvEntradas.Columns.Contains("Fecha"))
-            {
-                dgvEntradas.Columns["Fecha"].HeaderText = "Hora de entrada";
-                dgvEntradas.Columns["Fecha"].DefaultCellStyle.Format = "hh:mm tt";
-            }
-
-            dgvEntradas.ClearSelection();
-            lblEntradas.Text = "Entradas de hoy · " + entradas.Count + " personas";
-        }
-
-        private void dgvEntradas_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            dgvEntradas.ClearSelection();
-            dgvEntradas.CurrentCell = null;
         }
 
         private void txtCedula_KeyDown(object sender, KeyEventArgs e)
@@ -149,7 +119,6 @@ namespace ProyectoFinal_Programacion3
                 return;
             }
 
-            CargarEntradasHoy();
             MessageBox.Show("Entrada confirmada.\n\n¡Bienvenido/a, " + cliente.NombreCompleto + "! Puede pasar.", "Bienvenido", MessageBoxButtons.OK, MessageBoxIcon.Information);
             MostrarResultado("Bienvenido/a, " + cliente.NombreCompleto + " · " + activa.Membresia + " vence el " + activa.FechaFin.ToString("dd/MM/yyyy") + " · Puede pasar", verde);
         }
