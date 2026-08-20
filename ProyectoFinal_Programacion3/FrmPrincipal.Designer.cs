@@ -26,15 +26,15 @@
             this.btnSubHorarios = new System.Windows.Forms.Button();
             this.btnSubEntrenadores = new System.Windows.Forms.Button();
             this.btnSubProveedores = new System.Windows.Forms.Button();
+            this.btnMembresias = new System.Windows.Forms.Button();
             this.btnSubMarcas = new System.Windows.Forms.Button();
             this.btnSubCategorias = new System.Windows.Forms.Button();
             this.btnMantenimientos = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
-            this.btnMembresias = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnPos = new System.Windows.Forms.Button();
-            this.btnCheckIn = new System.Windows.Forms.Button();
             this.btnPagos = new System.Windows.Forms.Button();
+            this.btnCheckIn = new System.Windows.Forms.Button();
             this.btnInicio = new System.Windows.Forms.Button();
             this.lblSeccionMenu = new System.Windows.Forms.Label();
             this.panelLogo = new System.Windows.Forms.Panel();
@@ -104,7 +104,7 @@
             this.panelSubMenu.Controls.Add(this.btnSubMarcas);
             this.panelSubMenu.Controls.Add(this.btnSubCategorias);
             this.panelSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenu.Location = new System.Drawing.Point(0, 361);
+            this.panelSubMenu.Location = new System.Drawing.Point(0, 415);
             this.panelSubMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelSubMenu.Name = "panelSubMenu";
             this.panelSubMenu.Size = new System.Drawing.Size(298, 421);
@@ -121,7 +121,7 @@
             this.btnSubConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubConfiguracion.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSubConfiguracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(135)))), ((int)(((byte)(158)))));
-            this.btnSubConfiguracion.Location = new System.Drawing.Point(0, 329);
+            this.btnSubConfiguracion.Location = new System.Drawing.Point(0, 376);
             this.btnSubConfiguracion.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubConfiguracion.Name = "btnSubConfiguracion";
             this.btnSubConfiguracion.Padding = new System.Windows.Forms.Padding(59, 0, 0, 0);
@@ -142,7 +142,7 @@
             this.btnSubUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubUsuarios.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSubUsuarios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(135)))), ((int)(((byte)(158)))));
-            this.btnSubUsuarios.Location = new System.Drawing.Point(0, 282);
+            this.btnSubUsuarios.Location = new System.Drawing.Point(0, 329);
             this.btnSubUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubUsuarios.Name = "btnSubUsuarios";
             this.btnSubUsuarios.Padding = new System.Windows.Forms.Padding(59, 0, 0, 0);
@@ -163,7 +163,7 @@
             this.btnSubClases.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubClases.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSubClases.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(135)))), ((int)(((byte)(158)))));
-            this.btnSubClases.Location = new System.Drawing.Point(0, 235);
+            this.btnSubClases.Location = new System.Drawing.Point(0, 282);
             this.btnSubClases.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubClases.Name = "btnSubClases";
             this.btnSubClases.Padding = new System.Windows.Forms.Padding(59, 0, 0, 0);
@@ -184,7 +184,7 @@
             this.btnSubHorarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubHorarios.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSubHorarios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(135)))), ((int)(((byte)(158)))));
-            this.btnSubHorarios.Location = new System.Drawing.Point(0, 188);
+            this.btnSubHorarios.Location = new System.Drawing.Point(0, 235);
             this.btnSubHorarios.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubHorarios.Name = "btnSubHorarios";
             this.btnSubHorarios.Padding = new System.Windows.Forms.Padding(59, 0, 0, 0);
@@ -205,7 +205,7 @@
             this.btnSubEntrenadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubEntrenadores.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSubEntrenadores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(135)))), ((int)(((byte)(158)))));
-            this.btnSubEntrenadores.Location = new System.Drawing.Point(0, 141);
+            this.btnSubEntrenadores.Location = new System.Drawing.Point(0, 188);
             this.btnSubEntrenadores.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubEntrenadores.Name = "btnSubEntrenadores";
             this.btnSubEntrenadores.Padding = new System.Windows.Forms.Padding(59, 0, 0, 0);
@@ -226,7 +226,7 @@
             this.btnSubProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubProveedores.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnSubProveedores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(135)))), ((int)(((byte)(158)))));
-            this.btnSubProveedores.Location = new System.Drawing.Point(0, 94);
+            this.btnSubProveedores.Location = new System.Drawing.Point(0, 141);
             this.btnSubProveedores.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubProveedores.Name = "btnSubProveedores";
             this.btnSubProveedores.Padding = new System.Windows.Forms.Padding(59, 0, 0, 0);
@@ -236,6 +236,27 @@
             this.btnSubProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSubProveedores.UseVisualStyleBackColor = false;
             this.btnSubProveedores.Click += new System.EventHandler(this.btnSubProveedores_Click);
+            // 
+            // btnMembresias
+            // 
+            this.btnMembresias.BackColor = System.Drawing.Color.White;
+            this.btnMembresias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMembresias.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMembresias.FlatAppearance.BorderSize = 0;
+            this.btnMembresias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
+            this.btnMembresias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMembresias.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnMembresias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(135)))), ((int)(((byte)(158)))));
+            this.btnMembresias.Location = new System.Drawing.Point(0, 94);
+            this.btnMembresias.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMembresias.Name = "btnMembresias";
+            this.btnMembresias.Padding = new System.Windows.Forms.Padding(59, 0, 0, 0);
+            this.btnMembresias.Size = new System.Drawing.Size(298, 47);
+            this.btnMembresias.TabIndex = 6;
+            this.btnMembresias.Text = "Membresías";
+            this.btnMembresias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMembresias.UseVisualStyleBackColor = false;
+            this.btnMembresias.Click += new System.EventHandler(this.btnMembresias_Click);
             // 
             // btnSubMarcas
             // 
@@ -291,7 +312,7 @@
             this.btnMantenimientos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.btnMantenimientos.Image = global::ProyectoFinal_Programacion3.Properties.Resources.icono_mantenimientos;
             this.btnMantenimientos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMantenimientos.Location = new System.Drawing.Point(0, 307);
+            this.btnMantenimientos.Location = new System.Drawing.Point(0, 361);
             this.btnMantenimientos.Margin = new System.Windows.Forms.Padding(4);
             this.btnMantenimientos.Name = "btnMantenimientos";
             this.btnMantenimientos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -315,7 +336,7 @@
             this.btnProductos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.btnProductos.Image = global::ProyectoFinal_Programacion3.Properties.Resources.icono_productos;
             this.btnProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductos.Location = new System.Drawing.Point(0, 253);
+            this.btnProductos.Location = new System.Drawing.Point(0, 307);
             this.btnProductos.Margin = new System.Windows.Forms.Padding(4);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -326,27 +347,6 @@
             this.btnProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnProductos.UseVisualStyleBackColor = false;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
-            // 
-            // btnMembresias
-            // 
-            this.btnMembresias.BackColor = System.Drawing.Color.White;
-            this.btnMembresias.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMembresias.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMembresias.FlatAppearance.BorderSize = 0;
-            this.btnMembresias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
-            this.btnMembresias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMembresias.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnMembresias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(135)))), ((int)(((byte)(158)))));
-            this.btnMembresias.Location = new System.Drawing.Point(0, 199);
-            this.btnMembresias.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMembresias.Name = "btnMembresias";
-            this.btnMembresias.Padding = new System.Windows.Forms.Padding(59, 0, 0, 0);
-            this.btnMembresias.Size = new System.Drawing.Size(298, 47);
-            this.btnMembresias.TabIndex = 6;
-            this.btnMembresias.Text = "Membresías";
-            this.btnMembresias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMembresias.UseVisualStyleBackColor = false;
-            this.btnMembresias.Click += new System.EventHandler(this.btnMembresias_Click);
             // 
             // btnClientes
             // 
@@ -360,7 +360,7 @@
             this.btnClientes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.btnClientes.Image = global::ProyectoFinal_Programacion3.Properties.Resources.icono_clientes;
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Location = new System.Drawing.Point(0, 145);
+            this.btnClientes.Location = new System.Drawing.Point(0, 253);
             this.btnClientes.Margin = new System.Windows.Forms.Padding(4);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -384,7 +384,7 @@
             this.btnPos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.btnPos.Image = global::ProyectoFinal_Programacion3.Properties.Resources.icono_ventas;
             this.btnPos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPos.Location = new System.Drawing.Point(0, 91);
+            this.btnPos.Location = new System.Drawing.Point(0, 199);
             this.btnPos.Margin = new System.Windows.Forms.Padding(4);
             this.btnPos.Name = "btnPos";
             this.btnPos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -395,9 +395,9 @@
             this.btnPos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPos.UseVisualStyleBackColor = false;
             this.btnPos.Click += new System.EventHandler(this.btnPos_Click);
-            //
+            // 
             // btnPagos
-            //
+            // 
             this.btnPagos.BackColor = System.Drawing.Color.White;
             this.btnPagos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPagos.Dock = System.Windows.Forms.DockStyle.Top;
@@ -408,7 +408,7 @@
             this.btnPagos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.btnPagos.Image = global::ProyectoFinal_Programacion3.Properties.Resources.icono_pagos;
             this.btnPagos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPagos.Location = new System.Drawing.Point(0, 91);
+            this.btnPagos.Location = new System.Drawing.Point(0, 145);
             this.btnPagos.Margin = new System.Windows.Forms.Padding(4);
             this.btnPagos.Name = "btnPagos";
             this.btnPagos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -419,9 +419,9 @@
             this.btnPagos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPagos.UseVisualStyleBackColor = false;
             this.btnPagos.Click += new System.EventHandler(this.btnPagos_Click);
-            //
+            // 
             // btnCheckIn
-            //            this.btnCheckIn.BackColor = System.Drawing.Color.White;
+            // 
             this.btnCheckIn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCheckIn.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCheckIn.FlatAppearance.BorderSize = 0;
@@ -431,6 +431,7 @@
             this.btnCheckIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
             this.btnCheckIn.Image = global::ProyectoFinal_Programacion3.Properties.Resources.icono_membresias;
             this.btnCheckIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckIn.Location = new System.Drawing.Point(0, 91);
             this.btnCheckIn.Margin = new System.Windows.Forms.Padding(4);
             this.btnCheckIn.Name = "btnCheckIn";
             this.btnCheckIn.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
@@ -500,9 +501,9 @@
             this.lblLogoMenu.Location = new System.Drawing.Point(77, 39);
             this.lblLogoMenu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLogoMenu.Name = "lblLogoMenu";
-            this.lblLogoMenu.Size = new System.Drawing.Size(116, 35);
+            this.lblLogoMenu.Size = new System.Drawing.Size(229, 35);
             this.lblLogoMenu.TabIndex = 0;
-            this.lblLogoMenu.Text = "SmartFit";
+            this.lblLogoMenu.Text = "SmartFit Software";
             // 
             // picLogo
             // 

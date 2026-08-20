@@ -178,6 +178,18 @@
     <Compile Include="FrmMembresias.Designer.cs">
       <DependentUpon>FrmMembresias.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAgregarPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgregarPago.Designer.cs">
+      <DependentUpon>FrmAgregarPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHistorialPagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHistorialPagos.Designer.cs">
+      <DependentUpon>FrmHistorialPagos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPagos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +320,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMembresias.resx">
       <DependentUpon>FrmMembresias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgregarPago.resx">
+      <DependentUpon>FrmAgregarPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHistorialPagos.resx">
+      <DependentUpon>FrmHistorialPagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPagos.resx">
       <DependentUpon>FrmPagos.cs</DependentUpon>
