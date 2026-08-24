@@ -34,6 +34,11 @@ namespace CapaNegocio
             }
         }
 
+        public bool YaEntroHoy(int idCliente)
+        {
+            return datos.YaEntroHoy(idCliente);
+        }
+
         public List<Asistencia> ListarHoy()
         {
             return datos.ListarHoy();

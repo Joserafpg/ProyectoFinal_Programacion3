@@ -100,6 +100,13 @@ namespace ProyectoFinal_Programacion3
                 return;
             }
 
+            // entro, salio y vuelve: la entrada de hoy ya esta registrada (y cobrada si era visita), pasa sin mas
+            if (asistenciaNegocio.YaEntroHoy(cliente.IdCliente))
+            {
+                MostrarResultado("Bienvenido/a de nuevo, " + cliente.NombreCompleto + " · ya registró su entrada hoy · Puede pasar", verde);
+                return;
+            }
+
             var activa = clienteMembresiaNegocio.ObtenerActiva(cliente.IdCliente);
 
             if (activa == null)
