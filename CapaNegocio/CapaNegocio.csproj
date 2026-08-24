@@ -61,6 +61,7 @@
     <Compile Include="Seguridad.cs" />
     <Compile Include="UsuarioNegocio.cs" />
     <Compile Include="VentaNegocio.cs" />
+    <Compile Include="VisitaNegocio.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">

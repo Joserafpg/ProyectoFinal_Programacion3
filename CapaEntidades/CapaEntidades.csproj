@@ -48,6 +48,7 @@
     <Compile Include="Clientes\Membresia.cs" />
     <Compile Include="Clientes\Pago.cs" />
     <Compile Include="Clientes\PagoPendiente.cs" />
+    <Compile Include="Clientes\Visita.cs" />
     <Compile Include="Configuracion.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Entrenamiento\Clase.cs" />

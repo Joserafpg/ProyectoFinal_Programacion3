@@ -10,5 +10,6 @@
         public Membresia Membresia { get; set; }
         public ClienteMembresia ClienteMembresia { get; set; }
         public CuentaCobrar Cuenta { get; set; }
+        public Visita Visita { get; set; }
     }
 }
