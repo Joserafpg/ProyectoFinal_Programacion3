@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Linq;
 using System.Windows.Forms;
 using CapaEntidades;
 using CapaNegocio;
@@ -7,120 +8,92 @@ namespace ProyectoFinal_Programacion3
 {
     public partial class FrmHistorialPagos : Form
     {
-        ClienteNegocio clienteNegocio = new ClienteNegocio();
-        ClienteMembresiaNegocio clienteMembresiaNegocio = new ClienteMembresiaNegocio();
-        CuentaCobrarNegocio cuentaCobrarNegocio = new CuentaCobrarNegocio();
         PagoNegocio pagoNegocio = new PagoNegocio();
 
         Cliente cliente = null;
 
-        // si el usuario da doble click a un moroso o credito, aqui queda el cliente para cobrarle
-        public Cliente ClienteSeleccionado = null;
+        DateTimePicker dtpDesde;
+        DateTimePicker dtpHasta;
+        ComboBox cboMetodo;
+        TextBox txtCliente;
 
         public FrmHistorialPagos()
         {
             InitializeComponent();
+
+            Panel barra = new Panel { Dock = DockStyle.Top, Height = 54 };
+            Controls.Add(barra);
+            dtpDesde = Filtros.AgregarFecha(barra, "Desde:", Filtros.InicioDeMes());
+            dtpHasta = Filtros.AgregarFecha(barra, "Hasta:", DateTime.Today);
+            cboMetodo = Filtros.AgregarCombo(barra, "Método:", 140, "Todos", "Efectivo", "Tarjeta", "Transferencia");
+            txtCliente = Filtros.AgregarTexto(barra, "Cliente:", 220);
+
             Load += FrmHistorialPagos_Load;
-            dgvMorosos.CellDoubleClick += dgvMorosos_CellDoubleClick;
-            dgvCreditos.CellDoubleClick += dgvCreditos_CellDoubleClick;
-            dgvPagos.DataBindingComplete += dgv_DataBindingComplete;
-            dgvMorosos.DataBindingComplete += dgv_DataBindingComplete;
-            dgvCreditos.DataBindingComplete += dgv_DataBindingComplete;
+            dgvPagos.CellDoubleClick += dgvPagos_CellDoubleClick;
+            dgvPagos.DataBindingComplete += dgvPagos_DataBindingComplete;
         }
 
+        // con cliente muestra solo sus pagos (un año atras); sin cliente, todos los del gimnasio
         public FrmHistorialPagos(Cliente clienteActual) : this()
         {
             cliente = clienteActual;
+
+            if (cliente != null)
+            {
+                Text = "Historial de pagos de " + cliente.NombreCompleto;
+                dtpDesde.Value = DateTime.Today.AddYears(-1);
+                Filtros.Grupo(txtCliente).Visible = false;
+            }
         }
 
         private void FrmHistorialPagos_Load(object sender, EventArgs e)
         {
-            CargarPagos();
-            CargarMorosos();
-            CargarCreditos();
+            Cargar();
+
+            dtpDesde.ValueChanged += (s, a) => Cargar();
+            dtpHasta.ValueChanged += (s, a) => Cargar();
+            cboMetodo.SelectedIndexChanged += (s, a) => Cargar();
+            txtCliente.TextChanged += (s, a) => Cargar();
         }
 
-        private void dgv_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        private void Cargar()
         {
-            ((DataGridView)sender).ClearSelection();
+            string metodo = cboMetodo.SelectedIndex == 0 ? "" : cboMetodo.Text;
+            var pagos = pagoNegocio.Buscar(dtpDesde.Value, dtpHasta.Value, metodo, txtCliente.Text, cliente == null ? (int?)null : cliente.IdCliente);
+
+            dgvPagos.DataSource = pagos;
+
+            lblInfo.Text = pagos.Count == 0
+                ? "No hay pagos en ese período."
+                : pagos.Count + " pago(s) · RD$" + pagos.Sum(p => p.MontoTotal).ToString("N2") + "   ·   Doble click sobre un pago para ver qué se cobró esa vez";
         }
 
-        private void CargarPagos()
+        private void dgvPagos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             if (cliente == null)
-            {
-                dgvPagos.DataSource = pagoNegocio.Listar();
-                tabPagos.Text = "Todos los pagos";
-                Columnas.Mostrar(dgvPagos, "Fecha", "Cliente", "Concepto", "MetodoPago=Método", "MontoTotal=Monto", "Usuario=Cobrado por");
-            }
+                Columnas.Mostrar(dgvPagos, "IdPago=No.", "Fecha", "Cliente", "Concepto", "MetodoPago=Método", "MontoTotal=Total", "Usuario=Cobrado por");
             else
-            {
-                dgvPagos.DataSource = pagoNegocio.ListarPorCliente(cliente.IdCliente);
-                tabPagos.Text = "Pagos de " + cliente.Nombre;
-                Columnas.Mostrar(dgvPagos, "Fecha", "Concepto", "MetodoPago=Método", "MontoTotal=Monto", "Usuario=Cobrado por");
-            }
+                Columnas.Mostrar(dgvPagos, "IdPago=No.", "Fecha", "Concepto", "MetodoPago=Método", "MontoTotal=Total", "Usuario=Cobrado por");
 
             if (dgvPagos.Columns.Contains("Fecha"))
             {
+                dgvPagos.Columns["IdPago"].FillWeight = 40;
                 dgvPagos.Columns["Fecha"].DefaultCellStyle.Format = "dd/MM/yyyy hh:mm tt";
-                dgvPagos.Columns["Concepto"].FillWeight = 160;
+                dgvPagos.Columns["Concepto"].FillWeight = 200;
                 dgvPagos.Columns["MontoTotal"].DefaultCellStyle.Format = "N2";
             }
+
+            dgvPagos.ClearSelection();
+            dgvPagos.CurrentCell = null;
         }
 
-        private void CargarMorosos()
-        {
-            dgvMorosos.DataSource = clienteMembresiaNegocio.ListarVencidas();
-            Columnas.Mostrar(dgvMorosos, "Cliente", "Cedula=Cédula", "Membresia=Último plan", "FechaFin=Venció el");
-
-            if (dgvMorosos.Columns.Contains("FechaFin"))
-            {
-                dgvMorosos.Columns["FechaFin"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            }
-
-            tabMorosos.Text = "Deben renovar (" + dgvMorosos.Rows.Count + ")";
-        }
-
-        private void CargarCreditos()
-        {
-            dgvCreditos.DataSource = cuentaCobrarNegocio.ListarPendientes();
-            Columnas.Mostrar(dgvCreditos, "Cliente", "Cedula=Cédula", "IdVenta=Venta #", "FechaVenta=Fecha", "MontoOriginal=Monto original", "Saldo", "FechaVencimiento=Vence el");
-
-            if (dgvCreditos.Columns.Contains("Saldo"))
-            {
-                dgvCreditos.Columns["FechaVenta"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                dgvCreditos.Columns["MontoOriginal"].DefaultCellStyle.Format = "N2";
-                dgvCreditos.Columns["Saldo"].DefaultCellStyle.Format = "N2";
-                dgvCreditos.Columns["FechaVencimiento"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            }
-
-            tabCreditos.Text = "Créditos pendientes (" + dgvCreditos.Rows.Count + ")";
-        }
-
-        private void dgvMorosos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        // doble click en un pago abre lo que se cobro esa vez
+        private void dgvPagos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
-            ClienteMembresia vencida = (ClienteMembresia)dgvMorosos.Rows[e.RowIndex].DataBoundItem;
-            Seleccionar(vencida.Cedula);
-        }
-
-        private void dgvCreditos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-
-            CuentaCobrar cuenta = (CuentaCobrar)dgvCreditos.Rows[e.RowIndex].DataBoundItem;
-            Seleccionar(cuenta.Cedula);
-        }
-
-        private void Seleccionar(string cedula)
-        {
-            Cliente encontrado = clienteNegocio.ObtenerPorCedula(cedula);
-            if (encontrado == null) return;
-
-            ClienteSeleccionado = encontrado;
-            DialogResult = DialogResult.OK;
-            Close();
+            Pago pago = (Pago)dgvPagos.Rows[e.RowIndex].DataBoundItem;
+            new FrmDetallePago(pago).ShowDialog(this);
         }
     }
 }
