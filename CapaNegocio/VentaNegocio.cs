@@ -78,14 +78,7 @@ namespace CapaNegocio
 
         public decimal ObtenerPorcentajeImpuesto()
         {
-            try
-            {
-                return new ConfiguracionDatos().ObtenerPorcentajeImpuesto();
-            }
-            catch
-            {
-                return 0;
-            }
+            return new ConfiguracionDatos().ObtenerPorcentajeImpuesto();
         }
     }
 }

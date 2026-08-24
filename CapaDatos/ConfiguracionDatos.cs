@@ -80,7 +80,11 @@ namespace CapaDatos
                 {
                     conexion.Open();
                     object resultado = cmd.ExecuteScalar();
-                    return resultado == null ? 0 : (decimal)resultado;
+
+                    if (resultado == null)
+                        throw new InvalidOperationException("No existe la configuración del negocio en la base de datos. Complete la pantalla de Configuración.");
+
+                    return (decimal)resultado;
                 }
             }
         }
@@ -95,7 +99,11 @@ namespace CapaDatos
                 {
                     conexion.Open();
                     object resultado = cmd.ExecuteScalar();
-                    return resultado == null ? 0 : (decimal)resultado;
+
+                    if (resultado == null)
+                        throw new InvalidOperationException("No existe la configuración del negocio en la base de datos. Complete la pantalla de Configuración.");
+
+                    return (decimal)resultado;
                 }
             }
         }
