@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using CapaDatos;
 using CapaEntidades;
 
@@ -17,6 +18,12 @@ namespace CapaNegocio
         public List<Clase> Listar(string texto)
         {
             return datos.Listar(texto.Trim());
+        }
+
+        public List<Clase> Listar(string texto, bool? estado)
+        {
+            var lista = datos.Listar(texto.Trim());
+            return estado == null ? lista : lista.Where(c => c.Estado == estado.Value).ToList();
         }
 
         public string Insertar(Clase clase)

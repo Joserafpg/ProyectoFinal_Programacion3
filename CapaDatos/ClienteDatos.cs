@@ -14,9 +14,10 @@ namespace CapaDatos
 
             using (var conexion = Conexion.ObtenerConexion())
             {
-                string sql = @"select id_cliente, nombre, apellido, cedula, telefono, correo, direccion,
-                               fecha_nacimiento, sexo, foto, fecha_registro, estado
-                               from clientes order by nombre, apellido";
+                string sql = @"select c.id_cliente, c.nombre, c.apellido, c.cedula, c.telefono, c.correo, c.direccion,
+                               c.fecha_nacimiento, c.sexo, c.foto, c.fecha_registro, c.estado,
+                               (select max(cm.fecha_fin) from cliente_membresia cm where cm.id_cliente = c.id_cliente) as ultimo_vencimiento
+                               from clientes c order by c.nombre, c.apellido";
 
                 using (var cmd = new SqlCommand(sql, conexion))
                 {
@@ -39,11 +40,12 @@ namespace CapaDatos
 
             using (var conexion = Conexion.ObtenerConexion())
             {
-                string sql = @"select id_cliente, nombre, apellido, cedula, telefono, correo, direccion,
-                               fecha_nacimiento, sexo, foto, fecha_registro, estado
-                               from clientes
-                               where nombre like @texto or apellido like @texto or cedula like @texto
-                               order by nombre, apellido";
+                string sql = @"select c.id_cliente, c.nombre, c.apellido, c.cedula, c.telefono, c.correo, c.direccion,
+                               c.fecha_nacimiento, c.sexo, c.foto, c.fecha_registro, c.estado,
+                               (select max(cm.fecha_fin) from cliente_membresia cm where cm.id_cliente = c.id_cliente) as ultimo_vencimiento
+                               from clientes c
+                               where c.nombre like @texto or c.apellido like @texto or c.cedula like @texto
+                               order by c.nombre, c.apellido";
 
                 using (var cmd = new SqlCommand(sql, conexion))
                 {
@@ -140,7 +142,8 @@ namespace CapaDatos
                 Sexo = dr["sexo"] == DBNull.Value ? "" : dr["sexo"].ToString(),
                 Foto = dr["foto"] == DBNull.Value ? null : (byte[])dr["foto"],
                 FechaRegistro = (DateTime)dr["fecha_registro"],
-                Estado = (bool)dr["estado"]
+                Estado = (bool)dr["estado"],
+                UltimoVencimiento = dr["ultimo_vencimiento"] == DBNull.Value ? (DateTime?)null : (DateTime)dr["ultimo_vencimiento"]
             };
         }
 

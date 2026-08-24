@@ -69,6 +69,12 @@ namespace CapaNegocio
             return datos.Listar(texto.Trim());
         }
 
+        public List<Usuario> Listar(string texto, bool? estado)
+        {
+            var lista = datos.Listar(texto.Trim());
+            return estado == null ? lista : lista.Where(u => u.Estado == estado.Value).ToList();
+        }
+
         public string Insertar(Usuario usuario, string clave)
         {
             string error = Validar(usuario);

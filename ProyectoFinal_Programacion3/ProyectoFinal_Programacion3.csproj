@@ -255,6 +255,7 @@
     <Compile Include="Sesion.cs" />
     <Compile Include="Validaciones.cs" />
     <Compile Include="Columnas.cs" />
+    <Compile Include="Filtros.cs" />
     <EmbeddedResource Include="FrmAsignarMembresia.resx">
       <DependentUpon>FrmAsignarMembresia.cs</DependentUpon>
     </EmbeddedResource>

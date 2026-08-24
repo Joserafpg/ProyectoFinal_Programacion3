@@ -23,6 +23,12 @@ namespace CapaNegocio
             return datos.Listar(texto.Trim());
         }
 
+        public List<Membresia> Listar(string texto, bool? estado)
+        {
+            var lista = datos.Listar(texto.Trim());
+            return estado == null ? lista : lista.Where(m => m.Estado == estado.Value).ToList();
+        }
+
         public string Insertar(Membresia membresia)
         {
             string error = Validar(membresia);

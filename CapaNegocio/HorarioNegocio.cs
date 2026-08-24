@@ -23,6 +23,12 @@ namespace CapaNegocio
             return datos.Listar(texto.Trim());
         }
 
+        public List<Horario> Listar(string texto, bool? estado)
+        {
+            var lista = datos.Listar(texto.Trim());
+            return estado == null ? lista : lista.Where(h => h.Estado == estado.Value).ToList();
+        }
+
         public string Insertar(Horario horario)
         {
             string error = Validar(horario);

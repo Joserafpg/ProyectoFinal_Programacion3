@@ -1,7 +1,6 @@
-﻿using CapaEntidades;
+using CapaEntidades;
 using CapaNegocio;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ProyectoFinal_Programacion3
@@ -9,14 +8,23 @@ namespace ProyectoFinal_Programacion3
     public partial class FrmHorarios : Form
     {
         HorarioNegocio horarioNegocio = new HorarioNegocio();
+        ComboBox cboEstado;
+
         public FrmHorarios()
         {
             InitializeComponent();
+            cboEstado = Filtros.AgregarEstado(panelBarra);
+            cboEstado.SelectedIndexChanged += (s, e) => Cargar();
+        }
+
+        private void Cargar()
+        {
+            dgvDatos.DataSource = horarioNegocio.Listar(txtBuscar.Text, Filtros.Estado(cboEstado));
         }
 
         private void FrmHorarios_Load(object sender, EventArgs e)
         {
-            dgvDatos.DataSource = horarioNegocio.Listar();
+            Cargar();
         }
 
         private void dgvDatos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -31,7 +39,7 @@ namespace ProyectoFinal_Programacion3
             FrmHorario dialogo = new FrmHorario();
             if (dialogo.ShowDialog(this) == DialogResult.OK)
             {
-                dgvDatos.DataSource = horarioNegocio.Listar();
+                Cargar();
             }
         }
 
@@ -46,13 +54,13 @@ namespace ProyectoFinal_Programacion3
             FrmHorario dialogo = new FrmHorario(seleccionado);
             if (dialogo.ShowDialog(this) == DialogResult.OK)
             {
-                dgvDatos.DataSource = horarioNegocio.Listar();
+                Cargar();
             }
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            dgvDatos.DataSource = horarioNegocio.Listar(txtBuscar.Text);
+            Cargar();
         }
     }
 }

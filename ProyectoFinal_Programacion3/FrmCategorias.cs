@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using CapaEntidades;
 using CapaNegocio;
@@ -8,15 +8,23 @@ namespace ProyectoFinal_Programacion3
     public partial class FrmCategorias : Form
     {
         CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+        ComboBox cboEstado;
 
         public FrmCategorias()
         {
             InitializeComponent();
+            cboEstado = Filtros.AgregarEstado(panelBarra);
+            cboEstado.SelectedIndexChanged += (s, e) => Cargar();
+        }
+
+        private void Cargar()
+        {
+            dgvDatos.DataSource = categoriaNegocio.Listar(txtBuscar.Text, Filtros.Estado(cboEstado));
         }
 
         private void FrmCategorias_Load(object sender, EventArgs e)
         {
-            dgvDatos.DataSource = categoriaNegocio.Listar();
+            Cargar();
         }
 
         private void dgvDatos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -31,7 +39,7 @@ namespace ProyectoFinal_Programacion3
             FrmCategoria dialogo = new FrmCategoria();
             if (dialogo.ShowDialog(this) == DialogResult.OK)
             {
-                dgvDatos.DataSource = categoriaNegocio.Listar();
+                Cargar();
             }
         }
 
@@ -41,21 +49,18 @@ namespace ProyectoFinal_Programacion3
             {
                 return;
             }
-            else
-            {
 
-                Categoria seleccionada = (Categoria)dgvDatos.Rows[e.RowIndex].DataBoundItem;
-                FrmCategoria dialogo = new FrmCategoria(seleccionada);
-                if (dialogo.ShowDialog(this) == DialogResult.OK)
-                {
-                    dgvDatos.DataSource = categoriaNegocio.Listar();
-                }
+            Categoria seleccionada = (Categoria)dgvDatos.Rows[e.RowIndex].DataBoundItem;
+            FrmCategoria dialogo = new FrmCategoria(seleccionada);
+            if (dialogo.ShowDialog(this) == DialogResult.OK)
+            {
+                Cargar();
             }
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            dgvDatos.DataSource = categoriaNegocio.Listar(txtBuscar.Text);
+            Cargar();
         }
     }
 }

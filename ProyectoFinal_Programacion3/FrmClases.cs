@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using CapaEntidades;
 using CapaNegocio;
@@ -8,14 +8,23 @@ namespace ProyectoFinal_Programacion3
     public partial class FrmClases : Form
     {
         ClaseNegocio claseNegocio = new ClaseNegocio();
+        ComboBox cboEstado;
+
         public FrmClases()
         {
             InitializeComponent();
+            cboEstado = Filtros.AgregarEstado(panelBarra);
+            cboEstado.SelectedIndexChanged += (s, e) => Cargar();
+        }
+
+        private void Cargar()
+        {
+            dgvDatos.DataSource = claseNegocio.Listar(txtBuscar.Text, Filtros.Estado(cboEstado));
         }
 
         private void FrmClases_Load(object sender, EventArgs e)
         {
-            dgvDatos.DataSource = claseNegocio.Listar();
+            Cargar();
         }
 
         private void dgvDatos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -30,7 +39,7 @@ namespace ProyectoFinal_Programacion3
             FrmClase dialogo = new FrmClase();
             if (dialogo.ShowDialog(this) == DialogResult.OK)
             {
-                dgvDatos.DataSource = claseNegocio.Listar();
+                Cargar();
             }
         }
 
@@ -45,13 +54,13 @@ namespace ProyectoFinal_Programacion3
             FrmClase dialogo = new FrmClase(seleccionado);
             if (dialogo.ShowDialog(this) == DialogResult.OK)
             {
-                dgvDatos.DataSource = claseNegocio.Listar();
+                Cargar();
             }
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            dgvDatos.DataSource = claseNegocio.Listar(txtBuscar.Text);
+            Cargar();
         }
     }
 }

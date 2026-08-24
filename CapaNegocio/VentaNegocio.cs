@@ -71,6 +71,14 @@ namespace CapaNegocio
             return datos.ListarPorFecha(desde, hasta);
         }
 
+        public List<Venta> Buscar(DateTime desde, DateTime hasta, string tipoPago, string textoCliente, int? idCliente)
+        {
+            if (desde > hasta)
+                return new List<Venta>();
+
+            return datos.Buscar(desde, hasta, tipoPago, textoCliente, idCliente);
+        }
+
         public List<Venta> ListarPorCliente(int idCliente)
         {
             return datos.ListarPorCliente(idCliente);

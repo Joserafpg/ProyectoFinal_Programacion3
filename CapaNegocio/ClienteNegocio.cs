@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using CapaDatos;
 using CapaEntidades;
 
@@ -17,6 +18,20 @@ namespace CapaNegocio
         public List<Cliente> Listar(string texto)
         {
             return datos.Listar(texto.Trim());
+        }
+
+        // estado null = todos; membresia: "Todas", "Al día", "Vencida" o "Sin membresía"
+        public List<Cliente> Listar(string texto, bool? estado, string membresia)
+        {
+            var lista = datos.Listar(texto.Trim());
+
+            if (estado != null)
+                lista = lista.Where(c => c.Estado == estado.Value).ToList();
+
+            if (!string.IsNullOrEmpty(membresia) && membresia != "Todas")
+                lista = lista.Where(c => c.EstadoMembresia == membresia).ToList();
+
+            return lista;
         }
 
         public string Insertar(Cliente cliente)

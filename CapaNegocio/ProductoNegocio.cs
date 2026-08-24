@@ -20,6 +20,22 @@ namespace CapaNegocio
             return datos.Listar(texto.Trim());
         }
 
+        // estado null = todos; stock: "Todos", "Bajo mínimo" o "Sin stock"
+        public List<Producto> Listar(string texto, bool? estado, string stock)
+        {
+            var lista = datos.Listar(texto.Trim());
+
+            if (estado != null)
+                lista = lista.Where(p => p.Estado == estado.Value).ToList();
+
+            if (stock == "Bajo mínimo")
+                lista = lista.Where(p => p.Stock <= p.StockMinimo).ToList();
+            else if (stock == "Sin stock")
+                lista = lista.Where(p => p.Stock == 0).ToList();
+
+            return lista;
+        }
+
         // productos activos que estan en o por debajo de su stock minimo (los mas urgentes primero)
         public List<Producto> ListarBajoStock()
         {

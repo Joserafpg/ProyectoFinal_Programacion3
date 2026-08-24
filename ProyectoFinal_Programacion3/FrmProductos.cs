@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using CapaEntidades;
 using CapaNegocio;
@@ -8,9 +8,21 @@ namespace ProyectoFinal_Programacion3
     public partial class FrmProductos : Form
     {
         ProductoNegocio productoNegocio = new ProductoNegocio();
+        ComboBox cboEstado;
+        ComboBox cboStock;
+
         public FrmProductos()
         {
             InitializeComponent();
+            cboEstado = Filtros.AgregarEstado(panelBarra);
+            cboStock = Filtros.AgregarCombo(panelBarra, "Stock:", 140, "Todos", "Bajo mínimo", "Sin stock");
+            cboEstado.SelectedIndexChanged += (s, e) => Cargar();
+            cboStock.SelectedIndexChanged += (s, e) => Cargar();
+        }
+
+        private void Cargar()
+        {
+            dgvDatos.DataSource = productoNegocio.Listar(txtBuscar.Text, Filtros.Estado(cboEstado), cboStock.Text);
         }
 
         private void dgvDatos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -22,7 +34,7 @@ namespace ProyectoFinal_Programacion3
 
         private void FrmProductos_Load(object sender, EventArgs e)
         {
-            dgvDatos.DataSource = productoNegocio.Listar();
+            Cargar();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -30,7 +42,7 @@ namespace ProyectoFinal_Programacion3
             FrmProducto dialogo = new FrmProducto();
             if (dialogo.ShowDialog(this) == DialogResult.OK)
             {
-                dgvDatos.DataSource = productoNegocio.Listar();
+                Cargar();
             }
         }
 
@@ -45,13 +57,13 @@ namespace ProyectoFinal_Programacion3
             FrmProducto dialogo = new FrmProducto(seleccionado);
             if (dialogo.ShowDialog(this) == DialogResult.OK)
             {
-                dgvDatos.DataSource = productoNegocio.Listar();
+                Cargar();
             }
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            dgvDatos.DataSource = productoNegocio.Listar(txtBuscar.Text);
+            Cargar();
         }
     }
 }

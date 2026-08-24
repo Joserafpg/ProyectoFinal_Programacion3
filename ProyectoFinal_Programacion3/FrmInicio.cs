@@ -12,11 +12,21 @@ namespace ProyectoFinal_Programacion3
         ProductoNegocio productoNegocio = new ProductoNegocio();
         ClienteMembresiaNegocio clienteMembresiaNegocio = new ClienteMembresiaNegocio();
 
-        const int DiasPorVencer = 7;
+        static readonly int[] OpcionesDiasPorVencer = { 7, 15, 30 };
+        static readonly int[] OpcionesDiasAtraso = { 0, 30, 90 };
+
+        ComboBox cboDiasVencer;
+        ComboBox cboAtraso;
 
         public FrmInicio()
         {
             InitializeComponent();
+
+            cboDiasVencer = Filtros.AgregarCombo(panelFiltros, "Próximos:", 110, "7 días", "15 días", "30 días");
+            cboAtraso = Filtros.AgregarCombo(panelFiltros, "Vencidas hace:", 160, "Cualquier tiempo", "Más de 30 días", "Más de 90 días");
+            cboDiasVencer.SelectedIndexChanged += (s, e) => CargarReporte();
+            cboAtraso.SelectedIndexChanged += (s, e) => CargarReporte();
+
             Load += FrmInicio_Load;
             cboVer.SelectedIndexChanged += cboVer_SelectedIndexChanged;
             dtpDesde.ValueChanged += fechas_ValueChanged;
@@ -58,6 +68,8 @@ namespace ProyectoFinal_Programacion3
             panelDesde.Visible = esVentas;
             lblHasta.Visible = esVentas;
             panelHasta.Visible = esVentas;
+            Filtros.Grupo(cboDiasVencer).Visible = cboVer.SelectedIndex == 2;
+            Filtros.Grupo(cboAtraso).Visible = cboVer.SelectedIndex == 3;
             CargarReporte();
         }
 
@@ -86,15 +98,18 @@ namespace ProyectoFinal_Programacion3
                     break;
 
                 case 2:
-                    var porVencer = clienteMembresiaNegocio.ListarPorVencer(DiasPorVencer);
+                    int diasPorVencer = OpcionesDiasPorVencer[cboDiasVencer.SelectedIndex];
+                    var porVencer = clienteMembresiaNegocio.ListarPorVencer(diasPorVencer);
                     dgvDatos.DataSource = porVencer;
-                    lblResumen.Text = porVencer.Count + " membresías vencen en los próximos " + DiasPorVencer + " días";
+                    lblResumen.Text = porVencer.Count + " membresías vencen en los próximos " + diasPorVencer + " días";
                     break;
 
                 case 3:
-                    var vencidas = clienteMembresiaNegocio.ListarVencidas();
+                    int diasAtraso = OpcionesDiasAtraso[cboAtraso.SelectedIndex];
+                    var vencidas = clienteMembresiaNegocio.ListarVencidas()
+                        .Where(v => (DateTime.Today - v.FechaFin).Days >= diasAtraso).ToList();
                     dgvDatos.DataSource = vencidas;
-                    lblResumen.Text = vencidas.Count + " clientes con la membresía vencida";
+                    lblResumen.Text = vencidas.Count + " clientes con la membresía vencida" + (diasAtraso > 0 ? " hace más de " + diasAtraso + " días" : "");
                     break;
             }
         }

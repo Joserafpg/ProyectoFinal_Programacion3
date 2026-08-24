@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using CapaEntidades;
 using CapaNegocio;
@@ -8,9 +8,18 @@ namespace ProyectoFinal_Programacion3
     public partial class FrmMembresias : Form
     {
         MembresiaNegocio membresiaNegocio = new MembresiaNegocio();
+        ComboBox cboEstado;
+
         public FrmMembresias()
         {
             InitializeComponent();
+            cboEstado = Filtros.AgregarEstado(panelBarra);
+            cboEstado.SelectedIndexChanged += (s, e) => Cargar();
+        }
+
+        private void Cargar()
+        {
+            dgvDatos.DataSource = membresiaNegocio.Listar(txtBuscar.Text, Filtros.Estado(cboEstado));
         }
 
         private void dgvDatos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -22,7 +31,7 @@ namespace ProyectoFinal_Programacion3
 
         private void FrmMembresias_Load(object sender, EventArgs e)
         {
-            dgvDatos.DataSource = membresiaNegocio.Listar();
+            Cargar();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -30,7 +39,7 @@ namespace ProyectoFinal_Programacion3
             FrmMembresia dialogo = new FrmMembresia();
             if (dialogo.ShowDialog(this) == DialogResult.OK)
             {
-                dgvDatos.DataSource = membresiaNegocio.Listar();
+                Cargar();
             }
         }
 
@@ -45,13 +54,13 @@ namespace ProyectoFinal_Programacion3
             FrmMembresia dialogo = new FrmMembresia(seleccionado);
             if (dialogo.ShowDialog(this) == DialogResult.OK)
             {
-                dgvDatos.DataSource = membresiaNegocio.Listar();
+                Cargar();
             }
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            dgvDatos.DataSource = membresiaNegocio.Listar(txtBuscar.Text);
+            Cargar();
         }
     }
 }

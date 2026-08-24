@@ -23,6 +23,12 @@ namespace CapaNegocio
             return datos.Listar(texto.Trim());
         }
 
+        public List<Proveedor> Listar(string texto, bool? estado)
+        {
+            var lista = datos.Listar(texto.Trim());
+            return estado == null ? lista : lista.Where(p => p.Estado == estado.Value).ToList();
+        }
+
         public string Insertar(Proveedor proveedor)
         {
             if (string.IsNullOrWhiteSpace(proveedor.Nombre))

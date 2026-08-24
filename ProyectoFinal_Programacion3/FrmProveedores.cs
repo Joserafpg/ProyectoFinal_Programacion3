@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using CapaEntidades;
 using CapaNegocio;
@@ -8,14 +8,23 @@ namespace ProyectoFinal_Programacion3
     public partial class FrmProveedores : Form
     {
         ProveedorNegocio proveedorNegocio = new ProveedorNegocio();
+        ComboBox cboEstado;
+
         public FrmProveedores()
         {
             InitializeComponent();
+            cboEstado = Filtros.AgregarEstado(panelBarra);
+            cboEstado.SelectedIndexChanged += (s, e) => Cargar();
+        }
+
+        private void Cargar()
+        {
+            dgvDatos.DataSource = proveedorNegocio.Listar(txtBuscar.Text, Filtros.Estado(cboEstado));
         }
 
         private void FrmProveedores_Load(object sender, EventArgs e)
         {
-            dgvDatos.DataSource = proveedorNegocio.Listar();
+            Cargar();
         }
 
         private void dgvDatos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -30,7 +39,7 @@ namespace ProyectoFinal_Programacion3
             FrmProveedor dialogo = new FrmProveedor();
             if (dialogo.ShowDialog(this) == DialogResult.OK)
             {
-                dgvDatos.DataSource = proveedorNegocio.Listar();
+                Cargar();
             }
         }
 
@@ -45,13 +54,13 @@ namespace ProyectoFinal_Programacion3
             FrmProveedor dialogo = new FrmProveedor(seleccionado);
             if (dialogo.ShowDialog(this) == DialogResult.OK)
             {
-                dgvDatos.DataSource = proveedorNegocio.Listar();
+                Cargar();
             }
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            dgvDatos.DataSource = proveedorNegocio.Listar(txtBuscar.Text);
+            Cargar();
         }
     }
 }
