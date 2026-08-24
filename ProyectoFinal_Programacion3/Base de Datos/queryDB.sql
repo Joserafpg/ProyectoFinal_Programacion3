@@ -167,18 +167,19 @@ create table asistencia(
 	FOREIGN KEY (id_reserva) REFERENCES reservas(id_reserva)
 )
 
--- visitas de clientes sin membresia: se cargan en el check-in y quedan pendientes hasta cobrarse en pagos
+-- visitas de clientes sin membresia: se cargan en el check-in cada vez que entran y quedan pendientes hasta cobrarse en pagos
 create table visitas(
 	id_visita int PRIMARY KEY IDENTITY(1,1),
 	id_cliente int NOT NULL,
-	fecha date NOT NULL DEFAULT CAST(GETDATE() AS date),
+	fecha datetime NOT NULL DEFAULT GETDATE(),
 	monto decimal(10,2) NOT NULL CHECK (monto >= 0),
 	estado nvarchar(20) NOT NULL DEFAULT 'Pendiente' CHECK (estado IN ('Pendiente','Pagada')),
 	id_pago int NULL,
 	FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente),
-	FOREIGN KEY (id_pago) REFERENCES pagos(id_pago),
-	CONSTRAINT UQ_visitas_cliente_fecha UNIQUE (id_cliente, fecha)
+	FOREIGN KEY (id_pago) REFERENCES pagos(id_pago)
 )
+
+create index IX_visitas_cliente on visitas(id_cliente, estado)
 
 -- inventario
 

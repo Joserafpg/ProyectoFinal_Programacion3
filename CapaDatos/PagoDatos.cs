@@ -317,7 +317,7 @@ namespace CapaDatos
                                     cmd.Parameters.AddWithValue("@idVisita", item.Visita.IdVisita);
 
                                     if (cmd.ExecuteNonQuery() != 1)
-                                        throw new InvalidOperationException("La visita del " + item.Visita.Fecha.ToString("dd/MM/yyyy") + " ya fue cobrada.");
+                                        throw new InvalidOperationException("La visita del " + item.Visita.Fecha.ToString("dd/MM/yyyy hh:mm tt") + " ya fue cobrada.");
                                 }
                             }
                         }

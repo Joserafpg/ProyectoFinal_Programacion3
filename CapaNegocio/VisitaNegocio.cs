@@ -13,7 +13,7 @@ namespace CapaNegocio
     {
         private VisitaDatos datos = new VisitaDatos();
 
-        // cliente sin membresia: se le carga la visita del dia a su cuenta y entra
+        // cliente sin membresia: cada vez que entra se le carga una visita a su cuenta
         public string Cargar(int idCliente)
         {
             if (idCliente <= 0)
@@ -21,9 +21,6 @@ namespace CapaNegocio
 
             if (new ClienteMembresiaDatos().ObtenerActiva(idCliente) != null)
                 return "El cliente tiene membresía activa; registre la entrada normal.";
-
-            if (new AsistenciaDatos().YaEntroHoy(idCliente))
-                return "Este cliente ya registró su entrada hoy.";
 
             decimal monto = new ConfiguracionDatos().ObtenerMontoVisita();
 
@@ -34,10 +31,6 @@ namespace CapaNegocio
             {
                 datos.RegistrarConEntrada(idCliente, monto);
                 return "";
-            }
-            catch (SqlException ex) when (ex.Number == 2627 || ex.Number == 2601)
-            {
-                return "Ya se cargó la visita de hoy a este cliente.";
             }
             catch (Exception ex)
             {

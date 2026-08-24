@@ -87,7 +87,7 @@ namespace CapaNegocio
 
             foreach (var visita in new VisitaDatos().ListarPendientes(cliente.IdCliente))
             {
-                lista.Add(new PagoPendiente { Tipo = "Visita", Concepto = "Visita del " + visita.Fecha.ToString("dd/MM/yyyy"), Monto = visita.Monto, Visita = visita });
+                lista.Add(new PagoPendiente { Tipo = "Visita", Concepto = "Visita del " + visita.Fecha.ToString("dd/MM/yyyy hh:mm tt"), Monto = visita.Monto, Visita = visita });
             }
 
             return lista;

@@ -100,18 +100,19 @@ namespace ProyectoFinal_Programacion3
                 return;
             }
 
-            // entro, salio y vuelve: la entrada de hoy ya esta registrada (y cobrada si era visita), pasa sin mas
-            if (asistenciaNegocio.YaEntroHoy(cliente.IdCliente))
-            {
-                MostrarResultado("Bienvenido/a de nuevo, " + cliente.NombreCompleto + " · ya registró su entrada hoy · Puede pasar", verde);
-                return;
-            }
-
             var activa = clienteMembresiaNegocio.ObtenerActiva(cliente.IdCliente);
 
+            // sin membresia se cobra cada vez que entra, aunque ya haya entrado hoy
             if (activa == null)
             {
                 CargarVisita(cliente);
+                return;
+            }
+
+            // socio que entro, salio y vuelve: la entrada de hoy ya esta registrada, pasa sin mas
+            if (asistenciaNegocio.YaEntroHoy(cliente.IdCliente))
+            {
+                MostrarResultado("Bienvenido/a de nuevo, " + cliente.NombreCompleto + " · ya registró su entrada hoy · Puede pasar", verde);
                 return;
             }
 
@@ -136,7 +137,7 @@ namespace ProyectoFinal_Programacion3
             MostrarResultado("Bienvenido/a, " + cliente.NombreCompleto + " · " + activa.Membresia + " vence el " + activa.FechaFin.ToString("dd/MM/yyyy") + " · Puede pasar", verde);
         }
 
-        // sin membresia: se le carga la visita del dia a su cuenta y entra; se cobra despues en pagos
+        // sin membresia: cada entrada carga una visita a su cuenta; se cobra despues en pagos
         private void CargarVisita(Cliente cliente)
         {
             var ultima = clienteMembresiaNegocio.ObtenerUltima(cliente.IdCliente);
@@ -147,12 +148,15 @@ namespace ProyectoFinal_Programacion3
                 ? "No tiene membresía."
                 : "Su " + ultima.Membresia + " venció el " + ultima.FechaFin.ToString("dd/MM/yyyy") + " (hace " + (DateTime.Today - ultima.FechaFin).Days + " días).";
 
+            var hoy = pendientes.Where(v => v.Fecha.Date == DateTime.Today).ToList();
+
             string deuda = pendientes.Count == 0
                 ? ""
-                : "\nYa debe " + pendientes.Count + " visita(s) por RD$" + pendientes.Sum(v => v.Monto).ToString("N2") + ".";
+                : "\nYa debe " + pendientes.Count + " visita(s) por RD$" + pendientes.Sum(v => v.Monto).ToString("N2") + "."
+                  + (hoy.Count > 0 ? " Hoy ya entró " + hoy.Count + " vez/veces." : "");
 
             string pregunta = cliente.NombreCompleto + "\n" + situacion + deuda +
-                              "\n\n¿Cargar la visita del día (RD$" + montoVisita.ToString("N2") + ") a su cuenta y registrar la entrada?";
+                              "\n\n¿Cargar una visita (RD$" + montoVisita.ToString("N2") + ") a su cuenta y registrar la entrada?";
 
             if (MessageBox.Show(pregunta, "Visita del día", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
             {
