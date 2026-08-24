@@ -41,6 +41,8 @@
             this.lblEstadoCli = new System.Windows.Forms.Label();
             this.spC = new System.Windows.Forms.Panel();
             this.btnBuscarCli = new System.Windows.Forms.Button();
+            this.spD = new System.Windows.Forms.Panel();
+            this.btnDeudores = new System.Windows.Forms.Button();
             this.spH = new System.Windows.Forms.Panel();
             this.btnHistorial = new System.Windows.Forms.Button();
             this.panelCarrito.SuspendLayout();
@@ -281,6 +283,8 @@
             this.panelCliente.Controls.Add(this.panelInfo);
             this.panelCliente.Controls.Add(this.spC);
             this.panelCliente.Controls.Add(this.btnBuscarCli);
+            this.panelCliente.Controls.Add(this.spD);
+            this.panelCliente.Controls.Add(this.btnDeudores);
             this.panelCliente.Controls.Add(this.spH);
             this.panelCliente.Controls.Add(this.btnHistorial);
             this.panelCliente.Dock = System.Windows.Forms.DockStyle.Top;
@@ -351,6 +355,31 @@
             this.btnBuscarCli.Text = "Buscar cliente";
             this.btnBuscarCli.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscarCli.UseVisualStyleBackColor = false;
+            //
+            // spD
+            //
+            this.spD.Dock = System.Windows.Forms.DockStyle.Right;
+            this.spD.Location = new System.Drawing.Point(865, 16);
+            this.spD.Name = "spD";
+            this.spD.Size = new System.Drawing.Size(16, 56);
+            this.spD.TabIndex = 0;
+            //
+            // btnDeudores
+            //
+            this.btnDeudores.BackColor = System.Drawing.Color.White;
+            this.btnDeudores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeudores.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnDeudores.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(204)))), ((int)(((byte)(214)))));
+            this.btnDeudores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
+            this.btnDeudores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeudores.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDeudores.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
+            this.btnDeudores.Location = new System.Drawing.Point(881, 16);
+            this.btnDeudores.Name = "btnDeudores";
+            this.btnDeudores.Size = new System.Drawing.Size(199, 56);
+            this.btnDeudores.TabIndex = 2;
+            this.btnDeudores.Text = "Clientes que deben";
+            this.btnDeudores.UseVisualStyleBackColor = false;
             //
             // spH
             //
@@ -428,6 +457,8 @@
         private System.Windows.Forms.Label lblEstadoCli;
         private System.Windows.Forms.Panel spC;
         private System.Windows.Forms.Button btnBuscarCli;
+        private System.Windows.Forms.Panel spD;
+        private System.Windows.Forms.Button btnDeudores;
         private System.Windows.Forms.Panel spH;
         private System.Windows.Forms.Button btnHistorial;
     }

@@ -12,6 +12,7 @@ namespace ProyectoFinal_Programacion3
     {
         ClienteMembresiaNegocio clienteMembresiaNegocio = new ClienteMembresiaNegocio();
         CuentaCobrarNegocio cuentaCobrarNegocio = new CuentaCobrarNegocio();
+        VisitaNegocio visitaNegocio = new VisitaNegocio();
         PagoNegocio pagoNegocio = new PagoNegocio();
 
         Cliente cliente = null;
@@ -27,6 +28,7 @@ namespace ProyectoFinal_Programacion3
             Load += FrmPagos_Load;
             btnBuscarCli.Click += btnBuscarCli_Click;
             btnHistorial.Click += btnHistorial_Click;
+            btnDeudores.Click += btnDeudores_Click;
             btnAgregarPago.Click += btnAgregarPago_Click;
             btnQuitarPago.Click += btnQuitarPago_Click;
             btnCobrar.Click += btnCobrar_Click;
@@ -58,11 +60,17 @@ namespace ProyectoFinal_Programacion3
 
         private void btnHistorial_Click(object sender, EventArgs e)
         {
-            FrmHistorialPagos historial = new FrmHistorialPagos(cliente);
+            new FrmHistorialPagos(cliente).ShowDialog(this);
+        }
 
-            if (historial.ShowDialog(this) == DialogResult.OK && historial.ClienteSeleccionado != null)
+        // lista de todos los que deben; doble click en uno lo trae aqui para cobrarle
+        private void btnDeudores_Click(object sender, EventArgs e)
+        {
+            FrmDeudores deudores = new FrmDeudores();
+
+            if (deudores.ShowDialog(this) == DialogResult.OK && deudores.ClienteSeleccionado != null)
             {
-                MostrarCliente(historial.ClienteSeleccionado);
+                MostrarCliente(deudores.ClienteSeleccionado);
                 btnAgregarPago.PerformClick();
             }
         }
@@ -102,8 +110,13 @@ namespace ProyectoFinal_Programacion3
             decimal deuda = cuentaCobrarNegocio.ObtenerDeuda(cliente.IdCliente);
             string textoCredito = deuda > 0 ? "Crédito: debe RD$" + deuda.ToString("N2") : "Crédito: sin deuda";
 
-            lblEstadoCli.Text = textoMembresia + "   |   " + textoCredito;
-            lblEstadoCli.ForeColor = (activa != null && deuda == 0) ? verde : rojo;
+            var visitas = visitaNegocio.ListarPendientes(cliente.IdCliente);
+            string textoVisitas = visitas.Count > 0
+                ? "Visitas: debe " + visitas.Count + " por RD$" + visitas.Sum(v => v.Monto).ToString("N2")
+                : "Visitas: sin deuda";
+
+            lblEstadoCli.Text = textoMembresia + "   |   " + textoCredito + "   |   " + textoVisitas;
+            lblEstadoCli.ForeColor = (activa != null && deuda == 0 && visitas.Count == 0) ? verde : rojo;
         }
 
         // ---------- carrito ----------
@@ -177,8 +190,8 @@ namespace ProyectoFinal_Programacion3
 
         private void dgvCarrito_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
+            e.ThrowException = false;
             MessageBox.Show("El monto no es válido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            e.Cancel = false;
         }
 
         private void ActualizarTotal()

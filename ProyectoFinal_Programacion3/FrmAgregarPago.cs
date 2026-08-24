@@ -49,6 +49,11 @@ namespace ProyectoFinal_Programacion3
                 pendientes.Add(pendiente);
             }
 
+            if (pendientes.Count == 0)
+            {
+                lblInfo.Text = "El cliente no tiene ningún pago pendiente.";
+            }
+
             dgvPendientes.DataSource = pendientes;
         }
 

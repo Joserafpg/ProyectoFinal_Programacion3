@@ -124,6 +124,18 @@
     <Compile Include="FrmConfiguracion.Designer.cs">
       <DependentUpon>FrmConfiguracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDeudores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDeudores.Designer.cs">
+      <DependentUpon>FrmDeudores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetallePago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetallePago.Designer.cs">
+      <DependentUpon>FrmDetallePago.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDetalleVenta.cs">
       <SubType>Form</SubType>
     </Compile>

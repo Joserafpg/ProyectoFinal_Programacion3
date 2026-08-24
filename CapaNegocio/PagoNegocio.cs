@@ -20,19 +20,34 @@ namespace CapaNegocio
             return new PagoDatos().ListarPorCliente(idCliente);
         }
 
-        public decimal ObtenerMontoVisita()
+        public List<PagoDetalle> ListarDetalle(int idPago)
         {
-            try
-            {
-                return new ConfiguracionDatos().ObtenerMontoVisita();
-            }
-            catch
-            {
-                return 0;
-            }
+            return new PagoDatos().ListarDetalle(idPago);
         }
 
-        // todo lo que el cliente tiene pendiente de pagar: renovar membresia, creditos y la visita
+        public List<Deudor> ListarDeudores()
+        {
+            return new PagoDatos().ListarDeudores();
+        }
+
+        public List<Pago> Buscar(DateTime desde, DateTime hasta, string metodo, string textoCliente, int? idCliente)
+        {
+            if (desde > hasta)
+                return new List<Pago>();
+
+            return new PagoDatos().Buscar(desde, hasta, metodo, textoCliente, idCliente);
+        }
+
+        // con cuantos dias de anticipacion se ofrece renovar la membresia que esta por vencer
+        public const int DiasAvisoRenovacion = 7;
+
+        public decimal ObtenerMontoVisita()
+        {
+            return new ConfiguracionDatos().ObtenerMontoVisita();
+        }
+
+        // solo lo que el cliente realmente debe: sus creditos, renovar SU plan si esta
+        // vencido o por vencer, y las visitas del dia que se le cargaron en el check-in
         public List<PagoPendiente> ListarPendientes(Cliente cliente)
         {
             var lista = new List<PagoPendiente>();
@@ -40,20 +55,29 @@ namespace CapaNegocio
             if (cliente == null)
                 return lista;
 
-            var planes = new MembresiaDatos().Listar().Where(m => m.Estado).ToList();
             var activa = new ClienteMembresiaDatos().ObtenerActiva(cliente.IdCliente);
             var ultima = new ClienteMembresiaDatos().ObtenerUltima(cliente.IdCliente);
 
-            foreach (var plan in planes)
+            ClienteMembresia aRenovar = null;
+            string concepto = null;
+
+            if (activa == null && ultima != null)
             {
-                string concepto = "Membresía " + plan.Nombre + " (" + plan.DuracionDias + " días)";
+                aRenovar = ultima;
+                concepto = "Renovar " + ultima.Membresia + " (vencida el " + ultima.FechaFin.ToString("dd/MM/yyyy") + ")";
+            }
+            else if (activa != null && activa.FechaFin <= DateTime.Today.AddDays(DiasAvisoRenovacion))
+            {
+                aRenovar = activa;
+                concepto = "Renovar " + activa.Membresia + " (desde el " + activa.FechaFin.AddDays(1).ToString("dd/MM/yyyy") + ")";
+            }
 
-                if (activa != null && activa.IdMembresia == plan.IdMembresia)
-                    concepto = "Renovar " + plan.Nombre + " (desde el " + activa.FechaFin.AddDays(1).ToString("dd/MM/yyyy") + ")";
-                else if (activa == null && ultima != null && ultima.IdMembresia == plan.IdMembresia)
-                    concepto = "Renovar " + plan.Nombre + " (vencida el " + ultima.FechaFin.ToString("dd/MM/yyyy") + ")";
+            if (aRenovar != null)
+            {
+                var plan = new MembresiaDatos().Listar().Find(m => m.IdMembresia == aRenovar.IdMembresia && m.Estado);
 
-                lista.Add(new PagoPendiente { Tipo = "Membresía", Concepto = concepto, Monto = plan.Precio, Membresia = plan });
+                if (plan != null)
+                    lista.Add(new PagoPendiente { Tipo = "Membresía", Concepto = concepto, Monto = plan.Precio, Membresia = plan });
             }
 
             foreach (var cuenta in new CuentaCobrarDatos().ListarPorCliente(cliente.IdCliente))
@@ -61,9 +85,9 @@ namespace CapaNegocio
                 lista.Add(new PagoPendiente { Tipo = "Crédito", Concepto = "Abono a crédito · " + cuenta.Descripcion, Monto = cuenta.Saldo, Cuenta = cuenta });
             }
 
-            if (activa == null)
+            foreach (var visita in new VisitaDatos().ListarPendientes(cliente.IdCliente))
             {
-                lista.Add(new PagoPendiente { Tipo = "Visita", Concepto = "Visita del día", Monto = ObtenerMontoVisita() });
+                lista.Add(new PagoPendiente { Tipo = "Visita", Concepto = "Visita del " + visita.Fecha.ToString("dd/MM/yyyy"), Monto = visita.Monto, Visita = visita });
             }
 
             return lista;

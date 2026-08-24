@@ -45,8 +45,10 @@
     <Compile Include="Clientes\Cliente.cs" />
     <Compile Include="Clientes\ClienteMembresia.cs" />
     <Compile Include="Clientes\CuentaCobrar.cs" />
+    <Compile Include="Clientes\Deudor.cs" />
     <Compile Include="Clientes\Membresia.cs" />
     <Compile Include="Clientes\Pago.cs" />
+    <Compile Include="Clientes\PagoDetalle.cs" />
     <Compile Include="Clientes\PagoPendiente.cs" />
     <Compile Include="Clientes\Visita.cs" />
     <Compile Include="Configuracion.cs" />
