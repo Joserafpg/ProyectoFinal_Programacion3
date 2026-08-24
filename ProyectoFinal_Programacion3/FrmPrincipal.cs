@@ -99,6 +99,11 @@ namespace ProyectoFinal_Programacion3
             AbrirFormulario(new FrmProductos(), "Productos", btnProductos);
         }
 
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmCompras(), "Compras", btnCompras);
+        }
+
         private void btnMantenimientos_Click(object sender, EventArgs e)
         {
             panelSubMenu.Visible = !panelSubMenu.Visible;

@@ -40,6 +40,9 @@ namespace ProyectoFinal_Programacion3
             Text = "Editar Producto";
             btnGuardar.Text = "Actualizar";
 
+            // el stock solo se mueve con ventas y compras; editarlo aqui pisaria esos movimientos
+            txtStock.Enabled = false;
+
             txtCodigo.Text = producto.Codigo;
             txtCodigoBarras.Text = producto.CodigoBarras;
             txtNombre.Text = producto.Nombre;
@@ -140,7 +143,6 @@ namespace ProyectoFinal_Programacion3
                 productoEditar.IdMarca = (int)cboMarca.SelectedValue;
                 productoEditar.PrecioCompra = precioCompra;
                 productoEditar.PrecioVenta = precioVenta;
-                productoEditar.Stock = stock;
                 productoEditar.StockMinimo = stockMinimo;
                 productoEditar.Imagen = imagen;
 

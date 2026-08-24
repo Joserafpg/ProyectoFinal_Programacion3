@@ -30,6 +30,7 @@
             this.btnSubMarcas = new System.Windows.Forms.Button();
             this.btnSubCategorias = new System.Windows.Forms.Button();
             this.btnMantenimientos = new System.Windows.Forms.Button();
+            this.btnCompras = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnPos = new System.Windows.Forms.Button();
@@ -77,6 +78,7 @@
             this.panelMenuScroll.BackColor = System.Drawing.Color.White;
             this.panelMenuScroll.Controls.Add(this.panelSubMenu);
             this.panelMenuScroll.Controls.Add(this.btnMantenimientos);
+            this.panelMenuScroll.Controls.Add(this.btnCompras);
             this.panelMenuScroll.Controls.Add(this.btnProductos);
             this.panelMenuScroll.Controls.Add(this.btnClientes);
             this.panelMenuScroll.Controls.Add(this.btnPos);
@@ -323,9 +325,33 @@
             this.btnMantenimientos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMantenimientos.UseVisualStyleBackColor = false;
             this.btnMantenimientos.Click += new System.EventHandler(this.btnMantenimientos_Click);
-            // 
+            //
+            // btnCompras
+            //
+            this.btnCompras.BackColor = System.Drawing.Color.White;
+            this.btnCompras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCompras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCompras.FlatAppearance.BorderSize = 0;
+            this.btnCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
+            this.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompras.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.btnCompras.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(75)))), ((int)(((byte)(100)))));
+            this.btnCompras.Image = global::ProyectoFinal_Programacion3.Properties.Resources.icono_productos;
+            this.btnCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCompras.Location = new System.Drawing.Point(0, 361);
+            this.btnCompras.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCompras.Name = "btnCompras";
+            this.btnCompras.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnCompras.Size = new System.Drawing.Size(298, 54);
+            this.btnCompras.TabIndex = 13;
+            this.btnCompras.Text = "Compras";
+            this.btnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCompras.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCompras.UseVisualStyleBackColor = false;
+            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
+            //
             // btnProductos
-            // 
+            //
             this.btnProductos.BackColor = System.Drawing.Color.White;
             this.btnProductos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProductos.Dock = System.Windows.Forms.DockStyle.Top;
@@ -682,6 +708,7 @@
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnMembresias;
         private System.Windows.Forms.Button btnProductos;
+        private System.Windows.Forms.Button btnCompras;
         private System.Windows.Forms.Button btnMantenimientos;
         private System.Windows.Forms.Panel panelSubMenu;
         private System.Windows.Forms.Button btnSubCategorias;

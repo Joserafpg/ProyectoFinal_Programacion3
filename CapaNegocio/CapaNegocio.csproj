@@ -45,6 +45,7 @@
     <Compile Include="CategoriaNegocio.cs" />
     <Compile Include="ClaseNegocio.cs" />
     <Compile Include="ClienteMembresiaNegocio.cs" />
+    <Compile Include="CompraNegocio.cs" />
     <Compile Include="CuentaCobrarNegocio.cs" />
     <Compile Include="ClienteNegocio.cs" />
     <Compile Include="ConfiguracionNegocio.cs" />

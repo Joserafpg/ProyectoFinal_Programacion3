@@ -86,10 +86,11 @@ namespace CapaDatos
         {
             using (var conexion = Conexion.ObtenerConexion())
             {
+                // el stock no se toca aqui: solo lo mueven las ventas y las compras
                 string sql = @"update productos set codigo = @codigo, codigo_barras = @codigo_barras, nombre = @nombre,
                                descripcion = @descripcion, id_categoria = @id_categoria, id_marca = @id_marca,
                                precio_compra = @precio_compra, precio_venta = @precio_venta,
-                               stock = @stock, stock_minimo = @stock_minimo, imagen = @imagen
+                               stock_minimo = @stock_minimo, imagen = @imagen
                                where id_producto = @id";
 
                 using (var cmd = new SqlCommand(sql, conexion))

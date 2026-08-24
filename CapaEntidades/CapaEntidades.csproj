@@ -54,6 +54,8 @@
     <Compile Include="Entrenamiento\Entrenador.cs" />
     <Compile Include="Entrenamiento\Horario.cs" />
     <Compile Include="Inventario\Categoria.cs" />
+    <Compile Include="Inventario\Compra.cs" />
+    <Compile Include="Inventario\CompraDetalle.cs" />
     <Compile Include="Inventario\Marca.cs" />
     <Compile Include="Inventario\Producto.cs" />
     <Compile Include="Inventario\Proveedor.cs" />

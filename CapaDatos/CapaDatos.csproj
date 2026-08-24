@@ -47,6 +47,7 @@
     <Compile Include="ClaseDatos.cs" />
     <Compile Include="ClienteDatos.cs" />
     <Compile Include="ClienteMembresiaDatos.cs" />
+    <Compile Include="CompraDatos.cs" />
     <Compile Include="CuentaCobrarDatos.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="ConfiguracionDatos.cs" />
