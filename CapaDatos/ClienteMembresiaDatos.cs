@@ -189,7 +189,12 @@ namespace CapaDatos
                     using (var dr = cmd.ExecuteReader())
                     {
                         while (dr.Read())
-                            lista.Add(Mapear(dr));
+                        {
+                            var porVencer = Mapear(dr);
+                            porVencer.Cliente = dr["cliente"].ToString();
+                            porVencer.Cedula = dr["cedula"].ToString();
+                            lista.Add(porVencer);
+                        }
                     }
                 }
             }

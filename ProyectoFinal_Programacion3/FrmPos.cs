@@ -24,7 +24,6 @@ namespace ProyectoFinal_Programacion3
             txtBuscar.TextChanged += txtBuscar_TextChanged;
             dgvProductos.CellDoubleClick += dgvProductos_CellDoubleClick;
             dgvCarrito.CellEndEdit += dgvCarrito_CellEndEdit;
-            dgvCarrito.CellDoubleClick += dgvCarrito_CellDoubleClick;
             dgvCarrito.DataError += dgvCarrito_DataError;
             btnQuitar.Click += btnQuitar_Click;
             btnCobrar.Click += btnCobrar_Click;
