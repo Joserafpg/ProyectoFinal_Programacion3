@@ -24,6 +24,32 @@ namespace ProyectoFinal_Programacion3
             btnCobrarMem.Click += btnCobrarMem_Click;
             btnCerrarDet.Click += btnCerrarDet_Click;
             dgvCompras.CellDoubleClick += dgvCompras_CellDoubleClick;
+            dgvPagosCliente.CellDoubleClick += dgvPagosCliente_CellDoubleClick;
+
+            // las grillas de aqui son un resumen; el historial completo con filtros esta en sus pantallas
+            CrearBoton("Ver todos los pagos").Click += (s, e) => new FrmHistorialPagos(cliente).ShowDialog(this);
+            CrearBoton("Ver todas las compras").Click += (s, e) => new FrmVentas(cliente).ShowDialog(this);
+        }
+
+        // el boton nuevo queda a la derecha del ultimo de la izquierda
+        private Button CrearBoton(string texto)
+        {
+            var espacio = new Panel { Dock = DockStyle.Left, Width = 10 };
+            var boton = new Button { Text = texto, Dock = DockStyle.Left, Width = 165, Font = new Font("Segoe UI", 9.75F), Cursor = Cursors.Hand, UseVisualStyleBackColor = true };
+
+            panelBotones.Controls.Add(espacio);
+            panelBotones.Controls.SetChildIndex(espacio, 0);
+            panelBotones.Controls.Add(boton);
+            panelBotones.Controls.SetChildIndex(boton, 0);
+            return boton;
+        }
+
+        private void dgvPagosCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            Pago pago = (Pago)dgvPagosCliente.Rows[e.RowIndex].DataBoundItem;
+            new FrmDetallePago(pago).ShowDialog(this);
         }
 
         public FrmClienteDetalle(Cliente clienteSeleccionado) : this()

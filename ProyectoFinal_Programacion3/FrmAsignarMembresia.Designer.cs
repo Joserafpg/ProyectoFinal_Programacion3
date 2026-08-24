@@ -198,7 +198,7 @@ namespace ProyectoFinal_Programacion3
             this.Padding = new System.Windows.Forms.Padding(24, 16, 24, 18);
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Asignar membresía";
+            this.Text = "Cambiar membresía";
             this.ResumeLayout(false);
 
         }

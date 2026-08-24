@@ -232,7 +232,7 @@ namespace ProyectoFinal_Programacion3
             this.btnCobrarMem.Name = "btnCobrarMem";
             this.btnCobrarMem.Size = new System.Drawing.Size(170, 38);
             this.btnCobrarMem.TabIndex = 3;
-            this.btnCobrarMem.Text = "Cobrar membresía";
+            this.btnCobrarMem.Text = "Cambiar membresía";
             this.btnCobrarMem.UseVisualStyleBackColor = false;
             //
             // spBB

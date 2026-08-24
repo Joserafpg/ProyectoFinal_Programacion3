@@ -36,7 +36,7 @@ namespace ProyectoFinal_Programacion3
 
             if (activa != null)
             {
-                lblMembresiaActual.Text = "Membresía actual: " + activa.Membresia + " (vence el " + activa.FechaFin.ToString("dd/MM/yyyy") + ")";
+                lblMembresiaActual.Text = "Membresía actual: " + activa.Membresia + " (vence el " + activa.FechaFin.ToString("dd/MM/yyyy") + "). El plan que elija empieza al vencer esta.";
             }
             else
             {
