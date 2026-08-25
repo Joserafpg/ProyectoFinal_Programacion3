@@ -293,7 +293,7 @@
             this.dtpFechaNacimiento.Location = new System.Drawing.Point(0, 495);
             this.dtpFechaNacimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            this.dtpFechaNacimiento.ShowCheckBox = true;
+            this.dtpFechaNacimiento.ShowCheckBox = false;
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(475, 30);
             this.dtpFechaNacimiento.TabIndex = 7;
             // 

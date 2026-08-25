@@ -31,7 +31,7 @@ namespace ProyectoFinal_Programacion3
             txtDuracionDias.Text = membresia.DuracionDias.ToString();
             txtPrecio.Text = membresia.Precio.ToString();
 
-            btnDesactivar.Visible = true;
+            EstadoToggle.Reemplazar(btnDesactivar, membresia.Estado, "esta membresía", estado => membresiaNegocio.CambiarEstado(membresia.IdMembresia, estado));
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

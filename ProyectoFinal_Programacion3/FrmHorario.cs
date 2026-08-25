@@ -37,7 +37,7 @@ namespace ProyectoFinal_Programacion3
             dtpHoraInicio.Value = DateTime.Today.Add(horario.HoraInicio);
             dtpHoraFin.Value = DateTime.Today.Add(horario.HoraFin);
 
-            btnDesactivar.Visible = true;
+            EstadoToggle.Reemplazar(btnDesactivar, horario.Estado, "este horario", estado => horarioNegocio.CambiarEstado(horario.IdHorario, estado));
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

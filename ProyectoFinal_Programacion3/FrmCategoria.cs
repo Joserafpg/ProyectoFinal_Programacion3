@@ -28,7 +28,7 @@ namespace ProyectoFinal_Programacion3
             txtNombre.Text = categoriaEditar.Nombre;
             txtDescripcion.Text = categoriaEditar.Descripcion;
 
-            btnDesactivar.Visible = true;
+            EstadoToggle.Reemplazar(btnDesactivar, categoria.Estado, "esta categoría", estado => categoriaNegocio.CambiarEstado(categoria.IdCategoria, estado));
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

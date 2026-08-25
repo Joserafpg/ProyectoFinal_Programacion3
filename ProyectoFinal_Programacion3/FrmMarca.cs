@@ -25,7 +25,7 @@ namespace ProyectoFinal_Programacion3
 
             txtNombre.Text = marca.Nombre;
 
-            btnDesactivar.Visible = true;
+            EstadoToggle.Reemplazar(btnDesactivar, marca.Estado, "esta marca", estado => marcaNegocio.CambiarEstado(marca.IdMarca, estado));
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

@@ -38,7 +38,7 @@ namespace ProyectoFinal_Programacion3
             Load += (s, e) => cboRol.SelectedValue = usuario.IdRol;
 
             txtClave.Enabled = false;
-            btnDesactivar.Visible = true;
+            EstadoToggle.Reemplazar(btnDesactivar, usuario.Estado, "este usuario", estado => usuarioNegocio.CambiarEstado(usuario.IdUsuario, estado));
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

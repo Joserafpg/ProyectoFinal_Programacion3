@@ -15,11 +15,25 @@ namespace ProyectoFinal_Programacion3
         ClienteMembresiaNegocio clienteMembresiaNegocio = new ClienteMembresiaNegocio();
         Cliente clienteEditar = null;
         byte[] foto = null;
+        ToggleSwitch tglFechaNacimiento;
 
         public FrmCliente()
         {
             InitializeComponent();
             Icon = Properties.Resources.icono_app;
+            tglFechaNacimiento = new ToggleSwitch
+            {
+                Parent = panelCamposDialogo,
+                Location = new Point(panelCamposDialogo.ClientSize.Width - 52, dtpFechaNacimiento.Top + 2),
+                Anchor = AnchorStyles.Top | AnchorStyles.Right,
+                Activado = false
+            };
+            tglFechaNacimiento.BringToFront();
+            dtpFechaNacimiento.Width -= 62;
+            dtpFechaNacimiento.Dock = DockStyle.None;
+            dtpFechaNacimiento.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dtpFechaNacimiento.Enabled = false;
+            tglFechaNacimiento.ActivadoChanged += (s, a) => dtpFechaNacimiento.Enabled = tglFechaNacimiento.Activado;
             txtNombre.KeyPress += Validaciones.SoloLetras;
             txtApellido.KeyPress += Validaciones.SoloLetras;
             txtCedula.KeyPress += Validaciones.SoloNumerosYGuiones;
@@ -58,12 +72,12 @@ namespace ProyectoFinal_Programacion3
 
             if (cliente.FechaNacimiento != null)
             {
-                dtpFechaNacimiento.Checked = true;
+                tglFechaNacimiento.Activado = true;
                 dtpFechaNacimiento.Value = cliente.FechaNacimiento.Value;
             }
             else
             {
-                dtpFechaNacimiento.Checked = false;
+                tglFechaNacimiento.Activado = false;
             }
 
             if (cliente.Foto != null)
@@ -72,7 +86,7 @@ namespace ProyectoFinal_Programacion3
                 picFoto.Image = Image.FromStream(new MemoryStream(foto));
             }
 
-            btnDesactivar.Visible = true;
+            EstadoToggle.Reemplazar(btnDesactivar, cliente.Estado, "este cliente", estado => clienteNegocio.CambiarEstado(cliente.IdCliente, estado));
         }
 
         private void btnCargarFoto_Click(object sender, EventArgs e)
@@ -102,7 +116,7 @@ namespace ProyectoFinal_Programacion3
                 cliente.Correo = txtCorreo.Text;
                 cliente.Direccion = txtDireccion.Text;
                 cliente.Sexo = cboSexo.Text;
-                cliente.FechaNacimiento = dtpFechaNacimiento.Checked ? dtpFechaNacimiento.Value : (DateTime?)null;
+                cliente.FechaNacimiento = tglFechaNacimiento.Activado ? dtpFechaNacimiento.Value : (DateTime?)null;
                 cliente.Foto = foto;
                 cliente.Estado = true;
 
@@ -119,7 +133,7 @@ namespace ProyectoFinal_Programacion3
                 clienteEditar.Correo = txtCorreo.Text;
                 clienteEditar.Direccion = txtDireccion.Text;
                 clienteEditar.Sexo = cboSexo.Text;
-                clienteEditar.FechaNacimiento = dtpFechaNacimiento.Checked ? dtpFechaNacimiento.Value : (DateTime?)null;
+                clienteEditar.FechaNacimiento = tglFechaNacimiento.Activado ? dtpFechaNacimiento.Value : (DateTime?)null;
                 clienteEditar.Foto = foto;
 
                 mensaje = clienteNegocio.Actualizar(clienteEditar);
@@ -135,14 +149,32 @@ namespace ProyectoFinal_Programacion3
                 string mensajeCorreo = clienteNuevo == null
                     ? ""
                     : await new CorreoBienvenidaNegocio().EnviarAsync(clienteNuevo);
+                string mensajeRecibo = "";
+                Membresia planCobrado = cboMembresia.SelectedItem as Membresia;
+                if (clienteNuevo != null && mensajeMembresia.Length == 0 && planCobrado != null && planCobrado.IdMembresia > 0)
+                {
+                    var items = new List<PagoPendiente>
+                    {
+                        new PagoPendiente
+                        {
+                            Tipo = "Membresía",
+                            Concepto = "Membresía " + planCobrado.Nombre + " (" + planCobrado.DuracionDias + " días)",
+                            Monto = planCobrado.Precio,
+                            Membresia = planCobrado
+                        }
+                    };
+                    mensajeRecibo = await new CorreoBienvenidaNegocio().EnviarReciboPagoAsync(clienteNuevo, items, cboMetodoPago.Text);
+                }
 
-                if (mensajeMembresia.Length > 0 || mensajeCorreo.Length > 0)
+                if (mensajeMembresia.Length > 0 || mensajeCorreo.Length > 0 || mensajeRecibo.Length > 0)
                 {
                     string aviso = "Cliente guardado.";
                     if (mensajeMembresia.Length > 0)
                         aviso += "\n\nNo se pudo cobrar la membresía: " + mensajeMembresia;
                     if (mensajeCorreo.Length > 0)
                         aviso += "\n\nNo se pudo enviar el correo de bienvenida: " + mensajeCorreo;
+                    if (mensajeRecibo.Length > 0)
+                        aviso += "\n\nNo se pudo enviar el recibo de membresía: " + mensajeRecibo;
                     MessageBox.Show(aviso, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else

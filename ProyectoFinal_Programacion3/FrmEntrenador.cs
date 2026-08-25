@@ -42,7 +42,7 @@ namespace ProyectoFinal_Programacion3
             txtEspecialidad.Text = entrenador.Especialidad;
             cboHorario.SelectedValue = entrenador.IdHorario;
 
-            btnDesactivar.Visible = true;
+            EstadoToggle.Reemplazar(btnDesactivar, entrenador.Estado, "este entrenador", estado => entrenadorNegocio.CambiarEstado(entrenador.IdEntrenador, estado));
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

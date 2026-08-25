@@ -39,7 +39,7 @@ namespace ProyectoFinal_Programacion3
             txtCupoMaximo.Text = clase.CupoMaximo.ToString();
             cboEntrenador.SelectedValue = clase.IdEntrenador;
 
-            btnDesactivar.Visible = true;
+            EstadoToggle.Reemplazar(btnDesactivar, clase.Estado, "esta clase", estado => claseNegocio.CambiarEstado(clase.IdClase, estado));
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

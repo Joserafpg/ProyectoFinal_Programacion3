@@ -61,7 +61,7 @@ namespace ProyectoFinal_Programacion3
                 picImagen.Image = Image.FromStream(new MemoryStream(imagen));
             }
 
-            btnDesactivar.Visible = true;
+            EstadoToggle.Reemplazar(btnDesactivar, producto.Estado, "este producto", estado => productoNegocio.CambiarEstado(producto.IdProducto, estado));
         }
 
         private void btnCargarImagen_Click(object sender, EventArgs e)

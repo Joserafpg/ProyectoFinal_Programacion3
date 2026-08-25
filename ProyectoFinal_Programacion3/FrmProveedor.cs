@@ -32,7 +32,7 @@ namespace ProyectoFinal_Programacion3
             txtCorreo.Text = proveedor.Correo;
             txtDireccion.Text = proveedor.Direccion;
 
-            btnDesactivar.Visible = true;
+            EstadoToggle.Reemplazar(btnDesactivar, proveedor.Estado, "este proveedor", estado => proveedorNegocio.CambiarEstado(proveedor.IdProveedor, estado));
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

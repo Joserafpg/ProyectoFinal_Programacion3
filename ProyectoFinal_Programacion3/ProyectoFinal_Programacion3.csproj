@@ -284,6 +284,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sesion.cs" />
+    <Compile Include="EstadoToggle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ToggleSwitch.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Validaciones.cs" />
     <Compile Include="Columnas.cs" />
     <Compile Include="Factura.cs" />
