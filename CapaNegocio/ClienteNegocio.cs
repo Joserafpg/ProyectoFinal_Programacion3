@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
 using CapaDatos;
 using CapaEntidades;
 
@@ -95,6 +96,20 @@ namespace CapaNegocio
 
             if (string.IsNullOrWhiteSpace(cliente.Cedula))
                 return "La cédula del cliente es obligatoria.";
+
+            if (string.IsNullOrWhiteSpace(cliente.Correo))
+                return "El correo del cliente es obligatorio para enviarle la bienvenida.";
+
+            try
+            {
+                var correo = new MailAddress(cliente.Correo.Trim());
+                if (!string.Equals(correo.Address, cliente.Correo.Trim(), System.StringComparison.OrdinalIgnoreCase))
+                    return "El correo del cliente no es válido.";
+            }
+            catch (System.FormatException)
+            {
+                return "El correo del cliente no es válido.";
+            }
 
             return "";
         }

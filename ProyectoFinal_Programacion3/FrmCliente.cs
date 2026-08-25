@@ -19,6 +19,7 @@ namespace ProyectoFinal_Programacion3
         public FrmCliente()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
             txtNombre.KeyPress += Validaciones.SoloLetras;
             txtApellido.KeyPress += Validaciones.SoloLetras;
             txtCedula.KeyPress += Validaciones.SoloNumerosYGuiones;
@@ -86,9 +87,10 @@ namespace ProyectoFinal_Programacion3
             }
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private async void btnGuardar_Click(object sender, EventArgs e)
         {
             string mensaje;
+            Cliente clienteNuevo = null;
 
             if (clienteEditar == null)
             {
@@ -105,6 +107,8 @@ namespace ProyectoFinal_Programacion3
                 cliente.Estado = true;
 
                 mensaje = clienteNegocio.Insertar(cliente);
+                if (mensaje.Length == 0)
+                    clienteNuevo = cliente;
             }
             else
             {
@@ -128,10 +132,18 @@ namespace ProyectoFinal_Programacion3
             else
             {
                 string mensajeMembresia = AsignarMembresiaSiAplica();
+                string mensajeCorreo = clienteNuevo == null
+                    ? ""
+                    : await new CorreoBienvenidaNegocio().EnviarAsync(clienteNuevo);
 
-                if (mensajeMembresia.Length > 0)
+                if (mensajeMembresia.Length > 0 || mensajeCorreo.Length > 0)
                 {
-                    MessageBox.Show("Cliente guardado, pero no se pudo cobrar la membresía: " + mensajeMembresia, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    string aviso = "Cliente guardado.";
+                    if (mensajeMembresia.Length > 0)
+                        aviso += "\n\nNo se pudo cobrar la membresía: " + mensajeMembresia;
+                    if (mensajeCorreo.Length > 0)
+                        aviso += "\n\nNo se pudo enviar el correo de bienvenida: " + mensajeCorreo;
+                    MessageBox.Show(aviso, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
