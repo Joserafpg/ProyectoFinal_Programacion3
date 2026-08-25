@@ -20,7 +20,14 @@ namespace CapaEntidades
         public string Estado { get; set; }
 
         public string Cliente { get; set; }
+        public string CedulaCliente { get; set; }
         public string Usuario { get; set; }
         public List<VentaDetalle> Detalles { get; set; }
+
+        // numero que sale en la factura impresa
+        public string NumeroFactura
+        {
+            get { return IdVenta.ToString("000000"); }
+        }
     }
 }

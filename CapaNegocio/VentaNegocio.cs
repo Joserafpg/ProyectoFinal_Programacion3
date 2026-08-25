@@ -58,6 +58,19 @@ namespace CapaNegocio
             return datos.Listar();
         }
 
+        // la venta completa con su detalle, lista para la factura; null si no existe
+        public Venta ObtenerPorId(int idVenta)
+        {
+            var venta = datos.ObtenerPorId(idVenta);
+
+            if (venta != null)
+            {
+                venta.Detalles = datos.ListarDetalle(idVenta);
+            }
+
+            return venta;
+        }
+
         public List<VentaDetalle> ListarDetalle(int idVenta)
         {
             return datos.ListarDetalle(idVenta);

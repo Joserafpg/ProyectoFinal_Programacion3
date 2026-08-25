@@ -11,6 +11,14 @@ namespace CapaDatos
 {
     public class VentaDatos
     {
+        // consulta base de las ventas con el nombre y cedula del cliente y el vendedor; cada metodo agrega su condicion
+        const string SelectVentas =
+            "select v.id_venta, v.fecha, v.id_cliente, v.id_usuario, v.tipo_pago, v.subtotal, v.descuento, v.impuesto, v.total, v.estado, " +
+            "isnull(c.nombre + ' ' + c.apellido, 'Consumidor final') as cliente, c.cedula as cedula_cliente, u.nombre_completo as usuario " +
+            "from ventas v " +
+            "left join clientes c on c.id_cliente = v.id_cliente " +
+            "inner join usuarios u on u.id_usuario = v.id_usuario ";
+
         public int Insertar(Venta venta, int diasCredito)
         {
             using (var conexion = Conexion.ObtenerConexion())
@@ -92,48 +100,48 @@ namespace CapaDatos
             }
         }
 
+        // una venta por su numero (sin el detalle), null si no existe
+        public Venta ObtenerPorId(int idVenta)
+        {
+            var lista = Consultar("where v.id_venta = @idVenta", cmd => cmd.Parameters.AddWithValue("@idVenta", idVenta));
+            return lista.Count == 0 ? null : lista[0];
+        }
+
         public List<Venta> ListarPorCliente(int idCliente)
         {
-            var lista = new List<Venta>();
+            return Consultar("where v.id_cliente = @idCliente", cmd => cmd.Parameters.AddWithValue("@idCliente", idCliente));
+        }
 
-            using (var conexion = Conexion.ObtenerConexion())
+        public List<Venta> ListarPorFecha(DateTime desde, DateTime hasta)
+        {
+            return Consultar("where cast(v.fecha as date) between @desde and @hasta", cmd =>
             {
-                string sql = "select v.id_venta, v.fecha, v.tipo_pago, v.subtotal, v.descuento, v.impuesto, v.total, v.estado, " +
-                             "isnull(c.nombre + ' ' + c.apellido, 'Consumidor final') as cliente, u.nombre_completo as usuario " +
-                             "from ventas v " +
-                             "left join clientes c on c.id_cliente = v.id_cliente " +
-                             "inner join usuarios u on u.id_usuario = v.id_usuario " +
-                             "where v.id_cliente = @idCliente " +
-                             "order by v.fecha desc";
+                cmd.Parameters.AddWithValue("@desde", desde.Date);
+                cmd.Parameters.AddWithValue("@hasta", hasta.Date);
+            });
+        }
 
-                using (var cmd = new SqlCommand(sql, conexion))
-                {
-                    cmd.Parameters.AddWithValue("@idCliente", idCliente);
-                    conexion.Open();
+        // ventas en un rango de fechas; tipoPago y texto vacios = sin filtro, idCliente null = todos
+        public List<Venta> Buscar(DateTime desde, DateTime hasta, string tipoPago, string textoCliente, int? idCliente)
+        {
+            string condicion = "where cast(v.fecha as date) between @desde and @hasta " +
+                               "and (@tipoPago = '' or v.tipo_pago = @tipoPago) " +
+                               "and (@idCliente is null or v.id_cliente = @idCliente) " +
+                               "and (@texto = '' or isnull(c.nombre + ' ' + c.apellido, 'Consumidor final') like @texto)";
 
-                    using (var dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
-                        {
-                            lista.Add(new Venta
-                            {
-                                IdVenta = (int)dr["id_venta"],
-                                Fecha = (DateTime)dr["fecha"],
-                                TipoPago = dr["tipo_pago"].ToString(),
-                                Subtotal = (decimal)dr["subtotal"],
-                                Descuento = (decimal)dr["descuento"],
-                                Impuesto = (decimal)dr["impuesto"],
-                                Total = (decimal)dr["total"],
-                                Estado = dr["estado"].ToString(),
-                                Cliente = dr["cliente"].ToString(),
-                                Usuario = dr["usuario"].ToString()
-                            });
-                        }
-                    }
-                }
-            }
+            return Consultar(condicion, cmd =>
+            {
+                cmd.Parameters.AddWithValue("@desde", desde.Date);
+                cmd.Parameters.AddWithValue("@hasta", hasta.Date);
+                cmd.Parameters.AddWithValue("@tipoPago", tipoPago ?? "");
+                cmd.Parameters.Add("@idCliente", SqlDbType.Int).Value = (object)idCliente ?? DBNull.Value;
+                cmd.Parameters.AddWithValue("@texto", string.IsNullOrWhiteSpace(textoCliente) ? "" : "%" + textoCliente.Trim() + "%");
+            });
+        }
 
-            return lista;
+        public List<Venta> Listar()
+        {
+            return Consultar("", null);
         }
 
         public List<VentaDetalle> ListarDetalle(int idVenta)
@@ -145,7 +153,8 @@ namespace CapaDatos
                 string sql = "select d.id_detalle, d.id_venta, d.id_producto, p.nombre as producto, d.cantidad, d.precio, d.descuento, d.subtotal " +
                              "from venta_detalle d " +
                              "inner join productos p on p.id_producto = d.id_producto " +
-                             "where d.id_venta = @idVenta";
+                             "where d.id_venta = @idVenta " +
+                             "order by d.id_detalle";
 
                 using (var cmd = new SqlCommand(sql, conexion))
                 {
@@ -175,43 +184,27 @@ namespace CapaDatos
             return lista;
         }
 
-        public List<Venta> ListarPorFecha(DateTime desde, DateTime hasta)
+        // ejecuta la consulta base con la condicion indicada, de la mas reciente a la mas vieja
+        private List<Venta> Consultar(string condicion, Action<SqlCommand> parametros)
         {
             var lista = new List<Venta>();
 
             using (var conexion = Conexion.ObtenerConexion())
             {
-                string sql = "select v.id_venta, v.fecha, v.tipo_pago, v.subtotal, v.descuento, v.impuesto, v.total, v.estado, " +
-                             "isnull(c.nombre + ' ' + c.apellido, 'Consumidor final') as cliente, u.nombre_completo as usuario " +
-                             "from ventas v " +
-                             "left join clientes c on c.id_cliente = v.id_cliente " +
-                             "inner join usuarios u on u.id_usuario = v.id_usuario " +
-                             "where cast(v.fecha as date) between @desde and @hasta " +
-                             "order by v.fecha desc";
-
-                using (var cmd = new SqlCommand(sql, conexion))
+                using (var cmd = new SqlCommand(SelectVentas + condicion + " order by v.fecha desc", conexion))
                 {
-                    cmd.Parameters.AddWithValue("@desde", desde.Date);
-                    cmd.Parameters.AddWithValue("@hasta", hasta.Date);
+                    if (parametros != null)
+                    {
+                        parametros(cmd);
+                    }
+
                     conexion.Open();
 
                     using (var dr = cmd.ExecuteReader())
                     {
                         while (dr.Read())
                         {
-                            lista.Add(new Venta
-                            {
-                                IdVenta = (int)dr["id_venta"],
-                                Fecha = (DateTime)dr["fecha"],
-                                TipoPago = dr["tipo_pago"].ToString(),
-                                Subtotal = (decimal)dr["subtotal"],
-                                Descuento = (decimal)dr["descuento"],
-                                Impuesto = (decimal)dr["impuesto"],
-                                Total = (decimal)dr["total"],
-                                Estado = dr["estado"].ToString(),
-                                Cliente = dr["cliente"].ToString(),
-                                Usuario = dr["usuario"].ToString()
-                            });
+                            lista.Add(Leer(dr));
                         }
                     }
                 }
@@ -220,98 +213,24 @@ namespace CapaDatos
             return lista;
         }
 
-        // ventas en un rango de fechas; tipoPago y texto vacios = sin filtro, idCliente null = todos
-        public List<Venta> Buscar(DateTime desde, DateTime hasta, string tipoPago, string textoCliente, int? idCliente)
+        private static Venta Leer(SqlDataReader dr)
         {
-            var lista = new List<Venta>();
-
-            using (var conexion = Conexion.ObtenerConexion())
+            return new Venta
             {
-                string sql = "select v.id_venta, v.fecha, v.tipo_pago, v.subtotal, v.descuento, v.impuesto, v.total, v.estado, " +
-                             "isnull(c.nombre + ' ' + c.apellido, 'Consumidor final') as cliente, u.nombre_completo as usuario " +
-                             "from ventas v " +
-                             "left join clientes c on c.id_cliente = v.id_cliente " +
-                             "inner join usuarios u on u.id_usuario = v.id_usuario " +
-                             "where cast(v.fecha as date) between @desde and @hasta " +
-                             "and (@tipoPago = '' or v.tipo_pago = @tipoPago) " +
-                             "and (@idCliente is null or v.id_cliente = @idCliente) " +
-                             "and (@texto = '' or isnull(c.nombre + ' ' + c.apellido, 'Consumidor final') like @texto) " +
-                             "order by v.fecha desc";
-
-                using (var cmd = new SqlCommand(sql, conexion))
-                {
-                    cmd.Parameters.AddWithValue("@desde", desde.Date);
-                    cmd.Parameters.AddWithValue("@hasta", hasta.Date);
-                    cmd.Parameters.AddWithValue("@tipoPago", tipoPago ?? "");
-                    cmd.Parameters.Add("@idCliente", SqlDbType.Int).Value = (object)idCliente ?? DBNull.Value;
-                    cmd.Parameters.AddWithValue("@texto", string.IsNullOrWhiteSpace(textoCliente) ? "" : "%" + textoCliente.Trim() + "%");
-                    conexion.Open();
-
-                    using (var dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
-                        {
-                            lista.Add(new Venta
-                            {
-                                IdVenta = (int)dr["id_venta"],
-                                Fecha = (DateTime)dr["fecha"],
-                                TipoPago = dr["tipo_pago"].ToString(),
-                                Subtotal = (decimal)dr["subtotal"],
-                                Descuento = (decimal)dr["descuento"],
-                                Impuesto = (decimal)dr["impuesto"],
-                                Total = (decimal)dr["total"],
-                                Estado = dr["estado"].ToString(),
-                                Cliente = dr["cliente"].ToString(),
-                                Usuario = dr["usuario"].ToString()
-                            });
-                        }
-                    }
-                }
-            }
-
-            return lista;
-        }
-
-        public List<Venta> Listar()
-        {
-            var lista = new List<Venta>();
-
-            using (var conexion = Conexion.ObtenerConexion())
-            {
-                string sql = "select v.id_venta, v.fecha, v.tipo_pago, v.subtotal, v.descuento, v.impuesto, v.total, v.estado, " +
-                             "isnull(c.nombre + ' ' + c.apellido, 'Consumidor final') as cliente, u.nombre_completo as usuario " +
-                             "from ventas v " +
-                             "left join clientes c on c.id_cliente = v.id_cliente " +
-                             "inner join usuarios u on u.id_usuario = v.id_usuario " +
-                             "order by v.fecha desc";
-
-                using (var cmd = new SqlCommand(sql, conexion))
-                {
-                    conexion.Open();
-
-                    using (var dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
-                        {
-                            lista.Add(new Venta
-                            {
-                                IdVenta = (int)dr["id_venta"],
-                                Fecha = (DateTime)dr["fecha"],
-                                TipoPago = dr["tipo_pago"].ToString(),
-                                Subtotal = (decimal)dr["subtotal"],
-                                Descuento = (decimal)dr["descuento"],
-                                Impuesto = (decimal)dr["impuesto"],
-                                Total = (decimal)dr["total"],
-                                Estado = dr["estado"].ToString(),
-                                Cliente = dr["cliente"].ToString(),
-                                Usuario = dr["usuario"].ToString()
-                            });
-                        }
-                    }
-                }
-            }
-
-            return lista;
+                IdVenta = (int)dr["id_venta"],
+                Fecha = (DateTime)dr["fecha"],
+                IdCliente = dr["id_cliente"] == DBNull.Value ? (int?)null : (int)dr["id_cliente"],
+                IdUsuario = (int)dr["id_usuario"],
+                TipoPago = dr["tipo_pago"].ToString(),
+                Subtotal = (decimal)dr["subtotal"],
+                Descuento = (decimal)dr["descuento"],
+                Impuesto = (decimal)dr["impuesto"],
+                Total = (decimal)dr["total"],
+                Estado = dr["estado"].ToString(),
+                Cliente = dr["cliente"].ToString(),
+                CedulaCliente = dr["cedula_cliente"] == DBNull.Value ? "" : dr["cedula_cliente"].ToString(),
+                Usuario = dr["usuario"].ToString()
+            };
         }
     }
 }

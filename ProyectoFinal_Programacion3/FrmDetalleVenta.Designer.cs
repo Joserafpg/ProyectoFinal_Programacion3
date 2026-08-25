@@ -22,6 +22,7 @@ namespace ProyectoFinal_Programacion3
             this.dgvDetalleVenta = new System.Windows.Forms.DataGridView();
             this.panelBotones = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleVenta)).BeginInit();
             this.panelBotones.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +62,7 @@ namespace ProyectoFinal_Programacion3
             //
             // panelBotones
             //
+            this.panelBotones.Controls.Add(this.btnImprimir);
             this.panelBotones.Controls.Add(this.btnCerrar);
             this.panelBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBotones.Name = "panelBotones";
@@ -78,6 +80,16 @@ namespace ProyectoFinal_Programacion3
             this.btnCerrar.TabIndex = 2;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
+            //
+            // btnImprimir
+            //
+            this.btnImprimir.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(160, 36);
+            this.btnImprimir.TabIndex = 1;
+            this.btnImprimir.Text = "Imprimir factura";
+            this.btnImprimir.UseVisualStyleBackColor = true;
             //
             // FrmDetalleVenta
             //
@@ -110,5 +122,6 @@ namespace ProyectoFinal_Programacion3
         private System.Windows.Forms.DataGridView dgvDetalleVenta;
         private System.Windows.Forms.Panel panelBotones;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

@@ -13,7 +13,16 @@ namespace ProyectoFinal_Programacion3
         public FrmDetalleVenta()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
             Load += FrmDetalleVenta_Load;
+            btnImprimir.Click += btnImprimir_Click;
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            if (venta == null) return;
+
+            new FrmFactura(venta).ShowDialog(this);
         }
 
         public FrmDetalleVenta(Venta ventaSeleccionada) : this()

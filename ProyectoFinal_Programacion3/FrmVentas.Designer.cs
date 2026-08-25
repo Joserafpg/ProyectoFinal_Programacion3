@@ -20,9 +20,12 @@ namespace ProyectoFinal_Programacion3
             this.lblVentas = new System.Windows.Forms.Label();
             this.dgvVentas = new System.Windows.Forms.DataGridView();
             this.spMedio = new System.Windows.Forms.Panel();
+            this.panelDetalle = new System.Windows.Forms.Panel();
             this.lblDetalle = new System.Windows.Forms.Label();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).BeginInit();
+            this.panelDetalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.SuspendLayout();
             //
@@ -59,15 +62,36 @@ namespace ProyectoFinal_Programacion3
             this.spMedio.Size = new System.Drawing.Size(848, 12);
             this.spMedio.TabIndex = 0;
             //
+            // panelDetalle
+            //
+            this.panelDetalle.Controls.Add(this.lblDetalle);
+            this.panelDetalle.Controls.Add(this.btnImprimir);
+            this.panelDetalle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelDetalle.Name = "panelDetalle";
+            this.panelDetalle.Padding = new System.Windows.Forms.Padding(0, 0, 0, 6);
+            this.panelDetalle.Size = new System.Drawing.Size(848, 38);
+            this.panelDetalle.TabIndex = 0;
+            //
             // lblDetalle
             //
-            this.lblDetalle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDetalle.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
             this.lblDetalle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(65)))));
             this.lblDetalle.Name = "lblDetalle";
-            this.lblDetalle.Size = new System.Drawing.Size(848, 26);
+            this.lblDetalle.Size = new System.Drawing.Size(688, 32);
             this.lblDetalle.TabIndex = 0;
             this.lblDetalle.Text = "Detalle de la venta";
+            this.lblDetalle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            //
+            // btnImprimir
+            //
+            this.btnImprimir.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(160, 32);
+            this.btnImprimir.TabIndex = 3;
+            this.btnImprimir.Text = "Imprimir factura";
+            this.btnImprimir.UseVisualStyleBackColor = true;
             //
             // dgvDetalle
             //
@@ -82,7 +106,7 @@ namespace ProyectoFinal_Programacion3
             this.dgvDetalle.ReadOnly = true;
             this.dgvDetalle.RowHeadersVisible = false;
             this.dgvDetalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalle.Size = new System.Drawing.Size(848, 254);
+            this.dgvDetalle.Size = new System.Drawing.Size(848, 242);
             this.dgvDetalle.TabIndex = 2;
             //
             // FrmVentas
@@ -91,7 +115,7 @@ namespace ProyectoFinal_Programacion3
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 600);
             this.Controls.Add(this.dgvDetalle);
-            this.Controls.Add(this.lblDetalle);
+            this.Controls.Add(this.panelDetalle);
             this.Controls.Add(this.spMedio);
             this.Controls.Add(this.dgvVentas);
             this.Controls.Add(this.lblVentas);
@@ -104,6 +128,7 @@ namespace ProyectoFinal_Programacion3
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Historial de ventas";
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).EndInit();
+            this.panelDetalle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
             this.ResumeLayout(false);
 
@@ -114,7 +139,9 @@ namespace ProyectoFinal_Programacion3
         private System.Windows.Forms.Label lblVentas;
         private System.Windows.Forms.DataGridView dgvVentas;
         private System.Windows.Forms.Panel spMedio;
+        private System.Windows.Forms.Panel panelDetalle;
         private System.Windows.Forms.Label lblDetalle;
+        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.DataGridView dgvDetalle;
     }
 }

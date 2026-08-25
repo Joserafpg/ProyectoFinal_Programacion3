@@ -1,4 +1,4 @@
-﻿using CapaEntidades;
+using CapaEntidades;
 using CapaNegocio;
 using System;
 using System.Collections.Generic;
@@ -174,6 +174,7 @@ namespace ProyectoFinal_Programacion3
             CalcularTotales();
         }
 
+        // arma la venta y abre la factura en vista previa; la venta se registra cuando el usuario la confirma ahi
         private void btnCobrar_Click(object sender, EventArgs e)
         {
             if (Sesion.UsuarioActual == null)
@@ -188,42 +189,42 @@ namespace ProyectoFinal_Programacion3
                 return;
             }
 
+            if (cboTipoPago.Text == "Credito" && clienteSeleccionado == null)
+            {
+                MessageBox.Show("Para vender a crédito debe seleccionar un cliente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             decimal subtotal = carrito.Sum(c => c.Subtotal);
             decimal impuesto = Math.Round(subtotal * porcentajeImpuesto / 100, 2);
 
             Venta venta = new Venta();
+            venta.Fecha = DateTime.Now;
             venta.IdCliente = clienteSeleccionado == null ? (int?)null : clienteSeleccionado.IdCliente;
+            venta.Cliente = clienteSeleccionado == null ? "Consumidor final" : clienteSeleccionado.NombreCompleto;
+            venta.CedulaCliente = clienteSeleccionado == null ? "" : clienteSeleccionado.Cedula;
             venta.IdUsuario = Sesion.UsuarioActual.IdUsuario;
+            venta.Usuario = Sesion.UsuarioActual.NombreCompleto;
             venta.TipoPago = cboTipoPago.Text;
+            venta.Estado = "Completada";
             venta.Subtotal = subtotal;
             venta.Descuento = 0;
             venta.Impuesto = impuesto;
             venta.Total = subtotal + impuesto;
             venta.Detalles = carrito.ToList();
 
-            string mensaje = ventaNegocio.Insertar(venta, out int idVenta);
+            FrmFactura dialogo = new FrmFactura(venta, true);
+            dialogo.ShowDialog(this);
 
-            if (mensaje.Length > 0)
-            {
-                MessageBox.Show(mensaje, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                string aviso = "Venta #" + idVenta + " registrada. Total: RD$" + venta.Total.ToString("N2");
+            // si cancelo, el carrito se queda como estaba
+            if (dialogo.IdVentaRegistrada == 0) return;
 
-                if (venta.TipoPago == "Credito")
-                {
-                    aviso += "\n\nQueda a crédito a nombre de " + clienteSeleccionado.NombreCompleto + ". Vence el " + DateTime.Today.AddDays(VentaNegocio.DiasCredito).ToString("dd/MM/yyyy") + ".";
-                }
-
-                MessageBox.Show(aviso, "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                carrito.Clear();
-                txtBuscar.Clear();
-                clienteSeleccionado = null;
-                txtCliente.Text = "Consumidor final";
-                CalcularTotales();
-                CargarProductos();
-            }
+            carrito.Clear();
+            txtBuscar.Clear();
+            clienteSeleccionado = null;
+            txtCliente.Text = "Consumidor final";
+            CalcularTotales();
+            CargarProductos();
         }
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)

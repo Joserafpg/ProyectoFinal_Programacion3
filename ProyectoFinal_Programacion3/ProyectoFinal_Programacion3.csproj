@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <ApplicationIcon>Resources\icono_app.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -141,6 +142,12 @@
     </Compile>
     <Compile Include="FrmDetalleVenta.Designer.cs">
       <DependentUpon>FrmDetalleVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFactura.Designer.cs">
+      <DependentUpon>FrmFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEntrenador.cs">
       <SubType>Form</SubType>
@@ -279,6 +286,7 @@
     <Compile Include="Sesion.cs" />
     <Compile Include="Validaciones.cs" />
     <Compile Include="Columnas.cs" />
+    <Compile Include="Factura.cs" />
     <Compile Include="Filtros.cs" />
     <EmbeddedResource Include="FrmAsignarMembresia.resx">
       <DependentUpon>FrmAsignarMembresia.cs</DependentUpon>
@@ -405,6 +413,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icono_app.ico" />
     <None Include="Resources\icono_buscar.png" />
     <None Include="Resources\icono_cerrar_sesion.png" />
     <None Include="Resources\icono_clientes.png" />

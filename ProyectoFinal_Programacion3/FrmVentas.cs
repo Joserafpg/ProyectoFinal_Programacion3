@@ -20,6 +20,7 @@ namespace ProyectoFinal_Programacion3
         public FrmVentas()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
             ClientSize = new Size(1100, 640);
 
             Panel barra = new Panel { Dock = DockStyle.Top, Height = 54 };
@@ -30,6 +31,7 @@ namespace ProyectoFinal_Programacion3
             txtCliente = Filtros.AgregarTexto(barra, "Cliente:", 220);
 
             Load += FrmVentas_Load;
+            btnImprimir.Click += btnImprimir_Click;
             dgvVentas.SelectionChanged += dgvVentas_SelectionChanged;
             dgvVentas.DataBindingComplete += dgvVentas_DataBindingComplete;
             dgvDetalle.DataBindingComplete += dgvDetalle_DataBindingComplete;
@@ -78,6 +80,19 @@ namespace ProyectoFinal_Programacion3
                 dgvVentas.Columns["Fecha"].DefaultCellStyle.Format = "dd/MM/yyyy hh:mm tt";
                 dgvVentas.Columns["Total"].DefaultCellStyle.Format = "N2";
             }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            Venta venta = dgvVentas.CurrentRow == null ? null : dgvVentas.CurrentRow.DataBoundItem as Venta;
+
+            if (venta == null)
+            {
+                MessageBox.Show("Seleccione una venta para imprimir su factura.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            new FrmFactura(venta).ShowDialog(this);
         }
 
         private void dgvVentas_SelectionChanged(object sender, EventArgs e)
