@@ -118,5 +118,10 @@ namespace CapaNegocio
         {
             return datos.ObtenerPorCedula(cedula);
         }
+
+        public Cliente ObtenerPorId(int idCliente)
+        {
+            return idCliente <= 0 ? null : datos.ObtenerPorId(idCliente);
+        }
     }
 }

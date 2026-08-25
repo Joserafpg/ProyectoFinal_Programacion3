@@ -22,6 +22,7 @@ namespace ProyectoFinal_Programacion3
             this.lblInfo = new System.Windows.Forms.Label();
             this.panelBotones = new System.Windows.Forms.Panel();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.btnRecordatorio = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeudores)).BeginInit();
             this.panelBotones.SuspendLayout();
@@ -69,6 +70,7 @@ namespace ProyectoFinal_Programacion3
             // panelBotones
             //
             this.panelBotones.Controls.Add(this.lblTotal);
+            this.panelBotones.Controls.Add(this.btnRecordatorio);
             this.panelBotones.Controls.Add(this.btnCerrar);
             this.panelBotones.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBotones.Location = new System.Drawing.Point(20, 540);
@@ -84,10 +86,26 @@ namespace ProyectoFinal_Programacion3
             this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(65)))));
             this.lblTotal.Location = new System.Drawing.Point(0, 14);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(970, 46);
+            this.lblTotal.Size = new System.Drawing.Size(800, 46);
             this.lblTotal.TabIndex = 0;
             this.lblTotal.Text = "";
             this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            //
+            // btnRecordatorio
+            //
+            this.btnRecordatorio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.btnRecordatorio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRecordatorio.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnRecordatorio.FlatAppearance.BorderSize = 0;
+            this.btnRecordatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRecordatorio.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnRecordatorio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(65)))));
+            this.btnRecordatorio.Location = new System.Drawing.Point(800, 14);
+            this.btnRecordatorio.Name = "btnRecordatorio";
+            this.btnRecordatorio.Size = new System.Drawing.Size(170, 46);
+            this.btnRecordatorio.TabIndex = 1;
+            this.btnRecordatorio.Text = "Enviar recordatorio";
+            this.btnRecordatorio.UseVisualStyleBackColor = false;
             //
             // btnCerrar
             //
@@ -102,7 +120,7 @@ namespace ProyectoFinal_Programacion3
             this.btnCerrar.Location = new System.Drawing.Point(970, 14);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(140, 46);
-            this.btnCerrar.TabIndex = 1;
+            this.btnCerrar.TabIndex = 2;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = false;
             //
@@ -136,6 +154,7 @@ namespace ProyectoFinal_Programacion3
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Panel panelBotones;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Button btnRecordatorio;
         private System.Windows.Forms.Button btnCerrar;
     }
 }

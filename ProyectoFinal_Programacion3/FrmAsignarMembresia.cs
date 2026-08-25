@@ -81,7 +81,7 @@ namespace ProyectoFinal_Programacion3
             btnCobrar.Text = "Cobrar RD$" + plan.Precio.ToString("N2");
         }
 
-        private void btnCobrar_Click(object sender, EventArgs e)
+        private async void btnCobrar_Click(object sender, EventArgs e)
         {
             if (Sesion.UsuarioActual == null)
             {
@@ -99,7 +99,21 @@ namespace ProyectoFinal_Programacion3
             }
             else
             {
-                MessageBox.Show("Pago registrado. Membresía asignada correctamente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var items = new List<PagoPendiente>
+                {
+                    new PagoPendiente
+                    {
+                        Tipo = "Membresía",
+                        Concepto = "Membresía " + plan.Nombre + " (" + plan.DuracionDias + " días)",
+                        Monto = plan.Precio,
+                        Membresia = plan
+                    }
+                };
+                string errorCorreo = await new CorreoBienvenidaNegocio().EnviarReciboPagoAsync(cliente, items, cboMetodoPago.Text);
+                if (errorCorreo.Length > 0)
+                    MessageBox.Show("Pago registrado y membresía asignada, pero no se pudo enviar el recibo: " + errorCorreo, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
+                    MessageBox.Show("Pago registrado, membresía asignada y recibo enviado a " + cliente.Correo + ".", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Close();
             }

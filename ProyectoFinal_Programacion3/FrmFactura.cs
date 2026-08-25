@@ -131,20 +131,20 @@ namespace ProyectoFinal_Programacion3
             btnCerrar.Text = "Cerrar";
         }
 
-        private void btnPrincipal_Click(object sender, EventArgs e)
+        private async void btnPrincipal_Click(object sender, EventArgs e)
         {
-            if (confirmar && !Confirmar()) return;
+            if (confirmar && !await ConfirmarAsync()) return;
 
             Imprimir();
         }
 
-        private void btnSecundario_Click(object sender, EventArgs e)
+        private async void btnSecundario_Click(object sender, EventArgs e)
         {
-            Confirmar();
+            await ConfirmarAsync();
         }
 
         // registra la venta, la recarga con su numero y pasa la ventana a modo ver/imprimir
-        private bool Confirmar()
+        private async System.Threading.Tasks.Task<bool> ConfirmarAsync()
         {
             string mensaje = ventaNegocio.Insertar(venta, out int idVenta);
 
@@ -171,6 +171,20 @@ namespace ProyectoFinal_Programacion3
             ModoVer();
             lblEstado.Text = "Venta No. " + venta.NumeroFactura + " registrada · Total: RD$" + venta.Total.ToString("N2");
             Renderizar();
+
+            if (venta.IdCliente != null)
+            {
+                Cliente cliente = new ClienteNegocio().ObtenerPorId(venta.IdCliente.Value);
+                if (cliente != null && !string.IsNullOrWhiteSpace(cliente.Correo))
+                {
+                    string errorCorreo = await new CorreoBienvenidaNegocio().EnviarFacturaAsync(cliente, venta);
+                    lblEstado.Text += errorCorreo.Length == 0
+                        ? " · enviada a " + cliente.Correo
+                        : " · correo pendiente";
+                    if (errorCorreo.Length > 0)
+                        MessageBox.Show("La venta fue registrada, pero no se pudo enviar la factura: " + errorCorreo, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
             return true;
         }
 

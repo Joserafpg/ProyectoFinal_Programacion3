@@ -63,6 +63,25 @@ namespace CapaDatos
             return lista;
         }
 
+        public Cliente ObtenerPorId(int idCliente)
+        {
+            using (var conexion = Conexion.ObtenerConexion())
+            {
+                string sql = @"select c.id_cliente, c.nombre, c.apellido, c.cedula, c.telefono, c.correo, c.direccion,
+                               c.fecha_nacimiento, c.sexo, c.foto, c.fecha_registro, c.estado,
+                               (select max(cm.fecha_fin) from cliente_membresia cm where cm.id_cliente = c.id_cliente) as ultimo_vencimiento
+                               from clientes c where c.id_cliente = @idCliente";
+
+                using (var cmd = new SqlCommand(sql, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@idCliente", idCliente);
+                    conexion.Open();
+                    using (var dr = cmd.ExecuteReader())
+                        return dr.Read() ? Mapear(dr) : null;
+                }
+            }
+        }
+
         public void Insertar(Cliente cliente)
         {
             using (var conexion = Conexion.ObtenerConexion())

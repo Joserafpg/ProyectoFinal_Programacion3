@@ -32,6 +32,7 @@ namespace ProyectoFinal_Programacion3
             Load += FrmDeudores_Load;
             dgvDeudores.DataBindingComplete += dgvDeudores_DataBindingComplete;
             dgvDeudores.CellDoubleClick += dgvDeudores_CellDoubleClick;
+            btnRecordatorio.Click += btnRecordatorio_Click;
             btnCerrar.Click += btnCerrar_Click;
         }
 
@@ -109,6 +110,41 @@ namespace ProyectoFinal_Programacion3
             ClienteSeleccionado = encontrado;
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private async void btnRecordatorio_Click(object sender, EventArgs e)
+        {
+            Deudor deudor = dgvDeudores.CurrentRow == null
+                ? null
+                : dgvDeudores.CurrentRow.DataBoundItem as Deudor;
+
+            if (deudor == null)
+            {
+                MessageBox.Show("Seleccione un cliente para enviarle el recordatorio.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Cliente cliente = clienteNegocio.ObtenerPorCedula(deudor.Cedula);
+            if (cliente == null || string.IsNullOrWhiteSpace(cliente.Correo))
+            {
+                MessageBox.Show("Este cliente no tiene un correo electrónico registrado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string resumen = deudor.Total > 0 ? "RD$" + deudor.Total.ToString("N2") : "su membresía vencida";
+            if (MessageBox.Show("¿Enviar a " + cliente.Correo + " un recordatorio por " + resumen + "?", "Confirmar envío", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
+            btnRecordatorio.Enabled = false;
+            btnRecordatorio.Text = "Enviando...";
+            string error = await new CorreoBienvenidaNegocio().EnviarRecordatorioAsync(cliente, deudor);
+            btnRecordatorio.Enabled = true;
+            btnRecordatorio.Text = "Enviar recordatorio";
+
+            if (error.Length > 0)
+                MessageBox.Show(error, "No se pudo enviar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+                MessageBox.Show("Recordatorio enviado a " + cliente.Correo + ".", "Correo enviado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

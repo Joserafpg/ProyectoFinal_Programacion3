@@ -201,7 +201,7 @@ namespace ProyectoFinal_Programacion3
             btnCobrar.Text = carrito.Count > 0 ? "Cobrar RD$" + total.ToString("N2") : "Cobrar";
         }
 
-        private void btnCobrar_Click(object sender, EventArgs e)
+        private async void btnCobrar_Click(object sender, EventArgs e)
         {
             if (Sesion.UsuarioActual == null)
             {
@@ -209,7 +209,9 @@ namespace ProyectoFinal_Programacion3
                 return;
             }
 
-            string mensaje = pagoNegocio.CobrarPendientes(cliente, carrito.ToList(), cboMetodo.Text, Sesion.UsuarioActual.IdUsuario);
+            var itemsCobrados = carrito.ToList();
+            string metodoPago = cboMetodo.Text;
+            string mensaje = pagoNegocio.CobrarPendientes(cliente, itemsCobrados, metodoPago, Sesion.UsuarioActual.IdUsuario);
 
             if (mensaje.Length > 0)
             {
@@ -217,7 +219,11 @@ namespace ProyectoFinal_Programacion3
                 return;
             }
 
-            MessageBox.Show("Pago registrado con éxito.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string errorCorreo = await new CorreoBienvenidaNegocio().EnviarReciboPagoAsync(cliente, itemsCobrados, metodoPago);
+            if (errorCorreo.Length > 0)
+                MessageBox.Show("Pago registrado, pero no se pudo enviar el recibo: " + errorCorreo, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+                MessageBox.Show("Pago registrado y recibo enviado a " + cliente.Correo + ".", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             MostrarCliente(cliente);
         }
     }
