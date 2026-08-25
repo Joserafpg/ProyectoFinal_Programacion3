@@ -46,8 +46,21 @@ namespace ProyectoFinal_Programacion3
             this.lblTituloConf = new System.Windows.Forms.Label();
             this.spBtn = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.spCards = new System.Windows.Forms.Panel();
+            this.panelLogoCard = new System.Windows.Forms.Panel();
+            this.lblAyudaLogo = new System.Windows.Forms.Label();
+            this.btnQuitarLogo = new System.Windows.Forms.Button();
+            this.spLogo3 = new System.Windows.Forms.Panel();
+            this.btnCargarLogo = new System.Windows.Forms.Button();
+            this.spLogo2 = new System.Windows.Forms.Panel();
+            this.picLogoConf = new System.Windows.Forms.PictureBox();
+            this.spLogo1 = new System.Windows.Forms.Panel();
+            this.lblTituloLogo = new System.Windows.Forms.Label();
+            this.btnFacturaEjemplo = new System.Windows.Forms.Button();
             this.panelCard.SuspendLayout();
             this.panelCampos.SuspendLayout();
+            this.panelLogoCard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoConf)).BeginInit();
             this.SuspendLayout();
             // 
             // panelCard
@@ -410,13 +423,127 @@ namespace ProyectoFinal_Programacion3
             this.btnGuardar.TabIndex = 9;
             this.btnGuardar.Text = "Guardar cambios";
             this.btnGuardar.UseVisualStyleBackColor = false;
-            // 
+            //
+            // spCards
+            //
+            this.spCards.Dock = System.Windows.Forms.DockStyle.Left;
+            this.spCards.Name = "spCards";
+            this.spCards.Size = new System.Drawing.Size(20, 752);
+            this.spCards.TabIndex = 0;
+            //
+            // panelLogoCard
+            //
+            this.panelLogoCard.BackColor = System.Drawing.Color.White;
+            this.panelLogoCard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelLogoCard.Controls.Add(this.lblAyudaLogo);
+            this.panelLogoCard.Controls.Add(this.btnQuitarLogo);
+            this.panelLogoCard.Controls.Add(this.spLogo3);
+            this.panelLogoCard.Controls.Add(this.btnCargarLogo);
+            this.panelLogoCard.Controls.Add(this.spLogo2);
+            this.panelLogoCard.Controls.Add(this.picLogoConf);
+            this.panelLogoCard.Controls.Add(this.spLogo1);
+            this.panelLogoCard.Controls.Add(this.lblTituloLogo);
+            this.panelLogoCard.Controls.Add(this.btnFacturaEjemplo);
+            this.panelLogoCard.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelLogoCard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLogoCard.Name = "panelLogoCard";
+            this.panelLogoCard.Padding = new System.Windows.Forms.Padding(24, 22, 24, 22);
+            this.panelLogoCard.Size = new System.Drawing.Size(340, 752);
+            this.panelLogoCard.TabIndex = 1;
+            //
+            // lblAyudaLogo
+            //
+            this.lblAyudaLogo.AutoSize = true;
+            this.lblAyudaLogo.MaximumSize = new System.Drawing.Size(290, 0);
+            this.lblAyudaLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblAyudaLogo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblAyudaLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(99)))), ((int)(((byte)(120)))));
+            this.lblAyudaLogo.Name = "lblAyudaLogo";
+            this.lblAyudaLogo.Padding = new System.Windows.Forms.Padding(0, 12, 0, 0);
+            this.lblAyudaLogo.Size = new System.Drawing.Size(290, 90);
+            this.lblAyudaLogo.TabIndex = 0;
+            this.lblAyudaLogo.Text = "El logo se muestra en el inicio de sesión, en el menú y en las facturas.\r\n\r\nRecomendado: imagen cuadrada PNG o JPG de hasta 2 MB.";
+            //
+            // btnQuitarLogo
+            //
+            this.btnQuitarLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnQuitarLogo.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.btnQuitarLogo.Name = "btnQuitarLogo";
+            this.btnQuitarLogo.Size = new System.Drawing.Size(290, 40);
+            this.btnQuitarLogo.TabIndex = 11;
+            this.btnQuitarLogo.Text = "Quitar logo";
+            this.btnQuitarLogo.UseVisualStyleBackColor = true;
+            //
+            // spLogo3
+            //
+            this.spLogo3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spLogo3.Name = "spLogo3";
+            this.spLogo3.Size = new System.Drawing.Size(290, 8);
+            this.spLogo3.TabIndex = 0;
+            //
+            // btnCargarLogo
+            //
+            this.btnCargarLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCargarLogo.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.btnCargarLogo.Name = "btnCargarLogo";
+            this.btnCargarLogo.Size = new System.Drawing.Size(290, 40);
+            this.btnCargarLogo.TabIndex = 10;
+            this.btnCargarLogo.Text = "Cargar logo...";
+            this.btnCargarLogo.UseVisualStyleBackColor = true;
+            //
+            // spLogo2
+            //
+            this.spLogo2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spLogo2.Name = "spLogo2";
+            this.spLogo2.Size = new System.Drawing.Size(290, 14);
+            this.spLogo2.TabIndex = 0;
+            //
+            // picLogoConf
+            //
+            this.picLogoConf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(247)))), ((int)(((byte)(251)))));
+            this.picLogoConf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picLogoConf.Dock = System.Windows.Forms.DockStyle.Top;
+            this.picLogoConf.Name = "picLogoConf";
+            this.picLogoConf.Size = new System.Drawing.Size(290, 240);
+            this.picLogoConf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLogoConf.TabIndex = 0;
+            this.picLogoConf.TabStop = false;
+            //
+            // spLogo1
+            //
+            this.spLogo1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.spLogo1.Name = "spLogo1";
+            this.spLogo1.Size = new System.Drawing.Size(290, 10);
+            this.spLogo1.TabIndex = 0;
+            //
+            // lblTituloLogo
+            //
+            this.lblTituloLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblTituloLogo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTituloLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(65)))));
+            this.lblTituloLogo.Name = "lblTituloLogo";
+            this.lblTituloLogo.Size = new System.Drawing.Size(290, 34);
+            this.lblTituloLogo.TabIndex = 0;
+            this.lblTituloLogo.Text = "Logo del gimnasio";
+            //
+            // btnFacturaEjemplo
+            //
+            this.btnFacturaEjemplo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnFacturaEjemplo.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.btnFacturaEjemplo.Name = "btnFacturaEjemplo";
+            this.btnFacturaEjemplo.Size = new System.Drawing.Size(290, 52);
+            this.btnFacturaEjemplo.TabIndex = 12;
+            this.btnFacturaEjemplo.Text = "Ver factura de ejemplo";
+            this.btnFacturaEjemplo.UseVisualStyleBackColor = true;
+            //
             // FrmConfiguracion
-            // 
+            //
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(1387, 807);
+            this.Controls.Add(this.panelLogoCard);
+            this.Controls.Add(this.spCards);
             this.Controls.Add(this.panelCard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -426,6 +553,8 @@ namespace ProyectoFinal_Programacion3
             this.panelCard.ResumeLayout(false);
             this.panelCampos.ResumeLayout(false);
             this.panelCampos.PerformLayout();
+            this.panelLogoCard.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoConf)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -458,6 +587,17 @@ namespace ProyectoFinal_Programacion3
         private System.Windows.Forms.Label lblMensaje;
         private System.Windows.Forms.TextBox txtMensajeRecibo;
         private System.Windows.Forms.Label lblTituloConf;
+        private System.Windows.Forms.Panel spCards;
+        private System.Windows.Forms.Panel panelLogoCard;
+        private System.Windows.Forms.Label lblTituloLogo;
+        private System.Windows.Forms.Panel spLogo1;
+        private System.Windows.Forms.PictureBox picLogoConf;
+        private System.Windows.Forms.Panel spLogo2;
+        private System.Windows.Forms.Button btnCargarLogo;
+        private System.Windows.Forms.Panel spLogo3;
+        private System.Windows.Forms.Button btnQuitarLogo;
+        private System.Windows.Forms.Label lblAyudaLogo;
+        private System.Windows.Forms.Button btnFacturaEjemplo;
         private System.Windows.Forms.Panel spTitulo;
         private System.Windows.Forms.Panel spBtn;
         private System.Windows.Forms.Button btnGuardar;

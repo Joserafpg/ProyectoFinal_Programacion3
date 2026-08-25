@@ -19,6 +19,7 @@ namespace ProyectoFinal_Programacion3
         public FrmClienteDetalle()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
             Load += FrmClienteDetalle_Load;
             btnEditar.Click += btnEditar_Click;
             btnCobrarMem.Click += btnCobrarMem_Click;

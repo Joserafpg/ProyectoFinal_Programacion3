@@ -20,6 +20,7 @@ namespace ProyectoFinal_Programacion3
         public FrmAgregarPago()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
             Load += FrmAgregarPago_Load;
             dgvPendientes.CellDoubleClick += dgvPendientes_CellDoubleClick;
             dgvPendientes.DataBindingComplete += dgvPendientes_DataBindingComplete;

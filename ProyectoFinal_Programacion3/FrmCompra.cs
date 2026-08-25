@@ -17,6 +17,7 @@ namespace ProyectoFinal_Programacion3
         public FrmCompra()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
             Load += FrmCompra_Load;
             txtBuscar.TextChanged += txtBuscar_TextChanged;
             dgvProductos.CellDoubleClick += dgvProductos_CellDoubleClick;

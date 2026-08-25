@@ -13,6 +13,7 @@ namespace ProyectoFinal_Programacion3
         public FrmProveedor()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
             txtRnc.KeyPress += Validaciones.SoloNumerosYGuiones;
             txtTelefono.KeyPress += Validaciones.SoloNumerosYGuiones;
             btnDesactivar.Visible = false;

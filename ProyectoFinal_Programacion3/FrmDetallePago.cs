@@ -12,6 +12,7 @@ namespace ProyectoFinal_Programacion3
         public FrmDetallePago()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
             Load += FrmDetallePago_Load;
             dgvDetalle.DataBindingComplete += dgvDetalle_DataBindingComplete;
         }

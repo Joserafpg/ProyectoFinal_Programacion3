@@ -68,6 +68,18 @@ namespace ProyectoFinal_Programacion3.Properties
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon icono_app
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("icono_app", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+
         internal static System.Drawing.Bitmap icono_buscar
         {
             get

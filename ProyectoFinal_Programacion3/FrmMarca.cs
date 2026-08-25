@@ -12,6 +12,7 @@ namespace ProyectoFinal_Programacion3
         public FrmMarca()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
             btnDesactivar.Visible = false;
         }
 

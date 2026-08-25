@@ -18,6 +18,7 @@ namespace ProyectoFinal_Programacion3
         public FrmBuscarCliente()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
             Load += FrmBuscarCliente_Load;
             txtBuscar.TextChanged += txtBuscar_TextChanged;
             dgvClientes.CellDoubleClick += dgvClientes_CellDoubleClick;

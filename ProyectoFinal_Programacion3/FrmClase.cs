@@ -13,6 +13,7 @@ namespace ProyectoFinal_Programacion3
         public FrmClase()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
             txtNombre.KeyPress += Validaciones.SoloLetras;
             txtCupoMaximo.KeyPress += Validaciones.SoloNumeros;
 

@@ -13,6 +13,7 @@ namespace ProyectoFinal_Programacion3
         public FrmMembresia()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
             txtDuracionDias.KeyPress += Validaciones.SoloNumeros;
             txtPrecio.KeyPress += Validaciones.SoloDecimales;
             btnDesactivar.Visible = false;

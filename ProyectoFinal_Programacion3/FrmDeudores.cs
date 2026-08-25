@@ -22,6 +22,7 @@ namespace ProyectoFinal_Programacion3
         public FrmDeudores()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
 
             Panel barra = new Panel { Dock = DockStyle.Top, Height = 54 };
             Controls.Add(barra);

@@ -1,6 +1,7 @@
 using CapaEntidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace CapaDatos
         {
             using (var conexion = Conexion.ObtenerConexion())
             {
-                string sql = "select id_configuracion, nombre_gimnasio, rnc, telefono, direccion, correo, porcentaje_impuesto, monto_visita, mensaje_recibo " +
+                string sql = "select id_configuracion, nombre_gimnasio, rnc, telefono, direccion, correo, porcentaje_impuesto, monto_visita, mensaje_recibo, logo " +
                              "from configuracion where id_configuracion = 1";
 
                 using (var cmd = new SqlCommand(sql, conexion))
@@ -35,7 +36,8 @@ namespace CapaDatos
                                 Correo = dr["correo"] == DBNull.Value ? "" : dr["correo"].ToString(),
                                 PorcentajeImpuesto = (decimal)dr["porcentaje_impuesto"],
                                 MontoVisita = (decimal)dr["monto_visita"],
-                                MensajeRecibo = dr["mensaje_recibo"] == DBNull.Value ? "" : dr["mensaje_recibo"].ToString()
+                                MensajeRecibo = dr["mensaje_recibo"] == DBNull.Value ? "" : dr["mensaje_recibo"].ToString(),
+                                Logo = dr["logo"] == DBNull.Value ? null : (byte[])dr["logo"]
                             };
                         }
                     }
@@ -51,7 +53,7 @@ namespace CapaDatos
             {
                 string sql = "update configuracion set nombre_gimnasio = @nombre, rnc = @rnc, telefono = @telefono, " +
                              "direccion = @direccion, correo = @correo, porcentaje_impuesto = @impuesto, " +
-                             "monto_visita = @montoVisita, mensaje_recibo = @mensaje " +
+                             "monto_visita = @montoVisita, mensaje_recibo = @mensaje, logo = @logo " +
                              "where id_configuracion = 1";
 
                 using (var cmd = new SqlCommand(sql, conexion))
@@ -64,6 +66,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("@impuesto", configuracion.PorcentajeImpuesto);
                     cmd.Parameters.AddWithValue("@montoVisita", configuracion.MontoVisita);
                     cmd.Parameters.AddWithValue("@mensaje", (object)configuracion.MensajeRecibo ?? DBNull.Value);
+                    cmd.Parameters.Add("@logo", SqlDbType.VarBinary, -1).Value = (object)configuracion.Logo ?? DBNull.Value;
                     conexion.Open();
                     cmd.ExecuteNonQuery();
                 }

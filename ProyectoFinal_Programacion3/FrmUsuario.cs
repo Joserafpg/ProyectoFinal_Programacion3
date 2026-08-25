@@ -13,6 +13,7 @@ namespace ProyectoFinal_Programacion3
         public FrmUsuario()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
             txtNombreCompleto.KeyPress += Validaciones.SoloLetras;
 
             cboRol.DataSource = new RolNegocio().Listar();
@@ -32,7 +33,9 @@ namespace ProyectoFinal_Programacion3
             txtNombreUsuario.Text = usuario.NombreUsuario;
             txtNombreCompleto.Text = usuario.NombreCompleto;
             txtCorreo.Text = usuario.Correo;
-            cboRol.SelectedValue = usuario.IdRol;
+
+            // el combo todavia no esta enlazado en el constructor: si se asigna aqui se pierde y queda "Administrador"
+            Load += (s, e) => cboRol.SelectedValue = usuario.IdRol;
 
             txtClave.Enabled = false;
             btnDesactivar.Visible = true;

@@ -13,6 +13,7 @@ namespace ProyectoFinal_Programacion3
         public FrmCategoria()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
             txtNombre.KeyPress += Validaciones.SoloLetras;
             btnDesactivar.Visible = false;
         }

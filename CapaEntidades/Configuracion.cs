@@ -17,5 +17,8 @@ namespace CapaEntidades
         public decimal PorcentajeImpuesto { get; set; }
         public decimal MontoVisita { get; set; }
         public string MensajeRecibo { get; set; }
+
+        // imagen del logo (png/jpg), null si no se ha cargado
+        public byte[] Logo { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ProyectoFinal_Programacion3
@@ -9,15 +10,112 @@ namespace ProyectoFinal_Programacion3
         private Form formularioActivo;
         private Button botonActivo;
 
+        // una opcion del menu: el boton, el permiso que exige (tabla permisos) y lo que abre
+        private class OpcionMenu
+        {
+            public Button Boton;
+            public string Permiso;
+            public EventHandler Abrir;
+
+            public OpcionMenu(Button boton, string permiso, EventHandler abrir)
+            {
+                Boton = boton;
+                Permiso = permiso;
+                Abrir = abrir;
+            }
+        }
+
         public FrmPrincipal()
         {
             InitializeComponent();
-            AbrirFormulario(new FrmInicio(), "Inicio", btnInicio);
+            Icon = Properties.Resources.icono_app;
+            MostrarNegocio();
+            AplicarPermisos();
+            AbrirPrimeraPantalla();
 
             if (Sesion.UsuarioActual != null)
             {
                 lblUsuarioActual.Text = Sesion.UsuarioActual.NombreCompleto + " · " + Sesion.UsuarioActual.NombreRol;
             }
+        }
+
+        // el menu en el mismo orden en que se ve, con el permiso que pide cada opcion
+        private OpcionMenu[] OpcionesMenu()
+        {
+            return new[]
+            {
+                new OpcionMenu(btnInicio, "REPORTES", btnInicio_Click),
+                new OpcionMenu(btnCheckIn, "CLIENTES", btnCheckIn_Click),
+                new OpcionMenu(btnPagos, "PAGOS", btnPagos_Click),
+                new OpcionMenu(btnPos, "POS", btnPos_Click),
+                new OpcionMenu(btnClientes, "CLIENTES", btnClientes_Click),
+                new OpcionMenu(btnProductos, "PRODUCTOS", btnProductos_Click),
+                new OpcionMenu(btnCompras, "COMPRAS", btnCompras_Click),
+                new OpcionMenu(btnSubCategorias, "PRODUCTOS", btnSubCategorias_Click),
+                new OpcionMenu(btnSubMarcas, "PRODUCTOS", btnSubMarcas_Click),
+                new OpcionMenu(btnMembresias, "MEMBRESIAS", btnMembresias_Click),
+                new OpcionMenu(btnSubProveedores, "COMPRAS", btnSubProveedores_Click),
+                new OpcionMenu(btnSubEntrenadores, "CLASES", btnSubEntrenadores_Click),
+                new OpcionMenu(btnSubHorarios, "CLASES", btnSubHorarios_Click),
+                new OpcionMenu(btnSubClases, "CLASES", btnSubClases_Click),
+                new OpcionMenu(btnSubUsuarios, "USUARIOS", btnSubUsuarios_Click),
+                new OpcionMenu(btnSubConfiguracion, "CONFIGURACION", btnSubConfiguracion_Click)
+            };
+        }
+
+        // oculta las opciones para las que el rol del usuario no tiene permiso.
+        // (se decide con Sesion.Tiene y no con Boton.Visible: antes de mostrar la ventana todos los controles se reportan ocultos)
+        private void AplicarPermisos()
+        {
+            OpcionMenu[] opciones = OpcionesMenu();
+
+            foreach (OpcionMenu opcion in opciones)
+            {
+                opcion.Boton.Visible = Sesion.Tiene(opcion.Permiso);
+            }
+
+            // el grupo Mantenimientos solo se muestra si le queda alguna opcion dentro
+            btnMantenimientos.Visible = opciones.Any(o => o.Boton.Parent == panelSubMenu && Sesion.Tiene(o.Permiso));
+        }
+
+        // se entra a Inicio; si el rol no puede verlo, a la primera opcion del menu que si pueda
+        private void AbrirPrimeraPantalla()
+        {
+            foreach (OpcionMenu opcion in OpcionesMenu())
+            {
+                if (!Sesion.Tiene(opcion.Permiso)) continue;
+
+                if (opcion.Boton.Parent == panelSubMenu && !panelSubMenu.Visible)
+                {
+                    btnMantenimientos_Click(btnMantenimientos, EventArgs.Empty);
+                }
+
+                opcion.Abrir(opcion.Boton, EventArgs.Empty);
+                return;
+            }
+
+            lblTituloPagina.Text = "Sin permisos";
+            MessageBox.Show("Su usuario no tiene ningún permiso asignado. Comuníquese con el administrador.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        // nombre y logo del gimnasio en el menu y en el titulo de la ventana; Configuracion lo llama al guardar
+        public void MostrarNegocio()
+        {
+            string nombre = Sesion.NombreNegocio;
+            int ancho = panelLogo.Width - lblLogoMenu.Left - 12;
+
+            Text = nombre;
+            lblLogoMenu.AutoSize = false;
+            lblLogoMenu.AutoEllipsis = true;
+            lblLogoMenu.TextAlign = ContentAlignment.MiddleLeft;
+            lblLogoMenu.SetBounds(lblLogoMenu.Left, lblLogoMenu.Top, ancho, 38);
+
+            // si el nombre no cabe con la letra grande se baja un poco
+            bool cabe = TextRenderer.MeasureText(nombre, new Font("Segoe UI", 15F, FontStyle.Bold)).Width <= ancho;
+            lblLogoMenu.Font = new Font("Segoe UI", cabe ? 15F : 12F, FontStyle.Bold);
+            lblLogoMenu.Text = nombre;
+
+            picLogo.Image = Sesion.LogoNegocio(Properties.Resources.icono_logo);
         }
 
         private void AbrirFormulario(Form formulario, string titulo, Button boton)

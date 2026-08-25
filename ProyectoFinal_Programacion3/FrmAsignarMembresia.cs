@@ -16,6 +16,7 @@ namespace ProyectoFinal_Programacion3
         public FrmAsignarMembresia()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
             Load += FrmAsignarMembresia_Load;
             cboPlan.SelectedIndexChanged += cboPlan_SelectedIndexChanged;
             btnCobrar.Click += btnCobrar_Click;

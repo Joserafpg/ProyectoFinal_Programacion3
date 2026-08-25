@@ -16,6 +16,7 @@ namespace ProyectoFinal_Programacion3
         public FrmProducto()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
             txtCodigoBarras.KeyPress += Validaciones.SoloNumeros;
             txtPrecioCompra.KeyPress += Validaciones.SoloDecimales;
             txtPrecioVenta.KeyPress += Validaciones.SoloDecimales;

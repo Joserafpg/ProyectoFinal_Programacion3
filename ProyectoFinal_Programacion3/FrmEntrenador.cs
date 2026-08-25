@@ -13,6 +13,7 @@ namespace ProyectoFinal_Programacion3
         public FrmEntrenador()
         {
             InitializeComponent();
+            Icon = Properties.Resources.icono_app;
             txtNombre.KeyPress += Validaciones.SoloLetras;
             txtApellido.KeyPress += Validaciones.SoloLetras;
             txtCedula.KeyPress += Validaciones.SoloNumerosYGuiones;

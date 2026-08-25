@@ -28,6 +28,9 @@ namespace CapaNegocio
             if (configuracion.MontoVisita < 0)
                 return "El monto de la visita no puede ser negativo.";
 
+            if (configuracion.Logo != null && configuracion.Logo.Length > 2 * 1024 * 1024)
+                return "El logo no puede pesar más de 2 MB.";
+
             try
             {
                 datos.Actualizar(configuracion);
