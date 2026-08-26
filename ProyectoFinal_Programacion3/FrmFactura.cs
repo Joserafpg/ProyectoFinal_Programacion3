@@ -178,11 +178,17 @@ namespace ProyectoFinal_Programacion3
                 if (cliente != null && !string.IsNullOrWhiteSpace(cliente.Correo))
                 {
                     string errorCorreo = await new CorreoBienvenidaNegocio().EnviarFacturaAsync(cliente, venta);
-                    lblEstado.Text += errorCorreo.Length == 0
-                        ? " · enviada a " + cliente.Correo
-                        : " · correo pendiente";
-                    if (errorCorreo.Length > 0)
+                    if (CorreoBienvenidaNegocio.FueOmitido(errorCorreo))
+                    {
+                        // Resend es opcional: la factura queda registrada sin mostrar advertencias.
+                    }
+                    else if (errorCorreo.Length == 0)
+                        lblEstado.Text += " · enviada a " + cliente.Correo;
+                    else
+                    {
+                        lblEstado.Text += " · correo pendiente";
                         MessageBox.Show("La venta fue registrada, pero no se pudo enviar la factura: " + errorCorreo, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }
             return true;

@@ -141,7 +141,9 @@ namespace ProyectoFinal_Programacion3
             btnRecordatorio.Enabled = true;
             btnRecordatorio.Text = "Enviar recordatorio";
 
-            if (error.Length > 0)
+            if (CorreoBienvenidaNegocio.FueOmitido(error))
+                MessageBox.Show("El correo está deshabilitado porque Resend no está configurado.", "Correo deshabilitado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else if (error.Length > 0)
                 MessageBox.Show(error, "No se pudo enviar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
                 MessageBox.Show("Recordatorio enviado a " + cliente.Correo + ".", "Correo enviado", MessageBoxButtons.OK, MessageBoxIcon.Information);

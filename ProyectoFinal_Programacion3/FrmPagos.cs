@@ -220,7 +220,9 @@ namespace ProyectoFinal_Programacion3
             }
 
             string errorCorreo = await new CorreoBienvenidaNegocio().EnviarReciboPagoAsync(cliente, itemsCobrados, metodoPago);
-            if (errorCorreo.Length > 0)
+            if (CorreoBienvenidaNegocio.FueOmitido(errorCorreo))
+                MessageBox.Show("Pago registrado con éxito.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else if (errorCorreo.Length > 0)
                 MessageBox.Show("Pago registrado, pero no se pudo enviar el recibo: " + errorCorreo, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
                 MessageBox.Show("Pago registrado y recibo enviado a " + cliente.Correo + ".", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);

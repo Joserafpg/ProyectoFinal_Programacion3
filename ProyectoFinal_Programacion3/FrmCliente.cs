@@ -149,6 +149,7 @@ namespace ProyectoFinal_Programacion3
                 string mensajeCorreo = clienteNuevo == null
                     ? ""
                     : await new CorreoBienvenidaNegocio().EnviarAsync(clienteNuevo);
+                if (CorreoBienvenidaNegocio.FueOmitido(mensajeCorreo)) mensajeCorreo = "";
                 string mensajeRecibo = "";
                 Membresia planCobrado = cboMembresia.SelectedItem as Membresia;
                 if (clienteNuevo != null && mensajeMembresia.Length == 0 && planCobrado != null && planCobrado.IdMembresia > 0)
@@ -164,6 +165,7 @@ namespace ProyectoFinal_Programacion3
                         }
                     };
                     mensajeRecibo = await new CorreoBienvenidaNegocio().EnviarReciboPagoAsync(clienteNuevo, items, cboMetodoPago.Text);
+                    if (CorreoBienvenidaNegocio.FueOmitido(mensajeRecibo)) mensajeRecibo = "";
                 }
 
                 if (mensajeMembresia.Length > 0 || mensajeCorreo.Length > 0 || mensajeRecibo.Length > 0)

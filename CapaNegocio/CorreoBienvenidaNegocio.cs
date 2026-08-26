@@ -12,6 +12,12 @@ namespace CapaNegocio
     public class CorreoBienvenidaNegocio
     {
         private const string ResendUrl = "https://api.resend.com/emails";
+        public const string CorreoNoConfigurado = "CORREO_NO_CONFIGURADO";
+
+        public static bool FueOmitido(string resultado)
+        {
+            return resultado == CorreoNoConfigurado;
+        }
 
         public async Task<string> EnviarAsync(Cliente cliente)
         {
@@ -91,7 +97,7 @@ namespace CapaNegocio
         {
             string apiKey = Environment.GetEnvironmentVariable("RESEND_API_KEY");
             if (string.IsNullOrWhiteSpace(apiKey))
-                return "No se configuró la variable de entorno RESEND_API_KEY.";
+                return CorreoNoConfigurado;
 
             string remitente = Environment.GetEnvironmentVariable("RESEND_FROM");
             if (string.IsNullOrWhiteSpace(remitente))

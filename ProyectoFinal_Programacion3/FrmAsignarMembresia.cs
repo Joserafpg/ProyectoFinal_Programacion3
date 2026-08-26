@@ -110,7 +110,9 @@ namespace ProyectoFinal_Programacion3
                     }
                 };
                 string errorCorreo = await new CorreoBienvenidaNegocio().EnviarReciboPagoAsync(cliente, items, cboMetodoPago.Text);
-                if (errorCorreo.Length > 0)
+                if (CorreoBienvenidaNegocio.FueOmitido(errorCorreo))
+                    MessageBox.Show("Pago registrado. Membresía asignada correctamente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else if (errorCorreo.Length > 0)
                     MessageBox.Show("Pago registrado y membresía asignada, pero no se pudo enviar el recibo: " + errorCorreo, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                     MessageBox.Show("Pago registrado, membresía asignada y recibo enviado a " + cliente.Correo + ".", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
